@@ -1,8 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  background-color: #f9fafb; /* Tailwind bg-gray-50 */
-  color: #1f2937;            /* Tailwind text-gray-800 */
+/* Import Tailwind v4 (required) */
+@import "tailwindcss";
+.real-navbar {
+  animation: fadeInNavbar 0.6s ease-out forwards;
 }

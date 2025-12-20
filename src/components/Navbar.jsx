@@ -1,22 +1,73 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Products", path: "/products" },
+    { name: "Projects", path: "/projects" },
+    { name: "Support", path: "/support" },
+    { name: "Careers", path: "/careers" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
-    <nav className="bg-blue-600 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold">Bangalore Electronics</Link>
-        <ul className="flex space-x-4">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/services">Services</Link></li>
-          <li><Link to="/solutions">Solutions</Link></li>
-          <li><Link to="/products">Products</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/support">Support</Link></li>
-          <li><Link to="/careers">Careers</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+    <nav className="navbar-animated bg-linear-to-r from-blue-700 via-blue-600 to-green-500 text-white shadow-lg sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <Link to="/" className="text-2xl font-extrabold tracking-wide">
+          Bangalore <span className="text-green-300">Electronics</span>
+        </Link>
+
+        <ul className="hidden md:flex space-x-8 font-medium">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <NavLink
+                to={link.path}
+                className={({ isActive }) =>
+                  `transition-all duration-300 hover:text-green-200 ${
+                    isActive ? "text-green-300 font-semibold" : ""
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
+
+        <button className="md:hidden text-white" onClick={() => setOpen(!open)}>
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {open && (
+        <div className="md:hidden bg-blue-700/95 backdrop-blur-xl shadow-inner">
+          <ul className="flex flex-col space-y-4 px-6 py-4 text-lg font-medium">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <NavLink
+                  to={link.path}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `block transition-all duration-300 py-1 hover:text-green-200 ${
+                      isActive ? "text-green-300 font-semibold" : ""
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

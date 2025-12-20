@@ -1,42 +1,58 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Smooth fade-in for the navbar */
+nav {
+  animation: fadeInNavbar 0.6s ease-out forwards;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+@keyframes fadeInNavbar {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes logo-spin {
+/* Smooth link underline animation */
+.nav-link-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+.nav-link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(to right, #7fffd4, #32cd32);
+  transition: width 0.3s ease;
+}
+
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+/* Glow effect on active menu links */
+.nav-active {
+  text-shadow: 0 0 8px rgba(0, 255, 128, 0.6);
+}
+
+/* Mobile menu slide animation */
+.mobile-menu {
+  animation: slideDown 0.4s ease forwards;
+}
+
+@keyframes slideDown {
   from {
-    transform: rotate(0deg);
+    transform: translateY(-10px);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0px);
+    opacity: 1;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
