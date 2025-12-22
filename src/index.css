@@ -1,2 +1,140 @@
+<<<<<<< HEAD
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
+=======
+/* --------------------------
+   GLOBAL BASE RESET
+--------------------------- */
+
+:root {
+  --text: #1f2937;          /* slate-800 */
+  --text-strong: #0f172a;   /* slate-900 */
+  --bg: #ffffff;
+
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.35);
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  color: var(--text);
+  background-color: var(--bg);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  scroll-behavior: smooth;
+}
+
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--bg);
+  color: var(--text);
+
+  opacity: 0;
+  animation: fadeApp 0.5s ease-out forwards;
+}
+
+@keyframes fadeApp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------
+   LINKS
+--------------------------- */
+a {
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--blue-dark);
+}
+
+/* Remove ugly default blue tap highlight on mobile */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* --------------------------
+   BUTTONS – CLEAN BASE
+--------------------------- */
+button {
+  border-radius: 10px;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+/* Smooth press effect */
+button:active {
+  transform: scale(0.96);
+}
+
+/* --------------------------
+   GLASS UTILITY
+--------------------------- */
+
+.glass {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+
+/* --------------------------
+   LIGHT MODE
+--------------------------- */
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: #1f2937;
+    --bg: #ffffff;
+  }
+}
+
+/* --------------------------
+   DARK MODE
+--------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #f3f4f6;
+    --text-strong: #ffffff;
+    --bg: #0f172a;
+
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.15);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  a {
+    color: #60a5fa;
+  }
+
+  a:hover {
+    color: #93c5fd;
+  }
+}
+>>>>>>> 9f9b3b1 (New Update)

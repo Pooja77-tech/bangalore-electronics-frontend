@@ -1,5 +1,123 @@
-/* Import Tailwind v4 (required) */
+/* =====================================================
+   Tailwind Import (Required)
+===================================================== */
 @import "tailwindcss";
-.real-navbar {
-  animation: fadeInNavbar 0.6s ease-out forwards;
+
+/* =====================================================
+   ✨ Neon Glass Navbar Fade-In
+===================================================== */
+nav {
+  animation: navFade 0.55s ease-out forwards;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 25px rgba(0, 170, 255, 0.15); /* neon glow */
+}
+
+@keyframes navFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   ✨ Neon Underline Animation for Links
+===================================================== */
+.nav-link-underline {
+  position: relative;
+  padding-bottom: 4px;
+  color: #0f172a; /* slate-900 */
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.nav-link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 0%;
+  height: 2px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+  box-shadow: 0 0 10px rgba(0, 219, 255, 0.55);
+  transition: width 0.35s ease;
+}
+
+.nav-link-underline:hover {
+  color: #020617; /* deeper neon */
+  text-shadow: 0 0 6px rgba(0, 149, 255, 0.35);
+}
+
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+/* =====================================================
+   ✨ Active Link Glow
+===================================================== */
+.nav-active {
+  color: #0ea5e9 !important;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(0, 204, 255, 0.55);
+}
+
+.nav-active::after {
+  width: 100% !important;
+}
+
+/* =====================================================
+   ✨ Mobile Glass Menu + Neon Drop Animation
+===================================================== */
+.mobile-menu {
+  animation: slideDownGlass 0.35s ease forwards;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 12px 40px rgba(0, 200, 255, 0.25);
+}
+
+@keyframes slideDownGlass {
+  from {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Mobile Link Style */
+.mobile-link {
+  padding: 12px 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.mobile-link:hover {
+  color: #0284c7;
+  text-shadow: 0 0 10px rgba(0, 169, 255, 0.4);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
 }
