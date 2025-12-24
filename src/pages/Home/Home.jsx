@@ -1,10 +1,11 @@
 import { Shield, Fingerprint, Server } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const services = [
-    { title: "Biometrics Access", icon: <Fingerprint size={42} /> },
-    { title: "Video Surveillance", icon: <Shield size={42} /> },
-    { title: "IT Infrastructure", icon: <Server size={42} /> },
+    { title: "Biometrics Access", icon: <Fingerprint size={42} />, link: "/services/biometrics-access" },
+    { title: "Video Surveillance", icon: <Shield size={42} />, link: "/services/video-surveillance" },
+    { title: "IT Infrastructure", icon: <Server size={42} />, link: "/services/it-infrastructure" },
   ];
 
   return (
@@ -59,9 +60,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-12">
             {services.map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="p-10 rounded-3xl backdrop-blur-xl bg-white/60 border border-white/40 shadow-xl hover:shadow-[0_0_40px_rgba(0,200,255,0.25)] hover:-translate-y-2 transition-all cursor-pointer"
+                to={service.link}
+                className="p-10 rounded-3xl backdrop-blur-xl bg-white/60 border border-white/40 shadow-xl hover:shadow-[0_0_40px_rgba(0,200,255,0.25)] hover:-translate-y-2 transition-all cursor-pointer block"
               >
                 <div className="text-blue-600 drop-shadow-[0_0_10px_rgba(0,140,255,0.3)] mb-5 flex justify-center">
                   {service.icon}
@@ -74,7 +76,7 @@ export default function Home() {
                 <p className="text-slate-600 text-center">
                   Secure, scalable, enterprise-ready solutions for modern businesses.
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

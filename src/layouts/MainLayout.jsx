@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 
 export default function MainLayout() {
@@ -11,13 +12,16 @@ export default function MainLayout() {
       {/* Page Content Wrapper */}
       <main
         className="
-          pt-24 
-          animate-fadeIn 
+          pt-24
+          animate-fadeIn
           px-4 md:px-6
         "
       >
         <Outlet />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

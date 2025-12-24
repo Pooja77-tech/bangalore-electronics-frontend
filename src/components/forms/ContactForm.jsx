@@ -20,7 +20,7 @@ export default function ContactForm() {
         placeholder="Name"
         value={form.name}
         onChange={handleChange}
-        className="w-full p-2 border rounded"
+        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
       />
       <input
         type="email"
@@ -28,16 +28,17 @@ export default function ContactForm() {
         placeholder="Email"
         value={form.email}
         onChange={handleChange}
-        className="w-full p-2 border rounded"
+        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
       />
       <textarea
         name="message"
         placeholder="Message"
         value={form.message}
         onChange={handleChange}
-        className="w-full p-2 border rounded"
+        rows="4"
+        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
       />
-      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
+      <button type="submit" className="w-full bg-gradient-to-r from-cyan-400 to-green-400 text-black font-semibold px-6 py-3 rounded-lg hover:from-cyan-500 hover:to-green-500 transition-all duration-300">Send Message</button>
     </form>
   );
 }
