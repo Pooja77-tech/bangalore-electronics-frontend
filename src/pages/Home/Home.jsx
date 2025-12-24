@@ -1,6 +1,14 @@
 import Navbar from '../../components/Navbar';
+import { Shield, Fingerprint, Server } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
+  const services = [
+    { title: "Biometrics Access", icon: <Fingerprint size={42} />, link: "/services/biometrics-access" },
+    { title: "Video Surveillance", icon: <Shield size={42} />, link: "/services/video-surveillance" },
+    { title: "IT Infrastructure", icon: <Server size={42} />, link: "/services/it-infrastructure" },
+  ];
+
   return (
     <div className="relative min-h-screen z-0 w-full bg-linear-to-br from-[#020617] via-[#0a1a2f] to-[#113b4c] text-white overflow-hidden">
 
@@ -45,35 +53,27 @@ export default function Home() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {[
-            {
-              title: "Electronic Components",
-              desc: "Premium-grade components sourced globally with guaranteed reliability.",
-            },
-            {
-              title: "Security Solutions",
-              desc: "Modern surveillance networks, CCTV systems, and biometric access control.",
-            },
-            {
-              title: "IT Infrastructure",
-              desc: "Enterprise-level cloud systems, networking architecture, and server deployment.",
-            },
-          ].map((feature, i) => (
-            <div
-              key={i}
-              className="group backdrop-blur-xl bg-white/10 border border-white/20 p-10 rounded-3xl shadow-xl transition-all duration-300 hover:bg-white/20 hover:shadow-2xl hover:-translate-y-2"
-            >
-              <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-linear-to-r from-green-200 to-blue-300">
-                {feature.title}
-              </h3>
+          <div className="grid md:grid-cols-3 gap-12">
+            {services.map((service) => (
+              <Link
+                key={service.title}
+                to={service.link}
+                className="p-10 rounded-3xl backdrop-blur-xl bg-white/60 border border-white/40 shadow-xl hover:shadow-[0_0_40px_rgba(0,200,255,0.25)] hover:-translate-y-2 transition-all cursor-pointer block"
+              >
+                <div className="text-blue-600 drop-shadow-[0_0_10px_rgba(0,140,255,0.3)] mb-5 flex justify-center">
+                  {service.icon}
+                </div>
 
-              <p className="text-gray-200/90">{feature.desc}</p>
+                <h3 className="text-2xl font-semibold text-slate-900 text-center mb-3">
+                  {service.title}
+                </h3>
 
-              <div className="mt-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm text-green-200">
-                Learn More →
-              </div>
-            </div>
-          ))}
+                <p className="text-slate-600 text-center">
+                  Secure, scalable, enterprise-ready solutions for modern businesses.
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

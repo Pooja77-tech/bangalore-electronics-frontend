@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
-=======
 /* --------------------------
    GLOBAL BASE RESET
 --------------------------- */
@@ -137,4 +133,3 @@ button:active {
     color: #93c5fd;
   }
 }
->>>>>>> 9f9b3b1 (New Update)

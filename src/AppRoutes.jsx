@@ -11,7 +11,12 @@ import SupportMaintenance from "./pages/Support/SupportMaintenance";
 import Careers from "./pages/Careers/Careers";
 import Contact from "./pages/Contact/Contact";
 import NotFound from "./pages/NotFound/NotFound";
-
+import BiometricsAccess from "./pages/Services/BiometricsAccess";
+import ElectronicComponents from "./pages/Services/ElectronicComponents";
+import ITInfrastructure from "./pages/Services/ITInfrastructure";
+import VideoSurveillance from "./pages/Services/VideoSurveillance";
+import BenefitsGrid from "./pages/Services/BenefitsGrid";
+import UseCases from "./pages/Services/UseCases";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -29,7 +34,12 @@ export default function AppRoutes() {
         <Route path="support" element={<SupportMaintenance />} />
         <Route path="careers" element={<Careers />} />
         <Route path="contact" element={<Contact />} />
-
+<Route path="/services/biometrics-access" element={<BiometricsAccess />} />
+<Route path="/services/electronic-components" element={<ElectronicComponents />} />
+<Route path="/services/it-infrastructure" element={<ITInfrastructure />} />
+<Route path="/services/video-surveillance" element={<VideoSurveillance />} />
+<Route path="/services/benefits" element={<BenefitsGrid />} />
+<Route path="/services/use-cases" element={<UseCases />} />
       </Route>
 
       {/* 404 Page */}
