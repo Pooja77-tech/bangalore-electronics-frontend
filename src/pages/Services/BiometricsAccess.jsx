@@ -2,6 +2,7 @@ export default function BiometricsAccessControl() {
   return (
     <div className="min-h-screen px-6 py-20 bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white">
 
+<<<<<<< HEAD
       {/* HEADER */}
       <div className="max-w-6xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
@@ -13,6 +14,25 @@ export default function BiometricsAccessControl() {
           unauthorized access across modern environments.
         </p>
       </div>
+=======
+      {/* TOP VIDEO SECTION */}
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full h-80 overflow-hidden rounded-b-3xl"
+      >
+        <video
+          src={biometricsVid}
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+        />
+      </motion.div>
+>>>>>>> 7d8e27860ddfd454b802d52b4c3259e576a4d2cc
 
       {/* CONTENT WRAPPER */}
       <div className="max-w-7xl mx-auto space-y-20">
