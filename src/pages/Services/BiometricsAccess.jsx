@@ -10,7 +10,7 @@ export default function BiometricsAccess() {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="w-full h-[320px] overflow-hidden rounded-b-3xl"
+        className="w-full h-80 overflow-hidden rounded-b-3xl"
       >
         <video
           src={biometricsVid}
