@@ -1,84 +1,143 @@
-import Navbar from '../../components/Navbar';
-import { Shield, Fingerprint, Server } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import Chatbot from "../../components/Chatbot";
+ 
 export default function Home() {
-  const services = [
-    { title: "Biometrics Access", icon: <Fingerprint size={42} />, link: "/services/biometrics-access" },
-    { title: "Video Surveillance", icon: <Shield size={42} />, link: "/services/video-surveillance" },
-    { title: "IT Infrastructure", icon: <Server size={42} />, link: "/services/it-infrastructure" },
-  ];
-
   return (
-    <div className="relative min-h-screen z-0 w-full bg-linear-to-br from-[#020617] via-[#0a1a2f] to-[#113b4c] text-white overflow-hidden">
-
-      <Navbar />
-
-      {/* Background Glows */}
-      <div className="absolute -top-32 -left-32 w-125 h-125 bg-green-400/30 blur-[180px] rounded-full animate-pulse"></div>
-      <div className="absolute bottom-0 -right-40 w-137.5 h-137.5 bg-blue-500/20 blur-[190px] rounded-full animate-pulse"></div>
-
-      {/* Floating Lights */}
-      <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-cyan-400/10 blur-[120px] rounded-full"></div>
-      <div className="absolute top-1/4 right-20 w-40 h-40 bg-green-300/10 blur-[120px] rounded-full"></div>
-
-      {/* HERO SECTION */}
-      <section className="relative z-20 flex flex-col items-center px-6 pt-10 pb-32 text-center">
-        <div className="backdrop-blur-2xl bg-white/10 border border-white/20 shadow-[0_8px_40px_rgba(0,0,0,0.4)] rounded-3xl p-12 max-w-4xl mx-auto animate-fade-in">
-
-          <h1 className="text-6xl md:text-7xl font-black bg-clip-text text-transparent bg-linear-to-r from-green-300 via-cyan-300 to-blue-400 drop-shadow-[0_0_25px_rgba(0,255,200,0.4)] leading-tight">
-            Bangalore Electronics
-          </h1>
-
-          <p className="mt-6 text-xl md:text-2xl text-gray-200/90 leading-relaxed max-w-2xl mx-auto">
-            Professional electronic components, advanced IT solutions, and secure digital infrastructure — built for the future.
-          </p>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-6">
-            <button className="px-10 py-4 text-lg font-semibold rounded-full bg-linear-to-br from-green-400 to-blue-500 shadow-xl hover:scale-105 transition-all duration-200">
-              Explore Services
-            </button>
-
-            <button className="px-10 py-4 text-lg rounded-full bg-white/10 border border-white/30 backdrop-blur-xl shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200">
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="relative z-20 max-w-7xl mx-auto px-8 pb-32">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-300 to-green-300">
-          Our Expertise
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="grid md:grid-cols-3 gap-12">
-            {services.map((service) => (
-              <Link
-                key={service.title}
-                to={service.link}
-                className="p-10 rounded-3xl backdrop-blur-xl bg-white/60 border border-white/40 shadow-xl hover:shadow-[0_0_40px_rgba(0,200,255,0.25)] hover:-translate-y-2 transition-all cursor-pointer block"
-              >
-                <div className="text-blue-600 drop-shadow-[0_0_10px_rgba(0,140,255,0.3)] mb-5 flex justify-center">
-                  {service.icon}
-                </div>
-
-                <h3 className="text-2xl font-semibold text-slate-900 text-center mb-3">
-                  {service.title}
-                </h3>
-
-                <p className="text-slate-600 text-center">
-                  Secure, scalable, enterprise-ready solutions for modern businesses.
-                </p>
+    <div className="relative min-h-screen overflow-hidden bg-[#020617] text-slate-300">
+ 
+      {/* ================= BACKGROUND ================= */}
+      <div className="absolute inset-0 bg-linear-to-brrom-[#020617] via-[#020617] to-[#031c1c]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(20,184,166,0.22),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.08),transparent_70%)]" />
+      <div className="absolute inset-0 opacity-[0.12] bg-[radial-gradient(#94a3b8_1px,transparent_1px)] bg-size-[3px_3px] mix-blend-overlay" />
+ 
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-10">
+ 
+        {/* ================= HERO ================= */}
+        <section className="px-6 pt-32 pb-28 max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="rounded-3xl border border-slate-500/10 bg-slate-500/5 backdrop-blur-2xl p-12 shadow-[0_0_60px_rgba(34,211,238,0.18)]"
+          >
+            <p className="text-xs tracking-widest text-slate-400 uppercase">
+              Trusted Since 1988 • Bangalore
+            </p>
+ 
+            <h1 className="mt-4 text-4xl md:text-6xl font-bold text-teal-400">
+              BANGALORE ELECTRONICS
+            </h1>
+ 
+            <p className="mt-6 max-w-3xl text-slate-300">
+              Enterprise-grade electronics, surveillance, biometrics, and IT
+              infrastructure trusted by industries and organizations across India.
+            </p>
+ 
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link to="/contact" className="px-7 py-3 rounded-xl bg-teal-500 text-[#020617] font-semibold shadow-[0_0_25px_rgba(20,184,166,0.6)] hover:bg-teal-400 transition inline-block">
+                Get Consultation
               </Link>
+              <Link to="/services" className="px-7 py-3 rounded-xl border border-slate-400/20 bg-slate-400/5 backdrop-blur hover:bg-slate-400/10 transition inline-block">
+                View Services
+              </Link>
+            </div>
+ 
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                "ISO-Grade Quality",
+                "Enterprise Security",
+                "In-House Engineers",
+                "24/7 Support",
+              ].map((item) => (
+                <div key={item} className="text-sm flex items-center gap-2 text-slate-300">
+                  <span className="text-teal-400">✔</span>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+ 
+        {/* ================= ABOUT ================= */}
+        <section className="px-6 py-28 max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-teal-400">
+            Engineering Excellence Since 1988
+          </h2>
+          <p className="mt-6 text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            Bangalore Electronics is a pioneer in electronics, security systems,
+            solar solutions, and system integration, delivering reliable,
+            scalable, and future-ready solutions for over three decades.
+          </p>
+          <Link to="/about" className="mt-8 px-7 py-3 rounded-xl border border-slate-400/20 bg-slate-400/5 backdrop-blur hover:bg-slate-400/10 transition inline-block">
+            Learn More About Us
+          </Link>
+        </section>
+ 
+        {/* ================= STATS ================= */}
+        <section className="px-6 pb-28">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              ["35+", "Years"],
+              ["500+", "Clients"],
+              ["800+", "Projects"],
+              ["ISO", "Practices"],
+            ].map(([value, label]) => (
+              <div
+                key={label}
+                className="rounded-2xl border border-slate-500/10 bg-slate-500/5 backdrop-blur-xl p-6 text-center shadow-[0_0_30px_rgba(34,211,238,0.15)]"
+              >
+                <h3 className="text-3xl font-bold text-teal-400">{value}</h3>
+                <p className="mt-2 text-sm text-slate-300">{label}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+ 
+        {/* ================= SERVICES ================= */}
+        <section className="px-6 pb-32 max-w-7xl mx-auto">
+          <h2 className="text-3xl font-semibold text-teal-400 text-center mb-12">
+            Our Core Services
+          </h2>
+ 
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              ["Biometrics Access", "Secure, scalable, enterprise-ready solutions.", "/services/biometrics-access"],
+              ["Video Surveillance", "Secure, scalable, enterprise-ready solutions.", "/services/video-surveillance"],
+              ["IT Infrastructure", "Secure, scalable, enterprise-ready solutions.", "/services/it-infrastructure"],
+            ].map(([title, desc, link]) => (
+              link ? (
+                <Link
+                  key={title}
+                  to={link}
+                  className="rounded-3xl border border-slate-500/10 bg-slate-500/5 backdrop-blur-xl p-8 shadow-[0_0_40px_rgba(34,211,238,0.15)] hover:border-teal-400/40 transition block"
+                >
+                  <h3 className="text-xl font-semibold text-teal-400">{title}</h3>
+                  <p className="mt-4 text-slate-300 text-sm">{desc}</p>
+                </Link>
+              ) : (
+                <div
+                  key={title}
+                  className="rounded-3xl border border-slate-500/10 bg-slate-500/5 backdrop-blur-xl p-8 shadow-[0_0_40px_rgba(34,211,238,0.15)] hover:border-teal-400/40 transition"
+                >
+                  <h3 className="text-xl font-semibold text-teal-400">{title}</h3>
+                  <p className="mt-4 text-slate-300 text-sm">{desc}</p>
+                </div>
+              )
+            ))}
+          </div>
+        </section>
+ 
 
-      {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/40 z-0 pointer-events-none"></div>
+
+      </div>
+
+      {/* ================= CHATBOT ================= */}
+      <Chatbot />
     </div>
   );
 }
+ 
+ 

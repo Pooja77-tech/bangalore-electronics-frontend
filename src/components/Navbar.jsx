@@ -56,7 +56,6 @@ export default function Navbar() {
             ["Solutions", "/solutions"],
             ["Products", "/products"],
             ["Projects", "/projects"],
-            ["Support", "/support"],
             ["Careers", "/careers"],
             ["Contact", "/contact"],
           ].map(([label, href]) => (

@@ -1,3 +1,4 @@
-# TODO: Revert Code to Yesterday's Version
-
-- [x] Revert Home, About, Projects, Careers, Services, and Solutions pages to yesterday's code from commit 25a5073
+- [x] Recreate src/pages/Support/SupportMaintenance.jsx file
+- [x] Add back import of SupportMaintenance in src/AppRoutes.jsx
+- [x] Add back the support route in src/AppRoutes.jsx
+- [x] Add back "Support" navigation links in src/components/Navbar.jsx (desktop and mobile menus)
