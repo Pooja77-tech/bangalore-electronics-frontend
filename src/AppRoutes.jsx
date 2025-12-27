@@ -17,6 +17,12 @@ import ITInfrastructure from "./pages/Services/ITInfrastructure";
 import VideoSurveillance from "./pages/Services/VideoSurveillance";
 import BenefitsGrid from "./pages/Services/BenefitsGrid";
 import UseCases from "./pages/Services/UseCases";
+import EnterpriseManagementSystem from "./pages/Services/EnterpriseManagementSystem";
+import PSIMVideoManagementSystem from "./pages/Services/PSIMVideoManagementSystem";
+import VideoAnalytics from "./pages/Services/VideoAnalytics";
+import NetworkSecurity from "./pages/Services/NetworkSecurity";
+import ActiveNetwork from "./pages/Services/ActiveNetwork";
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -34,12 +40,18 @@ export default function AppRoutes() {
         <Route path="support" element={<SupportMaintenance />} />
         <Route path="careers" element={<Careers />} />
         <Route path="contact" element={<Contact />} />
-<Route path="/services/biometrics-access" element={<BiometricsAccess />} />
-<Route path="/services/electronic-components" element={<ElectronicComponents />} />
-<Route path="/services/it-infrastructure" element={<ITInfrastructure />} />
-<Route path="/services/video-surveillance" element={<VideoSurveillance />} />
-<Route path="/services/benefits" element={<BenefitsGrid />} />
-<Route path="/services/use-cases" element={<UseCases />} />
+        <Route path="/services/biometrics-access" element={<BiometricsAccess />} />
+        <Route path="/services/electronic-components" element={<ElectronicComponents />} />
+        <Route path="/services/it-infrastructure" element={<ITInfrastructure />} />
+        <Route path="/services/video-surveillance" element={<VideoSurveillance />} />
+        <Route path="/services/benefits" element={<BenefitsGrid />} />
+        <Route path="/services/use-cases" element={<UseCases />} />
+        <Route path="/services/enterprise-management-system" element={<EnterpriseManagementSystem />} />
+        <Route path="/services/psim-video-management-system" element={<PSIMVideoManagementSystem />} />
+        <Route path="/services/video-analytics" element={<VideoAnalytics />} />
+        <Route path="/services/network-security" element={<NetworkSecurity />} />
+        <Route path="/services/active-network" element={<ActiveNetwork />} />
+
       </Route>
 
       {/* 404 Page */}

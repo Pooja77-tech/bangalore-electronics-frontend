@@ -107,8 +107,8 @@ export default function About() {
         >
           <Counter end={35} label="Years Experience" />
           <Counter end={50} label="Expert Technicians" />
-          <Counter end={500} label="Satisfied Clients" />
-          <Counter end={800} label="Completed Projects" />
+          <Counter end={200} label="Satisfied Clients" />
+          <Counter end={150} label="Completed Projects" />
         </motion.div>
       </div>
     </section>

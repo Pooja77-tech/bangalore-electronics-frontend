@@ -91,7 +91,7 @@ export default function Contact() {
           <iframe
             title="Bangalore Electronics Location"
             src="https://maps.google.com/maps?q=Bangalore%20Electronics%20124%2C%20Sadar%20Patrappa%20Rd%20Bangalore&t=&z=18&ie=UTF8&iwloc=&output=embed"
-            className="w-full h-[420px]"
+            className="w-full h-105"
             loading="lazy"
           />
         </motion.div>

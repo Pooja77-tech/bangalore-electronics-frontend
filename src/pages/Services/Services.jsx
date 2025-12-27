@@ -8,7 +8,9 @@ import itInfraVid from "../../assets/videos/services/it-infrastructure.mp4";
 import surveillanceVid from "../../assets/videos/services/video-surveillance.mp4";
 import benefitsVid from "../../assets/videos/services/benefits.mp4";
 import useCasesVid from "../../assets/videos/services/use-cases.mp4";
-
+// Placeholder video for Enterprise Management System - replace with actual video when available
+import enterpriseVid from "../../assets/videos/services/benefits.mp4";
+ 
 export default function Services() {
   const servicesData = [
     {
@@ -36,9 +38,39 @@ export default function Services() {
       desc: "Robust CCTV and video monitoring systems tailored for all industries.",
     },
     {
+      title: "Enterprise Management System",
+      link: "/services/enterprise-management-system",
+      video: enterpriseVid,
+      desc: "Comprehensive solution for business operations, tracking, and growth with advanced modules.",
+    },
+    {
+      title: "PSIM & Video Management System",
+      link: "/services/psim-video-management-system",
+      video: benefitsVid,
+      desc: "Unified platform for enterprise-level security operations with centralized monitoring and control.",
+    },
+    {
+      title: "Video Analytics",
+      link: "/services/video-analytics",
+      video: benefitsVid,
+      desc: "AI-driven video analytics for intelligent situational awareness and security operations.",
+    },
+    {
+      title: "Network Security",
+      link: "/services/network-security",
+      video: benefitsVid,
+      desc: "Comprehensive network security solutions to protect against cyber threats and ensure compliance.",
+    },
+    {
+      title: "Active Network",
+      link: "/services/active-network",
+      video: benefitsVid,
+      desc: "Intelligent networking systems for reliable, high-performance enterprise IT infrastructure.",
+    },
+    {
       title: "Key Benefits Overview",
       link: "/services/benefits",
-      video: benefitsVid, 
+      video: benefitsVid,
       desc: "Discover how our solutions provide long-term value and reliability.",
     },
     {
@@ -48,7 +80,7 @@ export default function Services() {
       desc: "Real-world examples of our solutions implemented across sectors.",
     },
   ];
-
+ 
   return (
     <section className="min-h-screen bg-[#020617] text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -67,7 +99,7 @@ export default function Services() {
             modern, efficient, and future-ready results.
           </p>
         </motion.div>
-
+ 
         {/* Service Cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {servicesData.map((service, index) => (
@@ -89,14 +121,14 @@ export default function Services() {
                 preload="metadata"
                 onError={(e) => console.error('Video failed to load:', e)}
               />
-
+ 
               {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-cyan-300">
                   {service.title}
                 </h3>
                 <p className="text-gray-400 mt-2">{service.desc}</p>
-
+ 
                 <Link
                   to={service.link}
                   className="inline-block mt-4 text-cyan-400 font-semibold hover:text-cyan-300"
@@ -110,4 +142,5 @@ export default function Services() {
            </div>
     </section>
   );
-} 
+
+}
