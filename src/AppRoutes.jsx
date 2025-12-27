@@ -17,6 +17,11 @@ import ITInfrastructure from "./pages/Services/ITInfrastructure";
 import VideoSurveillance from "./pages/Services/VideoSurveillance";
 import BenefitsGrid from "./pages/Services/BenefitsGrid";
 import UseCases from "./pages/Services/UseCases";
+import Corporate from "./pages/Solutions/Corporate";
+import Education from "./pages/Solutions/Education";
+import Government from "./pages/Solutions/Government";
+import Healthcare from "./pages/Solutions/Healthcare";
+import Industrial from "./pages/Solutions/Industrial";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -40,6 +45,11 @@ export default function AppRoutes() {
 <Route path="/services/video-surveillance" element={<VideoSurveillance />} />
 <Route path="/services/benefits" element={<BenefitsGrid />} />
 <Route path="/services/use-cases" element={<UseCases />} />
+<Route path="/solutions/corporate" element={<Corporate />} />
+<Route path="/solutions/education" element={<Education />} />
+<Route path="/solutions/government" element={<Government />} />
+<Route path="/solutions/healthcare" element={<Healthcare />} />
+<Route path="/solutions/industrial" element={<Industrial />} />
       </Route>
 
       {/* 404 Page */}

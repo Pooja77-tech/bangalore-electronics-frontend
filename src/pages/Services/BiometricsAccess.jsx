@@ -1,147 +1,112 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import biometricsVid from "../../assets/videos/services/biometrics.mp4";
 
 export default function BiometricsAccess() {
+  const features = [
+    "Fingerprint, face & iris recognition systems",
+    "RFID, smart card & multi-factor authentication",
+    "Enterprise & government-grade security",
+    "Centralized access management",
+    "Audit logs & compliance-ready",
+    "Scalable for campuses & large facilities",
+  ];
+
   return (
-    <div className="w-full min-h-screen bg-white text-gray-800">
+    <section className="min-h-screen bg-[#020617] text-white py-24 px-6">
+      <div className="max-w-7xl mx-auto">
 
-      {/* TOP VIDEO SECTION */}
-      <motion.div
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full h-80 overflow-hidden rounded-b-3xl"
-      >
-        <video
-          src={biometricsVid}
-          className="w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-        />
-      </motion.div>
-
-      {/* CONTENT CONTAINER */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
-
-        {/* HERO SECTION */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+        {/* Back Link */}
+        <Link
+          to="/services"
+          className="text-cyan-400 hover:text-cyan-300 font-semibold"
         >
-          <h1 className="text-4xl font-bold mb-4">
-            Biometrics & Access Control Solutions
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Advanced biometric authentication and intelligent access control
-            systems designed to enhance security, improve efficiency, and
-            prevent unauthorized access.
-          </p>
+          ← Back to Services
+        </Link>
 
-          <div className="flex justify-center gap-4 mt-6">
-            <button className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition">
-              Get a Consultation
-            </button>
-            <button className="px-6 py-3 border border-black rounded-lg hover:bg-gray-100 transition">
-              Request a Demo
-            </button>
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 rounded-3xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-xl shadow-xl"
+        >
+          <video
+            src={biometricsVid}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-95 object-cover"
+          />
+
+          <div className="p-12">
+            <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
+              Biometrics & Access Control
+            </h1>
+            <p className="text-gray-300 max-w-3xl leading-relaxed">
+              Our biometric and access control solutions provide advanced identity verification and secure access management for enterprises, institutions, and government organizations. Designed to enhance security, efficiency, and compliance.
+            </p>
           </div>
         </motion.div>
 
-        {/* TYPES OF BIOMETRIC AUTHENTICATION */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-6">
-            Types of Biometric Authentication
+        {/* Features Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-10 text-center">
+            Key Capabilities
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold text-xl mb-2">🔐 Fingerprint Recognition</h3>
-              <p>
-                Fast, accurate, and widely used for offices, attendance systems,
-                and secure facilities.
-              </p>
-            </div>
-
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold text-xl mb-2">👁 Facial Recognition</h3>
-              <p>
-                Contactless and highly secure, ideal for high-traffic areas and
-                modern workplaces.
-              </p>
-            </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature) => (
+              <div
+                key={feature}
+                className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 shadow-lg"
+              >
+                <p className="text-gray-200">{feature}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </motion.div>
 
-        {/* ACCESS CONTROL SOLUTIONS */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-6">
-            Access Control Solutions We Offer
+        {/* Applications */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-12 text-center"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-6">
+            Where It’s Used
           </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold text-xl mb-2">🚪 Card & RFID Access Systems</h3>
-              <p>Secure access using smart cards, key fobs, or badges.</p>
-            </div>
-
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold text-xl mb-2">🔢 PIN & Password-Based Systems</h3>
-              <p>Additional layer of security or multi-factor authentication.</p>
-            </div>
-
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold text-xl mb-2">📱 Mobile & Smart Access</h3>
-              <p>
-                Control access using mobile apps, QR codes, or cloud-based
-                systems.
-              </p>
-            </div>
-
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold text-xl mb-2">🔗 Integrated Systems</h3>
-              <p>
-                Combine biometrics with CCTV, alarms, and attendance tracking.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* FEATURES & BENEFITS */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-6">
-            Key Features & Benefits
-          </h2>
-
-          <ul className="grid md:grid-cols-2 gap-4 list-disc list-inside">
-            <li>High-level security and fraud prevention</li>
-            <li>Eliminates lost keys and stolen passwords</li>
-            <li>Real-time access monitoring and logs</li>
-            <li>Scalable for small to large organizations</li>
-            <li>Seamless integration with existing systems</li>
-            <li>Fast, contactless, and user-friendly authentication</li>
-          </ul>
-        </section>
-
-        {/* FINAL CTA */}
-        <section className="text-center bg-gray-100 rounded-2xl p-10">
-          <h2 className="text-3xl font-semibold mb-4">
-            Secure Your Facility with Intelligent Access Control
-          </h2>
-          <p className="mb-6 text-gray-600">
-            Contact us today to discuss your biometric and access control needs.
+          <p className="text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Our biometric and access control systems are widely deployed across corporate offices, data centers, hospitals, educational institutions, manufacturing facilities, airports, and government buildings—ensuring secure and controlled access at every level.
           </p>
+        </motion.div>
 
-          <button className="px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition">
-            Contact Us
-          </button>
-        </section>
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 text-center"
+        >
+          <h3 className="text-3xl font-semibold mb-6">
+            Secure Your Facility with Biometrics
+          </h3>
+          <Link
+            to="/contact"
+            className="inline-block rounded-full bg-cyan-500 px-10 py-4 font-semibold text-black hover:bg-cyan-400 transition"
+          >
+            Request a Demo
+          </Link>
+        </motion.div>
 
       </div>
-    </div>
+    </section>
   );
 }
