@@ -1,3 +1,5 @@
+import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="relative bg-[#020617] text-slate-300 text-sm">
@@ -36,15 +38,37 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Opening Hours */}
-          <div className="leading-snug">
+          {/* Social Logos */}
+          <div className="flex flex-col md:items-end gap-3">
             <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
-              Opening Hours
+              Connect With Us
             </h4>
-            <p>
-              Mon – Fri: 09.00 AM – 09.00 PM<br />
-              Sat – Sun: 09.00 AM – 12.00 PM
-            </p>
+            <div className="flex gap-4 text-emerald-400 text-lg">
+              <a
+                href="https://twitter.com/yourhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-300 transition"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="https://instagram.com/yourhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-300 transition"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://linkedin.com/company/yourhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-300 transition"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
           </div>
 
         </div>

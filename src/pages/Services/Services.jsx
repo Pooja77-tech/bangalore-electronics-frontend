@@ -2,18 +2,17 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 // Video Imports (FILES THAT REALLY EXIST)
-import biometricsVid from "../../assets/videos/services/biometrics.mp4";
-import componentsVid from "../../assets/videos/services/electronic-components.mp4";
-import itInfraVid from "../../assets/videos/services/it-infrastructure.mp4";
-import surveillanceVid from "../../assets/videos/services/video-surveillance.mp4";
-import benefitsVid from "../../assets/videos/services/benefits.mp4";
-import useCasesVid from "../../assets/videos/services/use-cases.mp4";
-import activeNetworkVid from "../../assets/videos/services/active-network.mp4";
-import psimVid from "../../assets/videos/services/PSIM & Video Management System.mp4";
-import videoAnalyticsVid from "../../assets/videos/services/Video Analytics.mp4";
-import networkSecurityVid from "../../assets/videos/services/benefits.mp4";
-// Placeholder video for Enterprise Management System - replace with actual video when available
-import enterpriseVid from "../../assets/videos/services/benefits.mp4";
+const biometricsVid = "/videos/services/biometrics.mp4";
+const componentsVid = "/videos/services/electronic-components.mp4";
+const itInfraVid = "/videos/services/it-infrastructure.mp4";
+const surveillanceVid = "/videos/services/video-surveillance.mp4";
+const benefitsVid = "/videos/services/benefits.mp4";
+const useCasesVid = "/videos/services/use-cases.mp4";
+const activeNetworkVid = "/videos/services/active-network.mp4";
+const psimVid = "/videos/services/psim-vms.mp4";
+const videoAnalyticsVid = "/videos/services/video-analytics.mp4";
+const networkSecurityVid = "/videos/services/network-security.mp4";
+const enterpriseVid = "/videos/services/enterprise-management.mp4";
 
 export default function Services() {
   const servicesData = [
