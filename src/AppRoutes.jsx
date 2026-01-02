@@ -22,6 +22,11 @@ import PSIMVideoManagementSystem from "./pages/Services/PSIMVideoManagementSyste
 import VideoAnalytics from "./pages/Services/VideoAnalytics";
 import NetworkSecurity from "./pages/Services/NetworkSecurity";
 import ActiveNetwork from "./pages/Services/ActiveNetwork";
+import Corporate from "./pages/Solutions/Corporate";
+import Education from "./pages/Solutions/Education";
+import Government from "./pages/Solutions/Government";
+import Healthcare from "./pages/Solutions/Healthcare";
+import Industrial from "./pages/Solutions/Industrial";
 
 export default function AppRoutes() {
   return (
@@ -51,7 +56,11 @@ export default function AppRoutes() {
         <Route path="/services/video-analytics" element={<VideoAnalytics />} />
         <Route path="/services/network-security" element={<NetworkSecurity />} />
         <Route path="/services/active-network" element={<ActiveNetwork />} />
-
+        <Route path="/solutions/corporate" element={<Corporate />} />
+        <Route path="/solutions/education" element={<Education />} />
+        <Route path="/solutions/government" element={<Government />} />
+        <Route path="/solutions/healthcare" element={<Healthcare />} />
+        <Route path="/solutions/industrial" element={<Industrial />} />
       </Route>
 
       {/* 404 Page */}

@@ -1,113 +1,112 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import biometricsVid from "../../assets/videos/services/biometrics.mp4";
 
-export default function BiometricsAccessControl() {
+export default function BiometricsAccess() {
+  const features = [
+    "Fingerprint, face & iris recognition systems",
+    "RFID, smart card & multi-factor authentication",
+    "Enterprise & government-grade security",
+    "Centralized access management",
+    "Audit logs & compliance-ready",
+    "Scalable for campuses & large facilities",
+  ];
+
   return (
-    <div className="min-h-screen px-6 py-20 bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white">
+    <section className="min-h-screen bg-[#020617] text-white py-24 px-6">
+      <div className="max-w-7xl mx-auto">
 
+        {/* Back Link */}
+        <Link
+          to="/services"
+          className="text-cyan-400 hover:text-cyan-300 font-semibold"
+        >
+          ← Back to Services
+        </Link>
 
-      {/* HEADER */}
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
-          Biometrics & Access Control Solutions
-        </h1>
-        <p className="mt-6 text-gray-300 max-w-4xl mx-auto">
-          Advanced biometric authentication and intelligent access control
-          systems designed to enhance security, improve efficiency, and prevent
-          unauthorized access across modern environments.
-        </p>
-      </div>
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 rounded-3xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-xl shadow-xl"
+        >
+          <video
+            src={biometricsVid}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-95 object-cover"
+          />
 
-      {/* TOP VIDEO SECTION */}
-      <motion.div
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full h-80 overflow-hidden rounded-b-3xl"
-      >
-        <video
-          src={biometricsVid}
-          className="w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-        />
-      </motion.div>
-
-      {/* CONTENT WRAPPER */}
-      <div className="max-w-7xl mx-auto space-y-20">
-
-        {/* BIOMETRIC TYPES */}
-        <section className="p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
-          <h2 className="text-2xl font-semibold mb-10 text-center">
-            Types of Biometric Authentication
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
-              <h3 className="text-lg font-semibold text-cyan-300 mb-2">
-                🔐 Fingerprint Recognition
-              </h3>
-              <p className="text-gray-300 text-sm">
-                Fast, accurate, and widely used biometric authentication for
-                offices, attendance systems, secure facilities, and restricted
-                access areas.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
-              <h3 className="text-lg font-semibold text-cyan-300 mb-2">
-                👁 Facial Recognition
-              </h3>
-              <p className="text-gray-300 text-sm">
-                Contactless and highly secure authentication ideal for
-                high-traffic areas, corporate offices, and modern workplaces.
-              </p>
-            </div>
+          <div className="p-12">
+            <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
+              Biometrics & Access Control
+            </h1>
+            <p className="text-gray-300 max-w-3xl leading-relaxed">
+              Our biometric and access control solutions provide advanced identity verification and secure access management for enterprises, institutions, and government organizations. Designed to enhance security, efficiency, and compliance.
+            </p>
           </div>
-        </section>
+        </motion.div>
 
-        {/* ACCESS CONTROL SOLUTIONS */}
-        <section className="p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
-          <h2 className="text-2xl font-semibold mb-10 text-center">
-            Access Control Solutions We Offer
+        {/* Features Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-10 text-center">
+            Key Capabilities
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "🚪 Card & RFID Access Systems",
-                desc: "Secure access using smart cards, key fobs, or badges for controlled entry."
-              },
-              {
-                title: "🔢 PIN & Password-Based Systems",
-                desc: "Adds an additional layer of protection or works as part of multi-factor authentication."
-              },
-              {
-                title: "📱 Mobile & Smart Access",
-                desc: "Control access using mobile apps, QR codes, or cloud-based authorization systems."
-              },
-              {
-                title: "🔗 Integrated Systems",
-                desc: "Seamlessly combine biometrics with CCTV, alarms, and attendance tracking systems."
-              }
-            ].map((item, index) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature) => (
               <div
-                key={index}
-                className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:border-cyan-400 transition"
+                key={feature}
+                className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 shadow-lg"
               >
-                <h3 className="text-lg font-semibold text-cyan-300 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-300 text-sm">{item.desc}</p>
+                <p className="text-gray-200">{feature}</p>
               </div>
             ))}
           </div>
-        </section>
+        </motion.div>
+
+        {/* Applications */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-12 text-center"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-6">
+            Where It's Used
+          </h2>
+          <p className="text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Our biometric and access control systems are widely deployed across corporate offices, data centers, hospitals, educational institutions, manufacturing facilities, airports, and government buildings—ensuring secure and controlled access at every level.
+          </p>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 text-center"
+        >
+          <h3 className="text-3xl font-semibold mb-6">
+            Secure Your Facility with Biometrics
+          </h3>
+          <Link
+            to="/contact"
+            className="inline-block rounded-full bg-cyan-500 px-10 py-4 font-semibold text-black hover:bg-cyan-400 transition"
+          >
+            Request a Demo
+          </Link>
+        </motion.div>
 
       </div>
-    </div>
+    </section>
   );
 }

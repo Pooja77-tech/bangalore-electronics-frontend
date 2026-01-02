@@ -1,91 +1,95 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import itInfraVid from "../../assets/videos/services/it-infrastructure.mp4";
+
 export default function ITInfrastructure() {
+  const features = [
+    "Enterprise-grade network architecture",
+    "Server, storage & data center solutions",
+    "Cloud & hybrid infrastructure deployment",
+    "Network security & firewall integration",
+    "Scalable & future-ready designs",
+    "24/7 monitoring & technical support",
+  ];
+
   return (
-    <div className="min-h-screen px-6 py-20 bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white">
+    <section className="min-h-screen bg-[#020617] text-white py-24 px-6">
+      <div className="max-w-7xl mx-auto">
 
-      {/* HEADER */}
-      <div className="max-w-5xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
-          IT Infrastructure Services
-        </h1>
-        <p className="mt-5 text-gray-300">
-          Reliable, secure, and scalable IT infrastructure solutions designed
-          to support modern business operations and digital transformation.
-        </p>
-      </div>
+        {/* Back */}
+        <Link to="/services" className="text-cyan-400 hover:text-cyan-300 font-semibold">
+          ← Back to Services
+        </Link>
 
-      {/* MAIN GLASS CONTAINER */}
-      <div className="max-w-7xl mx-auto space-y-16">
+        {/* Hero */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 rounded-3xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-xl shadow-xl"
+        >
+          <video
+            src={itInfraVid}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-95 object-cover"
+          />
 
-        {/* SERVICES */}
-        <section className="p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
-          <h2 className="text-2xl font-semibold mb-10 text-center">
-            Our IT Infrastructure Solutions
+          <div className="p-12">
+            <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
+              IT Infrastructure Solutions
+            </h1>
+            <p className="text-gray-300 max-w-3xl leading-relaxed">
+              We design, deploy, and manage secure, scalable, and high-performance IT infrastructure
+              for enterprises, institutions, and government organizations.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-10 text-center">
+            Our Infrastructure Capabilities
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Network Infrastructure",
-                desc: "Structured cabling, LAN/WAN design, switches, routers, and secure network architecture."
-              },
-              {
-                title: "Server & Storage Solutions",
-                desc: "Physical and virtual servers, centralized storage, backup, and disaster recovery."
-              },
-              {
-                title: "Cloud Infrastructure",
-                desc: "Cloud architecture planning, migration, and management for scalable operations."
-              },
-              {
-                title: "Cybersecurity",
-                desc: "Firewalls, endpoint protection, access control, and continuous security monitoring."
-              },
-              {
-                title: "IT Support & Maintenance",
-                desc: "Proactive monitoring, system upgrades, troubleshooting, and technical support."
-              },
-              {
-                title: "Data Center Solutions",
-                desc: "Design and deployment of secure, efficient, and scalable data center environments."
-              }
-            ].map((item, index) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature) => (
               <div
-                key={index}
-                className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:border-cyan-400 transition"
+                key={feature}
+                className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 shadow-lg"
               >
-                <h3 className="text-lg font-semibold text-cyan-300 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-300 text-sm">{item.desc}</p>
+                <p className="text-gray-200">{feature}</p>
               </div>
             ))}
           </div>
-        </section>
+        </motion.div>
 
-        {/* INDUSTRIES */}
-        <section className="p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
-          <h2 className="text-2xl font-semibold mb-8 text-center">
-            Industries We Support
-          </h2>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-            {[
-              "Corporate Offices & Enterprises",
-              "Manufacturing & Industrial Units",
-              "Metro Stations & Transportation",
-            
-            ].map((industry, index) => (
-              <div
-                key={index}
-                className="p-4 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 transition"
-              >
-                {industry}
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 text-center"
+        >
+          <h3 className="text-3xl font-semibold mb-6">
+            Build a Reliable IT Foundation
+          </h3>
+          <Link
+            to="/contact"
+            className="inline-block rounded-full bg-cyan-500 px-10 py-4 font-semibold text-black hover:bg-cyan-400 transition"
+          >
+            Talk to Our Experts
+          </Link>
+        </motion.div>
 
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,70 +1,112 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import surveillanceVid from "../../assets/videos/services/video-surveillance.mp4";
+
 export default function VideoSurveillance() {
+  const features = [
+    "High‑resolution IP & analog cameras",
+    "AI‑based video analytics & monitoring",
+    "24/7 real‑time surveillance",
+    "Centralized control & management",
+    "Indoor & outdoor coverage",
+    "Secure data storage & retrieval",
+  ];
+
   return (
-    <div className="min-h-screen px-6 py-20 bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white">
- 
-      {/* PAGE HEADER */}
-      <div className="max-w-5xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
-          Video Surveillance Systems
-        </h1>
-        <p className="mt-5 text-gray-300">
-          Robust CCTV and video monitoring systems designed to deliver advanced
-          security, visibility, and control across all environments.
-        </p>
-      </div>
- 
-      {/* GLASS CARD WRAPPER */}
+    <section className="min-h-screen bg-[#020617] text-white py-24 px-6">
       <div className="max-w-7xl mx-auto">
- 
-        {/* SOLUTIONS */}
-        <section className="p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
-          <h2 className="text-2xl font-semibold mb-10 text-center">
-            Our Surveillance Solutions
+
+        {/* Back Link */}
+        <Link
+          to="/services"
+          className="text-cyan-400 hover:text-cyan-300 font-semibold"
+        >
+          ← Back to Services
+        </Link>
+
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 rounded-3xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-xl shadow-xl"
+        >
+          <video
+            src={surveillanceVid}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-95 object-cover"
+          />
+
+          <div className="p-12">
+            <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
+              Video Surveillance Systems
+            </h1>
+            <p className="text-gray-300 max-w-3xl leading-relaxed">
+              Our advanced video surveillance solutions deliver real‑time visibility, enhanced security, and intelligent monitoring for enterprises, institutions, and public infrastructure. Designed for reliability, scalability, and compliance.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Features Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-10 text-center">
+            Surveillance Capabilities
           </h2>
- 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "CCTV Camera Systems",
-                desc: "High-definition analog and IP cameras for reliable indoor and outdoor monitoring."
-              },
-              {
-                title: "IP & Network Surveillance",
-                desc: "Advanced IP-based surveillance with remote access and centralized control."
-              },
-              {
-                title: "Video Recording & Storage",
-                desc: "Secure DVR and NVR solutions with long-term video storage and playback."
-              },
-              {
-                title: "Smart Video Analytics",
-                desc: "Motion detection, intrusion alerts, and intelligent video analysis."
-              },
-              {
-                title: "Centralized Monitoring",
-                desc: "Monitor multiple locations through a single unified surveillance system."
-              },
-              {
-                title: "Maintenance & Support",
-                desc: "System optimization, health checks, and technical support services."
-              }
-            ].map((item, i) => (
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature) => (
               <div
-                key={i}
-                className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:border-cyan-400 transition"
+                key={feature}
+                className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 shadow-lg"
               >
-                <h3 className="text-lg font-semibold text-cyan-300 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-300 text-sm">{item.desc}</p>
+                <p className="text-gray-200">{feature}</p>
               </div>
             ))}
           </div>
-        </section>
- 
+        </motion.div>
+
+        {/* Applications */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-12 text-center"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-6">
+            Where It's Deployed
+          </h2>
+          <p className="text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Our video surveillance systems are deployed across corporate campuses, healthcare facilities, educational institutions, industrial sites, transportation hubs, and smart city projects — ensuring safety, compliance, and operational awareness.
+          </p>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 text-center"
+        >
+          <h3 className="text-3xl font-semibold mb-6">
+            Enhance Your Security Infrastructure
+          </h3>
+          <Link
+            to="/contact"
+            className="inline-block rounded-full bg-cyan-500 px-10 py-4 font-semibold text-black hover:bg-cyan-400 transition"
+          >
+            Request a Consultation
+          </Link>
+        </motion.div>
+
       </div>
-    </div>
+    </section>
   );
 }
- 
- 

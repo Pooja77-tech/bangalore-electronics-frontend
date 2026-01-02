@@ -1,61 +1,87 @@
+import { motion } from "framer-motion";
+import benefitsVid from "../../assets/videos/services/benefits.mp4";
+
 export default function BenefitsGrid() {
+  const benefits = [
+    {
+      title: "High Reliability",
+      desc: "Robust solutions engineered for high availability, scalability, and long-term operational stability.",
+    },
+    {
+      title: "Enhanced Security",
+      desc: "Advanced security architectures that protect infrastructure, data, and critical operations.",
+    },
+    {
+      title: "Scalable Architecture",
+      desc: "Flexible systems designed to grow seamlessly with evolving business and technology demands.",
+    },
+    {
+      title: "Operational Efficiency",
+      desc: "Optimized workflows and infrastructure that reduce downtime and improve productivity.",
+    },
+    {
+      title: "Cost Optimization",
+      desc: "Smart infrastructure planning that lowers operational costs while maximizing ROI.",
+    },
+    {
+      title: "Professional Support",
+      desc: "Expert implementation, monitoring, and ongoing support from certified professionals.",
+    },
+  ];
+
   return (
-    <div className="px-6 py-20 bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white">
+    <section className="w-full bg-[#020617] text-white">
+      {/* Hero with Video */}
+      <div className="relative h-[60vh] w-full overflow-hidden">
+        <video
+          src={benefitsVid}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
 
-      {/* SECTION HEADER */}
-      <div className="max-w-5xl mx-auto text-center mb-14">
-        <h2 className="text-3xl md:text-4xl font-bold bg-linear-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
-          Key Benefits Overview
-        </h2>
-        <p className="mt-4 text-gray-300">
-          Discover how our solutions deliver long-term value, reliability,
-          and performance across industries and applications.
-        </p>
-      </div>
-
-      {/* GLASS BENEFITS GRID */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        {[
-          {
-            title: "High Reliability",
-            desc: "Engineered with premium components and tested standards to ensure consistent and dependable performance."
-          },
-          {
-            title: "Scalable Solutions",
-            desc: "Flexible architectures designed to grow with your business needs and technology demands."
-          },
-          {
-            title: "Enhanced Security",
-            desc: "Built-in safeguards and protection layers to minimize risk and ensure operational continuity."
-          },
-          {
-            title: "Cost Efficiency",
-            desc: "Optimized solutions that reduce maintenance costs while maximizing long-term value."
-          },
-          {
-            title: "Industry Compliance",
-            desc: "Aligned with international quality and safety standards for professional-grade deployment."
-          },
-          {
-            title: "Expert Support",
-            desc: "Backed by experienced professionals for guidance, maintenance, and system optimization."
-          }
-        ].map((benefit, index) => (
-          <div
-            key={index}
-            className="p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:border-cyan-400 transition"
+        <div className="relative z-10 flex items-center justify-center h-full px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl"
           >
-            <h3 className="text-xl font-semibold text-cyan-300 mb-3">
-              {benefit.title}
-            </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              {benefit.desc}
+            <h1 className="text-5xl font-extrabold bg-linear-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
+              Key Benefits
+            </h1>
+            <p className="mt-6 text-gray-300 text-lg">
+              Discover how our solutions deliver long-term value, security,
+              and enterprise-grade performance across industries.
             </p>
-          </div>
-        ))}
-
+          </motion.div>
+        </div>
       </div>
-    </div>
+
+      {/* Benefits Grid */}
+      <div className="py-20 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-cyan-400/40 transition-all"
+            >
+              <h3 className="text-xl font-semibold text-cyan-300 mb-3">
+                {benefit.title}
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                {benefit.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

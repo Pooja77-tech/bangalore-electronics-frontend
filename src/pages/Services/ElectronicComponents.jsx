@@ -1,90 +1,113 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import componentsVid from "../../assets/videos/services/electronic-components.mp4";
+
 export default function ElectronicComponents() {
+  const features = [
+    "Certified & genuine electronic components",
+    "Global sourcing from trusted manufacturers",
+    "Bulk supply & enterprise procurement",
+    "Strict quality assurance & compliance",
+    "Fast delivery & logistics support",
+    "Dedicated technical assistance",
+  ];
+
   return (
-    <div className="min-h-screen px-6 py-20 bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white">
+    <section className="min-h-screen bg-[#020617] text-white py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Back Link */}
+        <Link
+          to="/services"
+          className="text-cyan-400 hover:text-cyan-300 font-semibold"
+        >
+          ← Back to Services
+        </Link>
 
-      {/* HEADER */}
-      <div className="max-w-5xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
-          Electronic Components
-        </h1>
-        <p className="mt-5 text-gray-300">
-          High-quality electronic components sourced from trusted brands,
-          ensuring reliability, performance, and long-term durability.
-        </p>
-      </div>
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 rounded-3xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-xl shadow-xl"
+        >
+          <video
+            src={componentsVid}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-96 object-cover"
+          />
 
-      {/* MAIN GLASS CONTAINER */}
-      <div className="max-w-7xl mx-auto space-y-16">
-
-        {/* COMPONENT CATEGORIES */}
-        <section className="p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
-          <h2 className="text-2xl font-semibold mb-10 text-center">
-            Our Component Range
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Passive Components",
-                desc: "Resistors, capacitors, inductors, and transformers for stable circuit performance."
-              },
-              {
-                title: "Active Components",
-                desc: "Diodes, transistors, ICs, and voltage regulators for advanced electronic control."
-              },
-              {
-                title: "Microcontrollers & Processors",
-                desc: "Microcontrollers and processors for embedded systems and automation projects."
-              },
-              {
-                title: "Sensors & Modules",
-                desc: "Temperature, motion, proximity, and environmental sensors for smart applications."
-              },
-              {
-                title: "Power Components",
-                desc: "SMPS, relays, connectors, and power management solutions."
-              },
-              {
-                title: "Cables & Connectors",
-                desc: "High-quality connectors, wires, and interconnect solutions for secure connections."
-              }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:border-cyan-400 transition"
-              >
-                <h3 className="text-lg font-semibold text-cyan-300 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-300 text-sm">{item.desc}</p>
-              </div>
-            ))}
+          <div className="p-12">
+            <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
+              Electronic Components
+            </h1>
+            <p className="text-gray-300 max-w-3xl leading-relaxed">
+              We provide high-quality electronic components designed to meet the
+              demanding requirements of modern industries across enterprise,
+              industrial, and government environments.
+            </p>
           </div>
-        </section>
+        </motion.div>
 
-        {/* WHY CHOOSE US */}
-        <section className="p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
-          <h2 className="text-2xl font-semibold mb-8 text-center">
+        {/* Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-10 text-center">
             Why Choose Our Components
           </h2>
 
-          <ul className="grid md:grid-cols-2 gap-6 text-gray-300">
-            <li className="p-5 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20">
-              ✔ Sourced from trusted international brands
-            </li>
-            <li className="p-5 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20">
-              ✔ High reliability and quality assurance
-            </li>
-            <li className="p-5 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20">
-              ✔ Suitable for hobbyists, businesses, and industries
-            </li>
-            <li className="p-5 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20">
-              ✔ Wide inventory for immediate availability
-            </li>
-          </ul>
-        </section>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature) => (
+              <div
+                key={feature}
+                className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 shadow-lg"
+              >
+                <p className="text-gray-200">{feature}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
+        {/* Industry Use */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-12 text-center"
+        >
+          <h2 className="text-3xl font-semibold text-cyan-300 mb-6">
+            Industry Applications
+          </h2>
+          <p className="text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            IT infrastructure, industrial automation, healthcare systems,
+            surveillance solutions, smart cities, and government-grade projects.
+          </p>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 text-center"
+        >
+          <h3 className="text-3xl font-semibold mb-6">
+            Need Reliable Electronic Components?
+          </h3>
+          <Link
+            to="/contact"
+            className="inline-block rounded-full bg-cyan-500 px-10 py-4 font-semibold text-black hover:bg-cyan-400 transition"
+          >
+            Get in Touch
+          </Link>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
