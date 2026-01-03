@@ -36,9 +36,9 @@ export default function Navbar() {
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="/logo.png"
+            src="/images/logo.png"
             alt="Logo"
-            className={`h-10 w-auto transition-all duration-300 ${
+            className={`h-20 w-auto transition-all duration-300 ${
               scrolled ? "opacity-95" : "opacity-100"
             }`}
           />
@@ -52,7 +52,7 @@ export default function Navbar() {
           {[
             ["Home", "/"],
             ["About", "/about"],
-            ["Services", "/services"],
+            ["Offerings", "/offerings"],
             ["Solutions", "/solutions"],
             ["Products", "/products"],
             ["Projects", "/projects"],
@@ -104,11 +104,10 @@ export default function Navbar() {
           {[
             ["Home", "/"],
             ["About", "/about"],
-            ["Services", "/services"],
+            ["Offerings", "/offerings"],
             ["Solutions", "/solutions"],
             ["Products", "/products"],
             ["Projects", "/projects"],
-            ["Support", "/support"],
             ["Careers", "/careers"],
             ["Contact", "/contact"],
           ].map(([label, href]) => (
