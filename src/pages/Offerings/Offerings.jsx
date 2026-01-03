@@ -1,17 +1,35 @@
+
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import benefitsVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/benefits.mp4';
-import biometricsVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/biometrics.mp4';
-import componentsVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/electronic-components.mp4';
-import itInfraVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/it-infrastructure.mp4';
-import surveillanceVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/video-surveillance.mp4';
-import useCasesVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/use-cases.mp4';
-import activeNetworkVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/active-network.mp4';
-import networkSecurityVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/Network Security.mp4';
-import enterpriseVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/Enterprise.mp4';
-import psimVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/PSIM & Video Management System.mp4';
-import videoAnalyticsVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/Video Analytics.mp4';
+
+// Video Imports (FILES THAT REALLY EXIST)
+const biometricsVid = "/videos/services/biometrics.mp4";
+const componentsVid = "/videos/services/electronic-components.mp4";
+const itInfraVid = "/videos/services/it-infrastructure.mp4";
+const surveillanceVid = "/videos/services/video-surveillance.mp4";
+const benefitsVid = "/videos/services/benefits.mp4";
+const useCasesVid = "/videos/services/use-cases.mp4";
+const activeNetworkVid = "/videos/services/active-network.mp4";
+const psimVid = "/videos/services/psim-vms.mp4";
+const videoAnalyticsVid = "/videos/services/video-analytics.mp4";
+const networkSecurityVid = "/videos/services/network-security.mp4";
+const enterpriseVid = "/videos/services/enterprise-management.mp4";
+
+// Video Imports
+import biometricsVid from "../../assets/videos/services/biometrics.mp4";
+import componentsVid from "../../assets/videos/services/electronic-components.mp4";
+import itInfraVid from "../../assets/videos/services/it-infrastructure.mp4";
+import surveillanceVid from "../../assets/videos/services/video-surveillance.mp4";
+import benefitsVid from "../../assets/videos/services/benefits.mp4";
+import useCasesVid from "../../assets/videos/services/use-cases.mp4";
+import activeNetworkVid from "../../assets/videos/services/active-network.mp4";
+import psimVid from "../../assets/videos/services/PSIM & Video Management System.mp4";
+import videoAnalyticsVid from "../../assets/videos/services/Video Analytics.mp4";
+import networkSecurityVid from "../../assets/videos/services/benefits.mp4";
+import enterpriseVid from "../../assets/videos/services/benefits.mp4";
+ src/pages/Offerings/Offerings.jsx
+
 export default function Offerings() {
   const offeringsData = [
     {
@@ -21,7 +39,7 @@ export default function Offerings() {
       desc: "Advanced biometric authentication and secure access control systems.",
     },
     {
-      title: "Electronic Components",
+      title: "Enterprise Management System",
       link: "/offerings/electronic-components",
       video: componentsVid,
       desc: "High-quality electronic components sourced from trusted brands.",
@@ -45,14 +63,14 @@ export default function Offerings() {
       desc: "Comprehensive network security solutions to protect against cyber threats and ensure compliance.",
     },
     {
-      title: "Enterprise Management System",
+      title: "Electronic Components",
       link: "/offerings/enterprise-management-system",
       video: enterpriseVid,
       desc: "Comprehensive solution for business operations, tracking, and growth with advanced modules.",
     },
     {
       title: "Active Network",
-      link: "/offerings/active-network",
+      link: "/services/active-network",
       video: activeNetworkVid,
       desc: "Intelligent networking systems for reliable, high-performance enterprise IT infrastructure.",
     },

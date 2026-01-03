@@ -1,168 +1,97 @@
-import { useEffect, useState } from "react";
-import {
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaClock,
-  FaArrowUp,
-  FaWhatsapp,
-} from "react-icons/fa";
+
+import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+
+
+import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+ 
 
 export default function Footer() {
-  const [showTop, setShowTop] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setShowTop(window.scrollY > 300);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <>
-      {/* FOOTER */}
-      <footer className="relative bg-[#020617] text-gray-300 overflow-hidden">
-        {/* Animated Glow */}
-        <div
-          className="pointer-events-none absolute -inset-40 bg-linear-to-r
-          from-cyan-500/10 via-teal-400/10 to-blue-500/10 blur-3xl"
-          style={{ animation: "gradientGlow 18s ease-in-out infinite" }}
-        />
-
-        {/* Glass container */}
-        <div className="relative border-t border-white/10 bg-black/60 backdrop-blur-2xl">
-          <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
-
-            {/* Company */}
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Bangalore Electronics
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-400">
-                Delivering advanced electronics, networking, security, and
-                enterprise technology solutions with reliability, innovation,
-                and industry expertise.
-              </p>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-4 text-sm">
-              <h4 className="text-lg font-semibold text-white mb-4">
-                Contact Information
-              </h4>
-
-              <div className="flex items-start gap-3">
-                <FaMapMarkerAlt className="text-cyan-400 mt-1" />
-                <span>
-                  #124, Sadar Patrappa Road,<br />
-                  Bangalore – 560002
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <FaPhoneAlt className="text-cyan-400" />
-                <span>
-                  +91 80 22239770<br />
-                  +91 8217064201
-                </span>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <FaEnvelope className="text-cyan-400 mt-1" />
-                <div>
-                  <a
-                    href="mailto:adarsh@bangaloreelectronics.com"
-                    className="block hover:text-cyan-400 transition"
-                  >
-                    adarsh@bangaloreelectronics.com
-                  </a>
-                  <a
-                    href="mailto:info@bangaloreelectronics.com"
-                    className="block hover:text-cyan-400 transition"
-                  >
-                    info@bangaloreelectronics.com
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Hours & Social */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-semibold text-white">
-                Business Hours
-              </h4>
-
-              <div className="flex items-start gap-3 text-sm">
-                <FaClock className="text-cyan-400 mt-1" />
-                <span>
-                  <strong>Mon – Fri:</strong> 09:00 AM – 09:00 PM<br />
-                  <strong>Sat – Sun:</strong> 09:00 AM – 12:00 PM
-                </span>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-white mb-4">
-                  Connect With Us
-                </h4>
-                <div className="flex gap-5 text-xl">
-                  {[
-                    { icon: FaTwitter, link: "https://twitter.com" },
-                    { icon: FaInstagram, link: "https://instagram.com" },
-                    {
-                      icon: FaLinkedin,
-                      link: "https://www.linkedin.com/company/36080000/",
-                    },
-                  ].map(({ icon: Icon, link }, i) => (
-                    <a
-                      key={i}
-                      href={link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="p-3 rounded-full bg-white/5 border border-white/10
-                      hover:border-cyan-400 hover:text-cyan-400
-                      hover:shadow-[0_0_20px_rgba(34,211,238,0.35)]
-                      transition"
-                    >
-                      <Icon />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
+    <footer className="relative bg-[#020617] text-slate-300 text-lg">
+ 
+      {/* Premium glass layer */}
+      <div className="absolute inset-0 backdrop-blur-xl bg-white/4" />
+ 
+      <div className="relative max-w-7xl mx-auto px-6 py-10">
+ 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+ 
+          {/* Address */}
+          <div className="leading-snug">
+            <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
+              Address
+            </h4>
+            <p>
+              #124, Sadar Patrappa Road<br />
+              Bangalore, Karnataka – 560002<br />
+              India
+            </p>
+          </div>
+ 
+          {/* Contact */}
+          <div className="leading-snug">
+            <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
+              Contact
+            </h4>
+            <p>
+              +91 80 22239770, 22217700, 22247870<br />
+              +91 8217064201 (WhatsApp)
+            </p>
+            <p className="mt-1">
+              adarsh@bangaloreelectronics.com<br />
+              info@bangaloreelectronics.com
+            </p>
           </div>
 
-          {/* Bottom bar */}
-          <div className="border-t border-white/10 py-6 text-center text-xs text-gray-500">
-            © {new Date().getFullYear()} Bangalore Electronics. All Rights Reserved.
+          {/* Social Logos */}
+          <div className="flex flex-col md:items-end gap-3">
+            <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
+              Connect With Us
+            </h4>
+            <div className="flex gap-4 text-emerald-400 text-lg">
+              <a
+                href="https://twitter.com/yourhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-300 transition"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="https://instagram.com/yourhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-300 transition"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://linkedin.com/company/yourhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-300 transition"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
           </div>
+ 
         </div>
-      </footer>
-
-      {/* Scroll To Top */}
-      {showTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-24 right-6 z-50 p-3 rounded-full
-          bg-cyan-500 text-black shadow-xl hover:scale-110 transition"
-        >
-          <FaArrowUp />
-        </button>
-      )}
-
-      {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/918217064201"
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-6 right-6 z-50 p-4 rounded-full
-        bg-green-500 text-white shadow-xl
-        hover:scale-110 hover:shadow-[0_0_30px_rgba(34,197,94,0.6)]
-        transition"
-      >
-        <FaWhatsapp size={22} />
-      </a>
-    </>
+ 
+        {/* Divider */}
+        <div className="mt-6 border-t border-white/10" />
+ 
+        {/* Bottom row */}
+        <div className="mt-4 flex flex-col md:flex-row justify-between text-base text-slate-400">
+          <span>
+            © {new Date().getFullYear()} Bangalore Electronics
+          </span>
+          <span className="mt-1 md:mt-0">
+            Trusted Since 1988 • Bangalore
+          </span>
+        </div>
+ 
+      </div>
+    </footer>
   );
 }
