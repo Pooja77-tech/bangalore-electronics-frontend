@@ -41,10 +41,22 @@ export default function Services() {
       desc: "Robust CCTV and video monitoring systems tailored for all industries.",
     },
     {
+      title: "Network Security",
+      link: "/services/network-security",
+      video: networkSecurityVid,
+      desc: "Comprehensive network security solutions to protect against cyber threats and ensure compliance.",
+    },
+    {
       title: "Enterprise Management System",
       link: "/services/enterprise-management-system",
       video: enterpriseVid,
       desc: "Comprehensive solution for business operations, tracking, and growth with advanced modules.",
+    },
+    {
+      title: "Active Network",
+      link: "/services/active-network",
+      video: activeNetworkVid,
+      desc: "Intelligent networking systems for reliable, high-performance enterprise IT infrastructure.",
     },
     {
       title: "PSIM & Video Management System",
@@ -57,18 +69,6 @@ export default function Services() {
       link: "/services/video-analytics",
       video: videoAnalyticsVid,
       desc: "AI-driven video analytics for intelligent situational awareness and security operations.",
-    },
-    {
-      title: "Network Security",
-      link: "/services/network-security",
-      video: networkSecurityVid,
-      desc: "Comprehensive network security solutions to protect against cyber threats and ensure compliance.",
-    },
-    {
-      title: "Active Network",
-      link: "/services/active-network",
-      video: activeNetworkVid,
-      desc: "Intelligent networking systems for reliable, high-performance enterprise IT infrastructure.",
     },
     {
       title: "Key Benefits Overview",

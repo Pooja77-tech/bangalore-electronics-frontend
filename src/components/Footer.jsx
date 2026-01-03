@@ -1,4 +1,4 @@
-import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -66,7 +66,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-emerald-300 transition"
               >
-                <FaLinkedin />
+                <FaLinkedinIn />
               </a>
             </div>
           </div>
