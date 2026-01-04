@@ -21,25 +21,6 @@ import CaseStudies from "./pages/Projects/CaseStudies";
 import Careers from "./pages/Careers/Careers";
 import Contact from "./pages/Contact/Contact";
 import NotFound from "./pages/NotFound/NotFound";
-<<<<<<< HEAD
-import BiometricsAccess from "./pages/Services/BiometricsAccess/BiometricsAccess";
-import ElectronicComponents from "./pages/Services/ElectronicComponents/ElectronicComponents";
-import ITInfrastructure from "./pages/Services/ITInfrastructure/ITInfrastructure";
-import VideoSurveillance from "./pages/Services/VideoSurveillance/VideoSurveillance";
-import BenefitsGrid from "./pages/Services/BenefitsGrid/BenefitsGrid";
-import UseCases from "./pages/Services/UseCases/UseCases";
-import EnterpriseManagementSystem from "./pages/Services/EnterpriseManagementSystem/EnterpriseManagementSystem";
-import PSIMVideoManagementSystem from "./pages/Services/PSIMVideoManagementSystem/PSIMVideoManagementSystem";
-import VideoAnalytics from "./pages/Services/VideoAnalytics/VideoAnalytics";
-import NetworkSecurity from "./pages/Services/NetworkSecurity/NetworkSecurity";
-import ActiveNetwork from "./pages/Services/ActiveNetwork";
-import Corporate from "./pages/Solutions/Corporate";
-import Education from "./pages/Solutions/Education";
-import Government from "./pages/Solutions/Government";
-import Healthcare from "./pages/Solutions/Healthcare";
-import Industrial from "./pages/Solutions/Industrial";
-=======
->>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b
 
 export default function AppRoutes() {
   return (

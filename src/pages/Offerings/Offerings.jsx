@@ -1,20 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-<<<<<<< HEAD:src/pages/Services/Services.jsx
-// Video Imports (FILES THAT REALLY EXIST)
-const biometricsVid = "/videos/services/biometrics.mp4";
-const componentsVid = "/videos/services/electronic-components.mp4";
-const itInfraVid = "/videos/services/it-infrastructure.mp4";
-const surveillanceVid = "/videos/services/video-surveillance.mp4";
-const benefitsVid = "/videos/services/benefits.mp4";
-const useCasesVid = "/videos/services/use-cases.mp4";
-const activeNetworkVid = "/videos/services/active-network.mp4";
-const psimVid = "/videos/services/psim-vms.mp4";
-const videoAnalyticsVid = "/videos/services/video-analytics.mp4";
-const networkSecurityVid = "/videos/services/network-security.mp4";
-const enterpriseVid = "/videos/services/enterprise-management.mp4";
-=======
 // Video Imports
 import biometricsVid from "../../assets/videos/services/biometrics.mp4";
 import componentsVid from "../../assets/videos/services/electronic-components.mp4";
@@ -23,11 +9,10 @@ import surveillanceVid from "../../assets/videos/services/video-surveillance.mp4
 import benefitsVid from "../../assets/videos/services/benefits.mp4";
 import useCasesVid from "../../assets/videos/services/use-cases.mp4";
 import activeNetworkVid from "../../assets/videos/services/active-network.mp4";
-import psimVid from "../../assets/videos/services/PSIM & Video Management System.mp4";
-import videoAnalyticsVid from "../../assets/videos/services/Video Analytics.mp4";
-import networkSecurityVid from "../../assets/videos/services/benefits.mp4";
-import enterpriseVid from "../../assets/videos/services/benefits.mp4";
->>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b:src/pages/Offerings/Offerings.jsx
+import psimVid from "../../assets/videos/services/psim-vms.mp4";
+import videoAnalyticsVid from "../../assets/videos/services/video-analytics.mp4";
+import networkSecurityVid from "../../assets/videos/services/network-security.mp4";
+import enterpriseVid from "../../assets/videos/services/enterprise-management.mp4";
 
 export default function Offerings() {
   const offeringsData = [
@@ -57,7 +42,7 @@ export default function Offerings() {
     },
     {
       title: "Network Security",
-      link: "/services/network-security",
+      link: "/offerings/network-security",
       video: networkSecurityVid,
       desc: "Comprehensive network security solutions to protect against cyber threats and ensure compliance.",
     },
@@ -69,7 +54,7 @@ export default function Offerings() {
     },
     {
       title: "Active Network",
-      link: "/services/active-network",
+      link: "/offerings/active-network",
       video: activeNetworkVid,
       desc: "Intelligent networking systems for reliable, high-performance enterprise IT infrastructure.",
     },
@@ -86,21 +71,6 @@ export default function Offerings() {
       desc: "AI-driven video analytics for intelligent situational awareness and security operations.",
     },
     {
-<<<<<<< HEAD:src/pages/Services/Services.jsx
-=======
-      title: "Network Security",
-      link: "/offerings/network-security",
-      video: networkSecurityVid,
-      desc: "Comprehensive network security solutions to protect against cyber threats and ensure compliance.",
-    },
-    {
-      title: "Active Network",
-      link: "/offerings/active-network",
-      video: activeNetworkVid,
-      desc: "Intelligent networking systems for reliable, high-performance enterprise IT infrastructure.",
-    },
-    {
->>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b:src/pages/Offerings/Offerings.jsx
       title: "Key Benefits Overview",
       link: "/offerings/benefits",
       video: benefitsVid,

@@ -1,107 +1,47 @@
-<<<<<<< HEAD
-import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-
-=======
 import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
- 
->>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b
+
 export default function Footer() {
   return (
-    <footer className="relative bg-[#020617] text-slate-300 text-lg">
- 
-      {/* Premium glass layer */}
-      <div className="absolute inset-0 backdrop-blur-xl bg-white/4" />
- 
-      <div className="relative max-w-7xl mx-auto px-6 py-10">
- 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
- 
-          {/* Address */}
-          <div className="leading-snug">
-            <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
-              Address
-            </h4>
-            <p>
-              #124, Sadar Patrappa Road<br />
-              Bangalore, Karnataka – 560002<br />
-              India
-            </p>
-          </div>
- 
-          {/* Contact */}
-          <div className="leading-snug">
-            <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
-              Contact
-            </h4>
-            <p>
-              +91 80 22239770, 22217700, 22247870<br />
-              +91 8217064201 (WhatsApp)
-            </p>
-            <p className="mt-1">
-              adarsh@bangaloreelectronics.com<br />
-              info@bangaloreelectronics.com
-            </p>
-          </div>
-<<<<<<< HEAD
+    <footer className="bg-black text-gray-300 py-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Company Info */}
+        <div>
+          <h3 className="text-white text-lg font-semibold mb-3">
+            Bangalore Electronics
+          </h3>
+          <p className="text-sm">
+            Providing advanced electronics, networking, and security solutions
+            for modern enterprises.
+          </p>
+        </div>
 
-=======
- 
->>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b
-          {/* Social Logos */}
-          <div className="flex flex-col md:items-end gap-3">
-            <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
-              Connect With Us
-            </h4>
-            <div className="flex gap-4 text-emerald-400 text-lg">
-              <a
-                href="https://twitter.com/yourhandle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-emerald-300 transition"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="https://instagram.com/yourhandle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-emerald-300 transition"
-              >
-                <FaInstagram />
-              </a>
-              <a
-                href="https://linkedin.com/company/yourhandle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-emerald-300 transition"
-              >
-<<<<<<< HEAD
-                <FaLinkedinIn />
-=======
-                <FaLinkedin />
->>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b
-              </a>
-            </div>
+        {/* Quick Links */}
+        <div>
+          <h4 className="text-white text-md font-semibold mb-3">Quick Links</h4>
+          <ul className="space-y-2 text-sm">
+            <li>Home</li>
+            <li>About</li>
+            <li>Offerings</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+
+        {/* Social */}
+        <div>
+          <h4 className="text-white text-md font-semibold mb-3">
+            Connect with us
+          </h4>
+          <div className="flex space-x-4 text-xl">
+            <FaTwitter className="hover:text-cyan-400 cursor-pointer" />
+            <FaInstagram className="hover:text-cyan-400 cursor-pointer" />
+            <FaLinkedin className="hover:text-cyan-400 cursor-pointer" />
           </div>
- 
         </div>
- 
-        {/* Divider */}
-        <div className="mt-6 border-t border-white/10" />
- 
-        {/* Bottom row */}
-        <div className="mt-4 flex flex-col md:flex-row justify-between text-base text-slate-400">
-          <span>
-            © {new Date().getFullYear()} Bangalore Electronics
-          </span>
-          <span className="mt-1 md:mt-0">
-            Trusted Since 1988 • Bangalore
-          </span>
-        </div>
- 
+      </div>
+
+      <div className="text-center text-xs text-gray-500 mt-8">
+        © {new Date().getFullYear()} Bangalore Electronics. All rights reserved.
       </div>
     </footer>
   );
 }
- 
- 
