@@ -1,16 +1,21 @@
+<<<<<<< HEAD
 import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
+=======
+import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+ 
+>>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b
 export default function Footer() {
   return (
-    <footer className="relative bg-[#020617] text-slate-300 text-sm">
-
+    <footer className="relative bg-[#020617] text-slate-300 text-lg">
+ 
       {/* Premium glass layer */}
       <div className="absolute inset-0 backdrop-blur-xl bg-white/4" />
-
+ 
       <div className="relative max-w-7xl mx-auto px-6 py-10">
-
+ 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
+ 
           {/* Address */}
           <div className="leading-snug">
             <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
@@ -22,7 +27,7 @@ export default function Footer() {
               India
             </p>
           </div>
-
+ 
           {/* Contact */}
           <div className="leading-snug">
             <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
@@ -37,7 +42,11 @@ export default function Footer() {
               info@bangaloreelectronics.com
             </p>
           </div>
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b
           {/* Social Logos */}
           <div className="flex flex-col md:items-end gap-3">
             <h4 className="text-slate-100 font-semibold tracking-wide mb-2">
@@ -66,18 +75,22 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-emerald-300 transition"
               >
+<<<<<<< HEAD
                 <FaLinkedinIn />
+=======
+                <FaLinkedin />
+>>>>>>> 3fa0275c0fc581e933b0bd8910c3962d485a807b
               </a>
             </div>
           </div>
-
+ 
         </div>
-
+ 
         {/* Divider */}
         <div className="mt-6 border-t border-white/10" />
-
+ 
         {/* Bottom row */}
-        <div className="mt-4 flex flex-col md:flex-row justify-between text-xs text-slate-400">
+        <div className="mt-4 flex flex-col md:flex-row justify-between text-base text-slate-400">
           <span>
             © {new Date().getFullYear()} Bangalore Electronics
           </span>
@@ -85,8 +98,10 @@ export default function Footer() {
             Trusted Since 1988 • Bangalore
           </span>
         </div>
-
+ 
       </div>
     </footer>
   );
 }
+ 
+ 
