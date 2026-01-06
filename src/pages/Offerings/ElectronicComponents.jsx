@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-const componentsVid = "/videos/services/electronic-components.mp4";
+const componentsVid = "/videos/offerings/electronic-components.mp4";
 
 export default function ElectronicComponents() {
   const features = [
@@ -17,10 +17,10 @@ export default function ElectronicComponents() {
       <div className="max-w-7xl mx-auto">
         {/* Back Link */}
         <Link
-          to="/services"
+          to="/offerings"
           className="text-cyan-400 hover:text-cyan-300 font-semibold"
         >
-          ← Back to Services
+          ← Back to Offerings
         </Link>
 
         {/* Hero Section */}

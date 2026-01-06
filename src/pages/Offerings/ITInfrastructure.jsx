@@ -16,8 +16,8 @@ export default function ITInfrastructure() {
       <div className="max-w-7xl mx-auto">
 
         {/* Back */}
-        <Link to="/services" className="text-cyan-400 hover:text-cyan-300 font-semibold">
-          ← Back to Services
+        <Link to="/offerings" className="text-cyan-400 hover:text-cyan-300 font-semibold">
+          ← Back to Offerings
         </Link>
 
         {/* Hero */}
@@ -28,7 +28,7 @@ export default function ITInfrastructure() {
           className="mt-10 rounded-3xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-xl shadow-xl"
         >
           <video
-            src="/videos/services/it-infrastructure.mp4"
+            src="/videos/offerings/it-infrastructure.mp4"
             autoPlay
             loop
             muted

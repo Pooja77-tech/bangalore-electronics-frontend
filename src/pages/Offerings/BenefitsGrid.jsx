@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 
+const benefitsVid = "../../../bangalore-electronics-frontend/src/assets/videos/offerings/benefits.mp4";
+
 export default function BenefitsGrid() {
   const benefits = [
     {
@@ -33,7 +35,7 @@ export default function BenefitsGrid() {
       {/* Hero with Video */}
       <div className="relative h-[60vh] w-full overflow-hidden">
         <video
-          src="/videos/services/benefits.mp4"
+          src={benefitsVid}
           autoPlay
           loop
           muted

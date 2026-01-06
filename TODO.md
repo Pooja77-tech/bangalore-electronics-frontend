@@ -1,8 +1,21 @@
-# TODO: Fix Git Merge Conflicts
+# AI Chatbot Setup TODO
 
-- [x] Fix conflict markers in src/AppRoutes.jsx
-- [x] Fix conflict markers in src/pages/Offerings/Offerings.jsx
-- [x] Fix conflict markers in src/components/Footer.jsx
-- [ ] Fix conflict markers in bangalore-electronics-frontend/src/pages/Services/Services.jsx
-- [ ] Run git add and commit to resolve conflicts
-- [ ] Test the application with npm run dev
+## Backend Setup
+- [x] Create server.js with OpenAI integration
+- [x] Install dependencies (express, cors, openai, dotenv)
+- [x] Create .env file for API key
+- [ ] Set OpenAI API key in .env file
+- [ ] Start backend server (npm start in backend directory)
+
+## Frontend Updates
+- [x] Update Chatbot.jsx to use API calls instead of rule-based responses
+
+## Testing
+- [ ] Test chatbot with various questions
+- [ ] Verify error handling
+- [ ] Test backend API directly
+
+## Deployment Notes
+- Remember to set OPENAI_API_KEY environment variable in production
+- Backend should be deployed separately from frontend
+- Update API endpoint URL for production

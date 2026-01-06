@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+const activeNetworkVid = "/videos/offerings/active-network.mp4";
 
 export default function ActiveNetwork() {
   return (
@@ -8,10 +9,10 @@ export default function ActiveNetwork() {
 
         {/* Back */}
         <Link
-          to="/services"
+          to="/offerings"
           className="text-cyan-400 hover:text-cyan-300 font-semibold"
         >
-          ← Back to Services
+          ← Back to Offerings
         </Link>
 
         {/* HERO */}
@@ -22,7 +23,7 @@ export default function ActiveNetwork() {
           className="mt-10 rounded-3xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-xl shadow-xl"
         >
           <video
-            src="/videos/services/active-network.mp4"
+            src={activeNetworkVid}
             autoPlay
             loop
             muted

@@ -8,29 +8,34 @@ export default function Chatbot() {
   ]);
   const [input, setInput] = useState("");
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
 
     const userMessage = { text: input, sender: "user" };
     setMessages(prev => [...prev, userMessage]);
 
-    // Simple bot responses
-    setTimeout(() => {
-      let botResponse = "I'm sorry, I didn't understand that. Can you please rephrase?";
-      const lowerInput = input.toLowerCase();
+    try {
+      const response = await fetch("http://localhost:5000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: input }),
+      });
 
-      if (lowerInput.includes("services")) {
-        botResponse = "We offer Biometrics Access, Video Surveillance, IT Infrastructure, and more. Would you like to know more about any specific service?";
-      } else if (lowerInput.includes("contact")) {
-        botResponse = "You can reach us at +91 80 22239770 or email adarsh@bangaloreelectronics.com. Would you like me to direct you to our contact page?";
-      } else if (lowerInput.includes("consultation")) {
-        botResponse = "We'd be happy to provide a consultation. Please visit our contact page or call us directly.";
-      } else if (lowerInput.includes("hello") || lowerInput.includes("hi")) {
-        botResponse = "Hi there! Welcome to Bangalore Electronics. How can I assist you?";
-      }
+      const data = await response.json();
 
-      setMessages(prev => [...prev, { text: botResponse, sender: "bot" }]);
-    }, 1000);
+      setMessages(prev => [...prev, { text: data.reply, sender: "bot" }]);
+    } catch (error) {
+      console.error("Error:", error);
+      setMessages(prev => [
+        ...prev,
+        {
+          text: "Sorry, I'm experiencing technical difficulties. Please try again later or contact us directly.",
+          sender: "bot"
+        }
+      ]);
+    }
 
     setInput("");
   };

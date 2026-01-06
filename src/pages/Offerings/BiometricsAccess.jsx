@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-const biometricsVid = "/videos/services/biometrics.mp4";
+const biometricsVid = "/videos/offerings/biometrics.mp4";
 
 export default function BiometricsAccess() {
   const features = [
@@ -18,10 +18,10 @@ export default function BiometricsAccess() {
 
         {/* Back Link */}
         <Link
-          to="/services"
+          to="/offerings"
           className="text-cyan-400 hover:text-cyan-300 font-semibold"
         >
-          ← Back to Services
+          ← Back to Offerings
         </Link>
 
         {/* Hero Section */}

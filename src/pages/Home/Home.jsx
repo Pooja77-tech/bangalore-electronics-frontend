@@ -42,7 +42,7 @@ export default function Home() {
                 text-[#020617] font-semibold shadow-lg
                 hover:bg-emerald-400 transition"
               >
-                Request Consultation
+                Contact Us
               </Link>
             </div>
           </motion.div>

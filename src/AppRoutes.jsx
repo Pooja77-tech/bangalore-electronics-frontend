@@ -40,6 +40,11 @@ export default function AppRoutes() {
         <Route path="offerings/active-network" element={<ActiveNetwork />} />
         <Route path="offerings/benefits" element={<BenefitsGrid />} />
         <Route path="offerings/use-cases" element={<UseCases />} />
+        <Route path="solutions" element={<Solutions />} />
+        <Route path="products" element={<Products />} />
+        <Route path="projects" element={<CaseStudies />} />
+        <Route path="careers" element={<Careers />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
