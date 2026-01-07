@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import benefitsVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/benefits.mp4';
-import biometricsVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/biometrics.mp4';
-import componentsVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/electronic-components.mp4';
-import itInfraVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/it-infrastructure.mp4';
-import surveillanceVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/video-surveillance.mp4';
-import useCasesVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/use-cases.mp4';
-import activeNetworkVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/active-network.mp4';
-import networkSecurityVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/Network Security.mp4';
-import enterpriseVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/Enterprise.mp4';
-import psimVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/PSIM & Video Management System.mp4';
-import videoAnalyticsVid from '../../../bangalore-electronics-frontend/src/assets/videos/offerings/Video Analytics.mp4';
+// ✅ Correct video imports from public folder
+import biometricsVid from "/videos/offerings/biometrics.mp4";
+import componentsVid from "/videos/offerings/electronic-components.mp4";
+import itInfraVid from "/videos/offerings/it-infrastructure.mp4";
+import surveillanceVid from "/videos/offerings/video-surveillance.mp4";
+import networkSecurityVid from "/videos/offerings/Network Security.mp4";
+import enterpriseVid from "/videos/offerings/Enterprise .mp4";
+import activeNetworkVid from "/videos/offerings/active-network.mp4";
+import psimVid from "/videos/offerings/PSIM & Video Management System.mp4";
+import videoAnalyticsVid from "/videos/offerings/Video Analytics.mp4";
+import benefitsVid from "/videos/offerings/benefits.mp4";
+import useCasesVid from "/videos/offerings/use-cases.mp4";
+
 export default function Offerings() {
   const offeringsData = [
     {
@@ -42,43 +44,43 @@ export default function Offerings() {
       title: "Network Security",
       link: "/offerings/network-security",
       video: networkSecurityVid,
-      desc: "Comprehensive network security solutions to protect against cyber threats and ensure compliance.",
+      desc: "Comprehensive network security solutions to protect enterprise environments.",
     },
     {
       title: "Enterprise Management System",
       link: "/offerings/enterprise-management-system",
       video: enterpriseVid,
-      desc: "Comprehensive solution for business operations, tracking, and growth with advanced modules.",
+      desc: "Centralized enterprise operations, monitoring, and reporting platform.",
     },
     {
       title: "Active Network",
       link: "/offerings/active-network",
       video: activeNetworkVid,
-      desc: "Intelligent networking systems for reliable, high-performance enterprise IT infrastructure.",
+      desc: "High-performance active networking for scalable IT ecosystems.",
     },
     {
       title: "PSIM & Video Management System",
       link: "/offerings/psim-video-management-system",
       video: psimVid,
-      desc: "Unified platform for enterprise-level security operations with centralized monitoring and control.",
+      desc: "Unified command-and-control platform for security operations.",
     },
     {
       title: "Video Analytics",
       link: "/offerings/video-analytics",
       video: videoAnalyticsVid,
-      desc: "AI-driven video analytics for intelligent situational awareness and security operations.",
+      desc: "AI-powered analytics for intelligent video-based insights.",
     },
     {
       title: "Key Benefits Overview",
       link: "/offerings/benefits",
       video: benefitsVid,
-      desc: "Discover how our solutions provide long-term value and reliability.",
+      desc: "Understand the long-term value and ROI of our solutions.",
     },
     {
       title: "Industry Use Cases",
       link: "/offerings/use-cases",
       video: useCasesVid,
-      desc: "Real-world examples of our solutions implemented across sectors.",
+      desc: "Real-world implementations across multiple industry verticals.",
     },
   ];
 
@@ -96,22 +98,21 @@ export default function Offerings() {
             Our Offerings
           </h1>
           <p className="mt-6 text-gray-300 max-w-3xl mx-auto">
-            Explore our wide range of professional solutions that deliver
-            modern, efficient, and future-ready results.
+            Explore our wide range of professional solutions delivering secure,
+            scalable, and future-ready technology.
           </p>
         </motion.div>
 
-        {/* Offerings Cards */}
+        {/* Offerings Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {offeringsData.map((offering, index) => (
             <motion.div
               key={offering.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: index * 0.08, duration: 0.5 }}
               className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-cyan-400/40 transition-all"
             >
-              {/* Auto-playing video */}
               <video
                 src={offering.video}
                 className="w-full h-48 object-cover"
@@ -122,7 +123,6 @@ export default function Offerings() {
                 preload="metadata"
               />
 
-              {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-cyan-300">
                   {offering.title}

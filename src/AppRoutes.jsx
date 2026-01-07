@@ -20,6 +20,7 @@ import Products from "./pages/Products/Products";
 import CaseStudies from "./pages/Projects/CaseStudies";
 import Careers from "./pages/Careers/Careers";
 import Contact from "./pages/Contact/Contact";
+import Partners from "./pages/Partners/Partners";
 import NotFound from "./pages/NotFound/NotFound";
 
 export default function AppRoutes() {
@@ -43,6 +44,7 @@ export default function AppRoutes() {
         <Route path="solutions" element={<Solutions />} />
         <Route path="products" element={<Products />} />
         <Route path="projects" element={<CaseStudies />} />
+        <Route path="partners" element={<Partners />} />
         <Route path="careers" element={<Careers />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />

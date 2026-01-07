@@ -54,7 +54,7 @@ export default function Navbar() {
             ["About", "/about"],
             ["Offerings", "/offerings"],
             ["Solutions", "/solutions"],
-            ["Products", "/products"],
+            ["Partners", "/partners"],
             ["Projects", "/projects"],
             ["Careers", "/careers"],
             ["Contact", "/contact"],
@@ -70,16 +70,7 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* CTA BUTTON */}
-          <Link
-            to="/contact"
-            className="
-              ml-6 px-5 py-2.5 rounded-xl text-white bg-blue-600
-              hover:bg-blue-700 transition-all shadow-md hover:shadow-lg
-            "
-          >
-            Get Consultation
-          </Link>
+
         </div>
 
         {/* MOBILE MENU BUTTON */}
@@ -106,7 +97,7 @@ export default function Navbar() {
             ["About", "/about"],
             ["Offerings", "/offerings"],
             ["Solutions", "/solutions"],
-            ["Products", "/products"],
+            ["Partners", "/partners"],
             ["Projects", "/projects"],
             ["Careers", "/careers"],
             ["Contact", "/contact"],
@@ -123,16 +114,7 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Link
-            to="/contact"
-            onClick={() => setOpen(false)}
-            className="
-              mt-3 px-5 py-3 text-center rounded-xl text-white bg-blue-600
-              hover:bg-blue-700 transition shadow-md
-            "
-          >
-            Get Consultation
-          </Link>
+
         </div>
       )}
     </nav>
