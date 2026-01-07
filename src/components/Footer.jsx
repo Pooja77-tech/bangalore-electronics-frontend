@@ -49,7 +49,7 @@ export default function Footer() {
 
             {/* Contact Info */}
             <div className="space-y-4 text-sm">
-              <h4 className="text-lg font-semibold text-white mb-4">
+              <h4 className="text-lg font-semibold text-white mb-7">
                 Contact Information
               </h4>
 
