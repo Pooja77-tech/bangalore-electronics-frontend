@@ -5,10 +5,10 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Offerings from "./pages/Offerings/Offerings"; // your Offerings component
 import BiometricsAccess from "./pages/Offerings/BiometricsAccess";
-import ElectronicComponents from "./pages/Offerings/ElectronicComponents";
+import ElectronicComponents from "./pages/Offerings/EnterpriseManagementSystem";
 import ITInfrastructure from "./pages/Offerings/ITInfrastructure";
 import VideoSurveillance from "./pages/Offerings/VideoSurveillance";
-import EnterpriseManagementSystem from "./pages/Offerings/EnterpriseManagementSystem";
+import EnterpriseManagementSystem from "./pages/Offerings/ElectronicComponents";
 import PSIMVideoManagementSystem from "./pages/Offerings/PSIMVideoManagementSystem";
 import VideoAnalytics from "./pages/Offerings/VideoAnalytics";
 import NetworkSecurity from "./pages/Offerings/NetworkSecurity";
@@ -22,7 +22,7 @@ import Careers from "./pages/Careers/Careers";
 import Contact from "./pages/Contact/Contact";
 import Partners from "./pages/Partners/Partners";
 import NotFound from "./pages/NotFound/NotFound";
-
+ 
 export default function AppRoutes() {
   return (
     <Routes>
@@ -52,3 +52,5 @@ export default function AppRoutes() {
     </Routes>
   );
 }
+ 
+ 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+ 
 export default function Solutions() {
   const solutions = [
     {
@@ -15,7 +15,7 @@ export default function Solutions() {
       desc: "Mission-critical and compliance-ready solutions for government and public-sector organizations, ensuring resilience, security, scalability, and long-term operational continuity.",
     },
   ];
-
+ 
   return (
     <div
       className="relative min-h-screen overflow-hidden text-slate-200
@@ -24,9 +24,9 @@ export default function Solutions() {
       {/* Background Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.18),transparent_55%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.14),transparent_60%)]" />
-
+ 
       <div className="relative z-10">
-
+ 
         {/* ================= HERO ================= */}
         <section className="max-w-7xl mx-auto px-6 pt-32 pb-24">
           <motion.div
@@ -39,11 +39,11 @@ export default function Solutions() {
             <p className="text-xs uppercase tracking-[0.4em] text-emerald-400 font-semibold">
               Our Expertise
             </p>
-
+ 
             <h1 className="mt-6 text-4xl md:text-6xl font-extrabold text-emerald-400">
               Industry-Focused Solutions
             </h1>
-
+ 
             <p className="mt-8 text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
               Bangalore Electronics delivers sector-specific technology solutions
               engineered for performance, compliance, scalability, and long-term
@@ -51,7 +51,7 @@ export default function Solutions() {
             </p>
           </motion.div>
         </section>
-
+ 
         {/* ================= SOLUTIONS SHOWCASE ================= */}
         <section className="max-w-7xl mx-auto px-6 pb-28">
           <div className="grid lg:grid-cols-3 gap-10">
@@ -70,17 +70,17 @@ export default function Solutions() {
                 <h3 className="text-2xl md:text-3xl font-bold text-emerald-400 mb-6">
                   {item.title}
                 </h3>
-
+ 
                 <p className="text-slate-300 leading-relaxed text-base md:text-lg">
                   {item.desc}
                 </p>
-
+ 
                 <div className="mt-10 h-0.5 w-16 bg-emerald-400 rounded-full group-hover:w-28 transition-all duration-500" />
               </motion.div>
             ))}
           </div>
         </section>
-
+ 
         {/* ================= CUSTOMER SATISFACTION ================= */}
         <section className="max-w-7xl mx-auto px-6 pb-28">
           <motion.div
@@ -94,21 +94,21 @@ export default function Solutions() {
             <p className="text-sm md:text-base uppercase tracking-[0.35em] text-emerald-400 font-semibold">
               Customer Satisfaction
             </p>
-
+ 
             <p className="mt-8 text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
               Our solutions consistently achieve a strong customer satisfaction
               rating for reliability, timely execution, and professional support.
             </p>
-
+ 
             <div className="mt-10 flex justify-center items-center gap-2 text-4xl text-yellow-400">
               <span>★★★★</span>
               <span className="text-slate-500">☆</span>
             </div>
-
+ 
             <p className="mt-3 text-sm text-slate-400">(4.0 Average Rating)</p>
           </motion.div>
         </section>
-
+ 
       </div>
     </div>
   );

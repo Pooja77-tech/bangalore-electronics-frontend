@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-const emsVid = "/videos/services/benefits.mp4";
-
+ 
+const emsVid = "/videos/offerings/electronic-components.mp4";
+ 
 export default function EnterpriseManagementSystem() {
   const features = [
     "Centralized enterprise dashboard & analytics",
@@ -12,11 +12,11 @@ export default function EnterpriseManagementSystem() {
     "Workflow approvals & audit logs",
     "Scalable, cloud-ready architecture",
   ];
-
+ 
   return (
     <section className="min-h-screen bg-[#020617] text-white py-24 px-6">
       <div className="max-w-7xl mx-auto">
-
+ 
         {/* Back Link */}
         <Link
           to="/offerings"
@@ -24,7 +24,7 @@ export default function EnterpriseManagementSystem() {
         >
           ← Back to Offerings
         </Link>
-
+ 
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -40,7 +40,7 @@ export default function EnterpriseManagementSystem() {
             playsInline
             className="w-full h-96 object-cover"
           />
-
+ 
           <div className="p-12">
             <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
               Enterprise Management System (EMS)
@@ -53,7 +53,7 @@ export default function EnterpriseManagementSystem() {
             </p>
           </div>
         </motion.div>
-
+ 
         {/* Features Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -64,7 +64,7 @@ export default function EnterpriseManagementSystem() {
           <h2 className="text-3xl font-semibold text-cyan-300 mb-10 text-center">
             Key Capabilities
           </h2>
-
+ 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature) => (
               <div
@@ -76,7 +76,7 @@ export default function EnterpriseManagementSystem() {
             ))}
           </div>
         </motion.div>
-
+ 
         {/* Applications */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -94,7 +94,7 @@ export default function EnterpriseManagementSystem() {
             streamline operations and enable data-driven decision-making.
           </p>
         </motion.div>
-
+ 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -112,8 +112,10 @@ export default function EnterpriseManagementSystem() {
             Request a Consultation
           </Link>
         </motion.div>
-
+ 
       </div>
     </section>
   );
 }
+ 
+ 
