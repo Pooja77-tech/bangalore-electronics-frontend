@@ -53,7 +53,7 @@ export default function Offerings() {
       desc: "Centralized enterprise operations, monitoring, and reporting platform.",
     },
     {
-      title: "Active Network",
+      title: "Active Networking And Passive Networking",
       link: "/offerings/active-network",
       video: activeNetworkVid,
       desc: "High-performance active networking for scalable IT ecosystems.",

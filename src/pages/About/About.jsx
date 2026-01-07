@@ -1,23 +1,23 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
+ 
 const Counter = ({ end, label }) => {
   const [count, setCount] = useState(0);
-
+ 
   useEffect(() => {
     let start = 0;
     const duration = 2000;
     const stepTime = Math.abs(Math.floor(duration / end));
-
+ 
     const timer = setInterval(() => {
       start += 1;
       setCount(start);
       if (start === end) clearInterval(timer);
     }, stepTime);
-
+ 
     return () => clearInterval(timer);
   }, [end]);
-
+ 
   return (
     <div className="text-center">
       <h3 className="text-4xl font-bold text-cyan-400">{count}+</h3>
@@ -25,7 +25,7 @@ const Counter = ({ end, label }) => {
     </div>
   );
 };
-
+ 
 export default function About() {
   return (
     <section className="min-h-screen bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white py-20 px-6">
@@ -44,7 +44,7 @@ export default function About() {
             Established in 1988, Bangalore Electronics is a trusted name in electronic components, security systems, solar solutions, and system integration—delivering international-standard solutions built for the future.
           </p>
         </motion.div>
-
+ 
         {/* Glass Card */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -57,7 +57,7 @@ export default function About() {
             Bangalore Electronics has been a pioneer in the electronics, solar, and security industry for over three decades. We have evolved into a capable system integration and solution provider supported by a highly skilled in-house technical team. Our focus is on delivering reliable, scalable, and customized solutions that meet global quality standards.
           </p>
         </motion.div>
-
+ 
         {/* Founder / Mission / Vision */}
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {["Founder", "Mission", "Vision"].map((item, i) => (
@@ -81,7 +81,7 @@ export default function About() {
             </motion.div>
           ))}
         </div>
-
+ 
         {/* Values */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -97,7 +97,7 @@ export default function About() {
             <li>• Mutual respect and teamwork</li>
           </ul>
         </motion.div>
-
+ 
         {/* Counters */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -114,3 +114,5 @@ export default function About() {
     </section>
   );
 }
+ 
+ 

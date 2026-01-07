@@ -33,7 +33,7 @@ export default function ActiveNetwork() {
 
           <div className="p-12">
             <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
-              Active Networking
+              Active Networking And Passive Networking
             </h1>
             <p className="text-gray-300 max-w-4xl leading-relaxed">
               Enterprise-grade active networking solutions designed to deliver
