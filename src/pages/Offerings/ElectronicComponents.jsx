@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-const componentsVid = "/videos/offerings/electronic-components.mp4";
-
+const componentsVid = "/videos/offerings/Enterprise .mp4";
+ 
 export default function ElectronicComponents() {
   const features = [
     "Certified & genuine electronic components",
@@ -11,7 +11,7 @@ export default function ElectronicComponents() {
     "Fast delivery & logistics support",
     "Dedicated technical assistance",
   ];
-
+ 
   return (
     <section className="min-h-screen bg-[#020617] text-white py-24 px-6">
       <div className="max-w-7xl mx-auto">
@@ -22,7 +22,7 @@ export default function ElectronicComponents() {
         >
           ← Back to Offerings
         </Link>
-
+ 
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -38,7 +38,7 @@ export default function ElectronicComponents() {
             playsInline
             className="w-full h-96 object-cover"
           />
-
+ 
           <div className="p-12">
             <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
               Electronic Components
@@ -50,7 +50,7 @@ export default function ElectronicComponents() {
             </p>
           </div>
         </motion.div>
-
+ 
         {/* Features */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -61,7 +61,7 @@ export default function ElectronicComponents() {
           <h2 className="text-3xl font-semibold text-cyan-300 mb-10 text-center">
             Why Choose Our Components
           </h2>
-
+ 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature) => (
               <div
@@ -73,7 +73,7 @@ export default function ElectronicComponents() {
             ))}
           </div>
         </motion.div>
-
+ 
         {/* Industry Use */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -89,7 +89,7 @@ export default function ElectronicComponents() {
             surveillance solutions, smart cities, and government-grade projects.
           </p>
         </motion.div>
-
+ 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -111,3 +111,5 @@ export default function ElectronicComponents() {
     </section>
   );
 }
+ 
+ 

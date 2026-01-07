@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
+ 
 // ✅ Correct video imports from public folder
 import biometricsVid from "/videos/offerings/biometrics.mp4";
 import componentsVid from "/videos/offerings/electronic-components.mp4";
@@ -13,7 +13,7 @@ import psimVid from "/videos/offerings/PSIM & Video Management System.mp4";
 import videoAnalyticsVid from "/videos/offerings/Video Analytics.mp4";
 import benefitsVid from "/videos/offerings/benefits.mp4";
 import useCasesVid from "/videos/offerings/use-cases.mp4";
-
+ 
 export default function Offerings() {
   const offeringsData = [
     {
@@ -23,7 +23,7 @@ export default function Offerings() {
       desc: "Advanced biometric authentication and secure access control systems.",
     },
     {
-      title: "Electronic Components",
+      title: "Enterprise Management System",
       link: "/offerings/electronic-components",
       video: componentsVid,
       desc: "High-quality electronic components sourced from trusted brands.",
@@ -47,7 +47,7 @@ export default function Offerings() {
       desc: "Comprehensive network security solutions to protect enterprise environments.",
     },
     {
-      title: "Enterprise Management System",
+      title: "Electronic Components",
       link: "/offerings/enterprise-management-system",
       video: enterpriseVid,
       desc: "Centralized enterprise operations, monitoring, and reporting platform.",
@@ -83,7 +83,7 @@ export default function Offerings() {
       desc: "Real-world implementations across multiple industry verticals.",
     },
   ];
-
+ 
   return (
     <section className="min-h-screen bg-[#020617] text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -102,7 +102,7 @@ export default function Offerings() {
             scalable, and future-ready technology.
           </p>
         </motion.div>
-
+ 
         {/* Offerings Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {offeringsData.map((offering, index) => (
@@ -122,13 +122,13 @@ export default function Offerings() {
                 playsInline
                 preload="metadata"
               />
-
+ 
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-cyan-300">
                   {offering.title}
                 </h3>
                 <p className="text-gray-400 mt-2">{offering.desc}</p>
-
+ 
                 <Link
                   to={offering.link}
                   className="inline-block mt-4 text-cyan-400 font-semibold hover:text-cyan-300"
@@ -143,3 +143,5 @@ export default function Offerings() {
     </section>
   );
 }
+ 
+ 
