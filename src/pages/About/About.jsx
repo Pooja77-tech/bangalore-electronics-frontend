@@ -70,13 +70,23 @@ export default function About() {
             >
               <h3 className="text-xl font-semibold text-green-400 mb-4">{item}</h3>
               {item === "Founder" && (
-                <p className="text-gray-300">Late C. Kiran Lal — a visionary leader whose values of integrity, quality, and customer commitment continue to guide Bangalore Electronics.</p>
+                <p className="text-gray-300">Late C. Kiran Lal was the founder and visionary leader of Bangalore Electronics.
+He believed strongly in integrity, quality, and long-term customer relationships.
+His leadership established a culture of accountability and technical excellence.
+These values continue to guide the organization’s growth and decisions.</p>
               )}
               {item === "Mission" && (
-                <p className="text-gray-300">To deliver high-quality bespoke solutions that exceed customer expectations and create long-term value.</p>
+                <p className="text-gray-300">
+To deliver high-quality, customized technology solutions for diverse industries.
+To consistently exceed customer expectations through reliability and precision.
+To ensure compliance with industry standards and best practices.
+To build long-term value through trust, performance, and service excellence.</p>
               )}
               {item === "Vision" && (
-                <p className="text-gray-300">To become a value-added solution provider in India by continuously improving services and investing in our people.</p>
+                <p className="text-gray-300">To become a leading value-added technology solution provider in India.
+To be recognized for reliability, innovation, and professional execution.
+To continuously enhance services through skilled people and modern systems.
+To contribute to sustainable growth for clients, partners, and stakeholders.</p>
               )}
             </motion.div>
           ))}

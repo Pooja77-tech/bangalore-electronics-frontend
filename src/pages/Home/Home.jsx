@@ -65,7 +65,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-6">
             {[
               ["35+", "Years of Excellence"],
-              ["500+", "Enterprise Clients"],
+              ["300+", "Enterprise Clients"],
               ["800+", "Projects Delivered"],
               ["Pan‑India", "Service Presence"],
             ].map(([value, label]) => (
