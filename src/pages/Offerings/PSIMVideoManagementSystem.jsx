@@ -104,22 +104,7 @@ export default function PSIMVideoManagementSystem() {
         </motion.div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mt-24 text-center"
-        >
-          <h3 className="text-3xl font-semibold mb-6">
-            Centralize & Elevate Your Security Operations
-          </h3>
-          <Link
-            to="/contact"
-            className="inline-block rounded-full bg-cyan-500 px-10 py-4 font-semibold text-black hover:bg-cyan-400 transition"
-          >
-            Request a Demo
-          </Link>
-        </motion.div>
+        
 
       </div>
     </section>

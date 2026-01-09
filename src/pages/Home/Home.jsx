@@ -1,26 +1,31 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowRight, ShieldCheck, Cpu, Network } from "lucide-react";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6, ease: "easeOut" },
+};
 
 export default function Home() {
   return (
-    <div
-      className="relative min-h-screen overflow-hidden text-slate-200
-      bg-linear-to-br from-[#111827] via-[#1E293B] to-[#0F172A]"
-    >
-      {/* Background glow */}
+    <div className="relative min-h-screen overflow-hidden text-slate-200 bg-[#020617]">
+      
+      {/* ================= BACKGROUND GLOWS ================= */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.22),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.16),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(5,150,105,0.14),transparent_60%)]" />
+      <div className="absolute inset-0 opacity-[0.12] bg-[radial-gradient(#64748b_1px,transparent_1px)] bg-size-[3px_3px] mix-blend-overlay" />
 
       <div className="relative z-10">
-
         {/* ================= HERO ================= */}
         <section className="max-w-7xl mx-auto px-6 pt-32 pb-28">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="rounded-[2.75rem] bg-white/10 backdrop-blur-2xl
-            border border-white/15 shadow-[0_40px_120px_rgba(16,185,129,0.25)] p-14"
+            className="rounded-[2.75rem] bg-white/5 backdrop-blur-2xl border border-emerald-400/20 shadow-[0_30px_90px_rgba(16,185,129,0.35)] p-14 hover:shadow-[0_40px_120px_rgba(16,185,129,0.5)] transition"
           >
             <p className="text-xs uppercase tracking-[0.35em] text-emerald-400 font-semibold">
               Trusted Since 1988
@@ -31,16 +36,13 @@ export default function Home() {
             </h1>
 
             <p className="mt-6 text-lg text-slate-300 max-w-3xl">
-              Dependable, standards-compliant technology systems across
-              security, networking, and electronics.
+              We deliver enterprise-grade security, networking, and electronics solutions engineered to meet rigorous compliance standards, ensure long-term operational reliability, and uphold the highest levels of accountability.
             </p>
 
             <div className="mt-10">
               <Link
                 to="/contact"
-                className="px-10 py-4 rounded-xl bg-emerald-500
-                text-[#020617] font-semibold shadow-lg
-                hover:bg-emerald-400 transition"
+                className="px-10 py-4 rounded-xl bg-emerald-500 text-[#020617] font-semibold shadow-lg hover:bg-emerald-400 transition"
               >
                 Contact Us
               </Link>
@@ -49,145 +51,102 @@ export default function Home() {
         </section>
 
         {/* ================= STATS ================= */}
-        <section className="max-w-7xl mx-auto px-6 pb-24">
-          <div className="grid md:grid-cols-4 gap-6">
+        <section className="max-w-7xl mx-auto px-4 pb-16 sm:pb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               ["35+", "Years of Excellence"],
               ["500+", "Enterprise Clients"],
-              ["800+", "Projects Delivered"],
-              ["Pan India", "Service Presence"],
+              ["300+", "Projects Delivered"],
+              ["Pan-India", "Service Presence"],
             ].map(([value, label]) => (
-              <div
+              <motion.div
                 key={label}
-                className="rounded-2xl bg-white/10 backdrop-blur-xl
-                border border-white/15 p-8 text-center"
+                {...fadeUp}
+                className="rounded-xl bg-white/5 border border-emerald-400/20 p-5 text-center overflow-hidden shadow-[0_30px_90px_rgba(16,185,129,0.25)] hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)] transition"
               >
-                <h3 className="text-3xl font-bold text-emerald-400">{value}</h3>
-                <p className="mt-2 text-slate-300">{label}</p>
-              </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-emerald-400">
+                  {value}
+                </h3>
+                <p className="mt-1 text-xs sm:text-sm text-slate-300 wrap-break-word">
+                  {label}
+                </p>
+              </motion.div>
             ))}
           </div>
         </section>
 
-        {/* ================= COMPANY OVERVIEW ================= */}
-        <section className="max-w-7xl mx-auto px-6 pb-28">
-          <div className="rounded-[2.5rem] bg-white/10 backdrop-blur-2xl
-            border border-white/15 p-14">
-            <p className="text-sm uppercase tracking-widest text-emerald-400">
-              Engineering Excellence Since 1988
+        {/* ================= OVERVIEW ================= */}
+        <section className="max-w-7xl mx-auto px-4 pb-16 sm:pb-24">
+          <motion.div
+            {...fadeUp}
+            className="rounded-2xl bg-white/5 border border-emerald-400/20 p-5 sm:p-8 md:p-12 shadow-[0_30px_90px_rgba(16,185,129,0.25)] hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)] transition"
+          >
+            <p className="text-xs uppercase tracking-widest text-emerald-400">
+              Engineering Excellence
             </p>
-
-            <p className="mt-6 text-lg text-slate-300 max-w-4xl leading-relaxed">
-              Bangalore Electronics supports enterprises, institutions,
-              and government bodies with dependable, standards-compliant
-              technology systems across security, networking, and electronics.
+            <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed wrap-break-word">
+              Bangalore Electronics partners with enterprises, institutions,
+              and government bodies to deliver scalable, compliant, and
+              future-ready technology systems.
             </p>
-          </div>
+          </motion.div>
         </section>
 
-        {/* ================= WHY ENTERPRISES TRUST US ================= */}
-        <section className="max-w-7xl mx-auto px-6 pb-28">
-          {/* ✅ ONLY CHANGE IS HERE */}
-          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-100 mb-12">
+        {/* ================= WHY TRUST ================= */}
+        <section className="max-w-7xl mx-auto px-4 pb-16 sm:pb-24">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-6">
             Why Enterprises Trust Us
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-12">
-            <div>
-              <h4 className="text-lg font-semibold text-slate-100">
-                Compliance-Driven Delivery
-              </h4>
-              <p className="mt-3 text-slate-300 text-sm leading-relaxed">
-                Designed around audits, regulations, and governance requirements.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold text-slate-100">
-                Vendor-Neutral Solutions
-              </h4>
-              <p className="mt-3 text-slate-300 text-sm leading-relaxed">
-                Performance-based technology selection, not partnerships.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold text-slate-100">
-                SLA-Backed Support
-              </h4>
-              <p className="mt-3 text-slate-300 text-sm leading-relaxed">
-                Defined response times with long-term AMC commitments.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold text-slate-100">
-                Lifecycle Ownership
-              </h4>
-              <p className="mt-3 text-slate-300 text-sm leading-relaxed">
-                From deployment to upgrades and system retirement.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ================= CORE TECHNOLOGY SOLUTIONS ================= */}
-        <section className="max-w-7xl mx-auto px-6 pb-28">
-          <div className="rounded-[2.5rem] bg-white/10 backdrop-blur-2xl
-            border border-white/15 p-14">
-            <p className="text-sm uppercase tracking-widest text-emerald-400">
-              Core Technology Solutions
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-8 mt-10">
-              {[
-                { name: "Biometric & Access Control", link: "/offerings/biometrics-access" },
-                { name: "Video Surveillance Systems", link: "/offerings/video-surveillance" },
-                { name: "IT & Network Infrastructure", link: "/offerings/it-infrastructure" },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.link}
-                  className="p-8 rounded-2xl bg-black/30
-                  border border-white/10 hover:bg-black/50 transition"
-                >
-                  <p className="text-slate-200 font-medium">{item.name}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ================= FINAL CTA ================= */}
-        <section className="w-full bg-emerald-500 py-16">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-black/30 rounded-4xl p-12
-              backdrop-blur-3xl border border-white/10 shadow-2xl"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Let’s Build Reliable Systems Together
-              </h2>
-
-              <p className="mt-4 text-lg text-gray-200">
-                Speak with our engineering team today.
-              </p>
-
-              <Link
-                to="/contact"
-                className="inline-block mt-6 px-10 py-3 rounded-xl
-                bg-emerald-500 text-white font-semibold
-                hover:bg-emerald-400 transition shadow-lg"
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+            {[
+              { icon: ShieldCheck, title: "Compliance-Driven", desc: "Audit-ready systems." },
+              { icon: Cpu, title: "Vendor Neutral", desc: "Performance-focused solutions." },
+              { icon: Network, title: "SLA-Backed", desc: "Guaranteed response times." },
+              { icon: ArrowRight, title: "Lifecycle Ownership", desc: "End-to-end delivery." },
+            ].map((item) => (
+              <motion.div
+                key={item.title}
+                {...fadeUp}
+                className="rounded-xl bg-white/5 border border-emerald-400/20 p-5 overflow-hidden shadow-[0_30px_90px_rgba(16,185,129,0.25)] hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)] transition"
               >
-                Contact Us
-              </Link>
+                <item.icon className="text-emerald-400" size={18} />
+                <h4 className="mt-3 text-sm font-semibold text-white wrap-break-word">
+                  {item.title}
+                </h4>
+                <p className="mt-2 text-xs text-slate-300 leading-relaxed wrap-break-word">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* ================= CTA ================= */}
+        <section className="py-14">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <motion.div
+              {...fadeUp}
+              className="rounded-2xl bg-emerald-500 p-px"
+            >
+              <div className="rounded-2xl bg-[#020617] p-6 sm:p-10">
+                <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                  Let’s Build Reliable Systems Together
+                </h2>
+
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 mt-6 px-6 py-3
+                    rounded-lg bg-emerald-500 text-[#020617]
+                    text-sm font-semibold hover:bg-emerald-400
+                    transition whitespace-nowrap"
+                >
+                  Contact Us <ArrowRight size={16} />
+                </Link>
+              </div>
             </motion.div>
           </div>
         </section>
-
       </div>
     </div>
   );

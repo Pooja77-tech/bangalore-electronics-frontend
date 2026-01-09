@@ -33,7 +33,7 @@ export default function ActiveNetwork() {
 
           <div className="p-12">
             <h1 className="text-5xl font-extrabold text-cyan-300 mb-6">
-              Active Networking
+              Active Networking And Passive Networking
             </h1>
             <p className="text-gray-300 max-w-4xl leading-relaxed">
               Enterprise-grade active networking solutions designed to deliver
@@ -156,23 +156,7 @@ export default function ActiveNetwork() {
         </motion.div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mt-24 text-center"
-        >
-          <h3 className="text-3xl font-semibold mb-6">
-            Ready to Upgrade Your Network Infrastructure?
-          </h3>
-          <Link
-            to="/contact"
-            className="inline-block rounded-full bg-cyan-500 px-10 py-4 font-semibold text-black hover:bg-cyan-400 transition"
-          >
-            Consult Our Networking Experts
-          </Link>
-        </motion.div>
-
+        
       </div>
     </section>
   );

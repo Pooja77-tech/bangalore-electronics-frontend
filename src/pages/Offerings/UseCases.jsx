@@ -1,49 +1,73 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 export default function UseCases() {
   const useCases = [
     {
-      title: "Corporate Offices",
-      description: "Secure access control and surveillance for multi-floor corporate buildings with integrated IT infrastructure.",
-      icon: "🏢",
-      features: ["Biometric Access", "Video Surveillance", "Network Security"],
+      title: "High-Occupancy Environments",
+      description:
+        "Operational environments with continuous human movement that require controlled access, real-time visibility, and consistent oversight to maintain safety and order.",
+      features: [
+        "Controlled Entry & Exit",
+        "Continuous Monitoring",
+        "Incident Traceability",
+      ],
     },
     {
-      title: "Educational Institutions",
-      description: "Comprehensive security solutions for schools, colleges, and universities with student safety focus.",
-      icon: "🎓",
-      features: ["Access Control", "Emergency Response", "Video Analytics"],
+      title: "Asset-Intensive Operations",
+      description:
+        "Facilities where physical and digital assets must be protected, monitored, and accounted for without disrupting daily workflows.",
+      features: [
+        "Asset Visibility",
+        "Access Accountability",
+        "Loss Prevention",
+      ],
     },
     {
-      title: "Healthcare Facilities",
-      description: "Critical infrastructure protection for hospitals and medical centers with HIPAA compliance.",
-      icon: "🏥",
-      features: ["Patient Safety", "Asset Tracking", "Emergency Systems"],
+      title: "Distributed Locations",
+      description:
+        "Multi-site operations requiring centralized supervision, consistent standards, and unified operational control across locations.",
+      features: [
+        "Centralized Oversight",
+        "Multi-Location Control",
+        "Unified Reporting",
+      ],
     },
     {
-      title: "Government Buildings",
-      description: "High-security solutions for government offices and public buildings with audit trails.",
-      icon: "🏛️",
-      features: ["Multi-level Security", "Audit Compliance", "24/7 Monitoring"],
+      title: "Mission-Critical Facilities",
+      description:
+        "Environments where uptime, reliability, and immediate response are essential to prevent operational or financial disruption.",
+      features: [
+        "High Availability",
+        "Redundancy Readiness",
+        "Real-Time Alerts",
+      ],
     },
     {
-      title: "Industrial Complexes",
-      description: "Robust security for manufacturing plants and industrial facilities with environmental monitoring.",
-      icon: "🏭",
-      features: ["Perimeter Security", "Asset Protection", "Environmental Monitoring"],
+      title: "Public-Facing Spaces",
+      description:
+        "Open-access environments that must balance accessibility with safety, visibility, and controlled movement.",
+      features: [
+        "Crowd Awareness",
+        "Safety Assurance",
+        "Operational Visibility",
+      ],
     },
     {
-      title: "Retail & Commercial",
-      description: "Loss prevention and customer safety solutions for shopping centers and retail spaces.",
-      icon: "🛍️",
-      features: ["Loss Prevention", "Customer Safety", "Inventory Security"],
+      title: "Restricted-Access Zones",
+      description:
+        "Sensitive areas requiring layered access control, role-based permissions, and detailed activity tracking.",
+      features: [
+        "Role-Based Access",
+        "Activity Logging",
+        "Policy Enforcement",
+      ],
     },
   ];
 
   return (
     <section className="min-h-screen bg-[#020617] text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -55,8 +79,8 @@ export default function UseCases() {
             Industry Use Cases
           </h1>
           <p className="mt-6 text-gray-300 max-w-3xl mx-auto">
-            Discover how our comprehensive security and IT solutions are implemented
-            across various industries to ensure safety, compliance, and efficiency.
+            Operational environments where reliability, control, and long-term
+            performance are critical to everyday functioning.
           </p>
         </motion.div>
 
@@ -70,20 +94,24 @@ export default function UseCases() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-cyan-400/40 transition-all"
             >
-              <div className="text-6xl mb-6">{useCase.icon}</div>
               <h3 className="text-2xl font-semibold text-cyan-300 mb-4">
                 {useCase.title}
               </h3>
+
               <p className="text-gray-400 mb-6 leading-relaxed">
                 {useCase.description}
               </p>
+
               <div className="space-y-2">
                 <h4 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider">
-                  Key Features
+                  Operational Focus Areas
                 </h4>
                 <ul className="space-y-1">
                   {useCase.features.map((feature) => (
-                    <li key={feature} className="text-sm text-gray-300 flex items-center">
+                    <li
+                      key={feature}
+                      className="text-sm text-gray-300 flex items-center"
+                    >
                       <span className="text-cyan-400 mr-2">•</span>
                       {feature}
                     </li>
@@ -94,27 +122,13 @@ export default function UseCases() {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-20"
-        >
-          <h2 className="text-3xl font-bold text-cyan-300 mb-6">
-            Ready to Implement Your Solution?
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact our experts to discuss your specific requirements and get a
-            customized security and IT solution for your industry.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block px-8 py-4 bg-cyan-500 text-[#020617] font-semibold rounded-xl shadow-[0_0_25px_rgba(34,211,238,0.6)] hover:bg-cyan-400 transition"
-          >
-            Get Started Today
-          </Link>
-        </motion.div>
+        {/* Closing Line */}
+        <p className="mt-20 text-center text-gray-400 max-w-4xl mx-auto">
+          These use cases represent practical deployment experience across
+          diverse operational environments, emphasizing reliability,
+          accountability, and long-term system performance.
+        </p>
+
       </div>
     </section>
   );

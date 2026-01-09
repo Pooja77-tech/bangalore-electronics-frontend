@@ -1,59 +1,54 @@
-export default function Partners() {
-  const partners = [
-    { name: "Bharat Electronics Limited", img: "/partners/bharat-electronic.png" },
-    { name: "Western Digital", img: "/partners/western-digital.png" },
-    { name: "3C3", img: "/partners/3C3.png" },
-    { name: "Hikvision", img: "/partners/hikvision.png" },
-    { name: "Uniview", img: "/partners/uniview.png" },
-    { name: "Motadata", img: "/partners/motadata.png" },
-    { name: "Infoblox", img: "/partners/infoblox.png" },
-    { name: "Belden", img: "/partners/belden.png" },
-    { name: "Lenovo", img: "/partners/lenovo.png" },
-    { name: "Hifocus", img: "/partners/hifocus.png" },
-  ];
+import React from "react";
 
+// Array of partner logos
+const partners = [
+  { name: "Bharat Electronics", logo: "/partners/bharat-electronics.png" },
+  { name: "Western Digital", logo: "/partners/western-digital.png" },
+  { name: "3C3", logo: "/partners/3C3.png" },
+  { name: "Hikvision", logo: "/partners/hikvision.png" },
+  { name: "Unview", logo: "/partners/unview.png" },
+  { name: "Motadata", logo: "/partners/motadata.png" },
+  { name: "Belden", logo: "/partners/belden.png" },
+  { name: "Lenovo", logo: "/partners/lenovo.png" },
+  { name: "Hi-Focus", logo: "/partners/hifocus.png" },
+  { name: "Infoblox", logo: "/partners/infoblox.png" },
+];
+
+const Partners = () => {
   return (
-    <div className="min-h-screen px-6 py-20 bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white overflow-hidden">
-      {/* HEADER */}
-      <div className="max-w-5xl mx-auto text-center mb-20">
-        <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
-          Our Partners
-        </h1>
-        <p className="mt-4 text-slate-400">
-          Trusted technology partners powering our solutions
+    <section className="bg-gray-800 py-16 sm:py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 md:mb-8 tracking-wide"
+          style={{ color: "#00D1A5" }}
+        >
+          Our Trusted Partners
+        </h2>
+        <p className="text-gray-300 mb-12 sm:mb-16 text-base sm:text-lg md:text-lg">
+          Collaborating with industry leaders to deliver cutting-edge solutions
         </p>
-      </div>
 
-      {/* PARTNERS GRID */}
-      <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-        {partners.map((partner, index) => (
-          <div
-            key={index}
-            className="relative group rounded-2xl p-px
-                       bg-linear-to-br from-white/20 via-white/5 to-white/10
-                       hover:from-cyan-400/40 hover:to-teal-400/40
-                       transition-all duration-500"
-          >
-            <div className="relative backdrop-blur-xl bg-white/5 border border-white/10
-                            rounded-2xl p-6 flex items-center justify-center
-                            shadow-xl hover:shadow-cyan-500/30
-                            transition-all duration-500 hover:-translate-y-2">
-              
-              {/* Logo */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 justify-items-center">
+          {partners.map((partner, index) => (
+            <div
+              key={index}
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 flex items-center justify-center
+                         bg-linear-to-tr from-gray-700 via-gray-800 to-gray-700
+                         rounded-3xl shadow-inner shadow-black/20
+                         hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,209,165,0.25)]
+                         transition-all duration-500 p-4"
+            >
               <img
-                src={partner.img}
+                src={partner.logo}
                 alt={partner.name}
-                className="relative z-10 max-h-16 object-contain
-                           transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-contain"
               />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      {/* FLOATING BLURS */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl animate-pulse" />
-    </div>
+    </section>
   );
-}
+};
+
+export default Partners;
