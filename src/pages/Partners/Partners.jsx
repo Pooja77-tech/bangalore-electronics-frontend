@@ -16,15 +16,17 @@ const partners = [
 
 const Partners = () => {
   return (
-    <section className="bg-gray-800 py-16 sm:py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 md:mb-8 tracking-wide"
-          style={{ color: "#00D1A5" }}
-        >
+    <section className="min-h-screen bg-[#020617] text-slate-200 py-16 sm:py-24 md:py-32 relative overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.2),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(5,150,105,0.14),transparent_60%)]" />
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#64748b_1px,transparent_1px)] bg-size-[3px_3px] mix-blend-overlay" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 md:mb-8 tracking-wide text-emerald-400">
           Our Trusted Partners
         </h2>
-        <p className="text-gray-300 mb-12 sm:mb-16 text-base sm:text-lg md:text-lg">
+        <p className="text-slate-300 mb-12 sm:mb-16 text-base sm:text-lg md:text-lg">
           Collaborating with industry leaders to deliver cutting-edge solutions
         </p>
 
@@ -32,11 +34,12 @@ const Partners = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 flex items-center justify-center
-                         bg-linear-to-tr from-gray-700 via-gray-800 to-gray-700
-                         rounded-3xl shadow-inner shadow-black/20
-                         hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,209,165,0.25)]
-                         transition-all duration-500 p-4"
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72
+                         bg-white/5 backdrop-blur-2xl border border-emerald-400/20
+                         rounded-3xl flex items-center justify-center
+                         shadow-[0_20px_60px_rgba(16,185,129,0.25)]
+                         hover:shadow-[0_30px_90px_rgba(16,185,129,0.4)]
+                         hover:scale-105 transition-all duration-500 p-6"
             >
               <img
                 src={partner.logo}

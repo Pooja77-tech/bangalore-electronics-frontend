@@ -12,141 +12,167 @@ const fadeUp = {
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden text-slate-200 bg-[#020617]">
-      
+
       {/* ================= BACKGROUND GLOWS ================= */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.22),transparent_55%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(5,150,105,0.14),transparent_60%)]" />
       <div className="absolute inset-0 opacity-[0.12] bg-[radial-gradient(#64748b_1px,transparent_1px)] bg-size-[3px_3px] mix-blend-overlay" />
 
-      <div className="relative z-10">
-        {/* ================= HERO ================= */}
-        <section className="max-w-7xl mx-auto px-6 pt-32 pb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="rounded-[2.75rem] bg-white/5 backdrop-blur-2xl border border-emerald-400/20 shadow-[0_30px_90px_rgba(16,185,129,0.35)] p-14 hover:shadow-[0_40px_120px_rgba(16,185,129,0.5)] transition"
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 flex flex-col items-center text-center">
+
+        {/* ================= HERO / TITLE ================= */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-extrabold tracking-tight
+                     bg-linear-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent"
+        >
+          Bangalore Electronics
+        </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="mt-6"
+        >
+          <span className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[0.3em] uppercase text-gray-400">
+            Networking Solutions
+          </span>
+        </motion.div>
+
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="mx-auto mt-10 h-px w-40 bg-linear-to-r from-transparent via-cyan-400 to-transparent"
+        />
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="mt-10 text-gray-300 max-w-3xl leading-relaxed"
+        >
+          Enterprise-grade security, networking, and electronics delivered with compliance, longevity, and accountability.
+        </motion.p>
+
+        {/* ================= CTA BUTTONS ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="mt-10 flex flex-col sm:flex-row gap-4"
+        >
+          <Link
+            to="/about"
+            className="px-10 py-4 rounded-xl bg-emerald-500 text-[#020617] font-semibold shadow-lg hover:bg-emerald-400 transition inline-flex items-center gap-2"
           >
-            <p className="text-xs uppercase tracking-[0.35em] text-emerald-400 font-semibold">
-              Trusted Since 1988
-            </p>
+            About Us <ArrowRight size={16} />
+          </Link>
 
-            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold text-slate-100">
-              Bangalore Electronics
-            </h1>
-
-            <p className="mt-6 text-lg text-slate-300 max-w-3xl">
-              We deliver enterprise-grade security, networking, and electronics solutions engineered to meet rigorous compliance standards, ensure long-term operational reliability, and uphold the highest levels of accountability.
-            </p>
-
-            <div className="mt-10">
-              <Link
-                to="/contact"
-                className="px-10 py-4 rounded-xl bg-emerald-500 text-[#020617] font-semibold shadow-lg hover:bg-emerald-400 transition"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </motion.div>
-        </section>
+          <Link
+            to="/offerings"
+            className="px-10 py-4 rounded-xl border border-slate-600 text-slate-200 font-semibold hover:border-emerald-400 hover:text-emerald-400 hover:bg-white/5 transition inline-flex items-center gap-2"
+          >
+            Offerings <ArrowRight size={16} />
+          </Link>
+        </motion.div>
 
         {/* ================= STATS ================= */}
-        <section className="max-w-7xl mx-auto px-4 pb-16 sm:pb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <section className="mt-24 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              ["35+", "Years of Excellence"],
-              ["500+", "Enterprise Clients"],
-              ["300+", "Projects Delivered"],
-              ["Pan-India", "Service Presence"],
-            ].map(([value, label]) => (
+              { value: "35+", label: "Years of Excellence" },
+              { value: "500+", label: "Enterprise Clients" },
+              { value: "300+", label: "Projects Delivered" },
+              { value: "Pan-India", label: "Service Presence" },
+            ].map((stat, idx) => (
               <motion.div
-                key={label}
-                {...fadeUp}
-                className="rounded-xl bg-white/5 border border-emerald-400/20 p-5 text-center overflow-hidden shadow-[0_30px_90px_rgba(16,185,129,0.25)] hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)] transition"
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * idx, duration: 0.6 }}
+                className="rounded-xl bg-[#01111f]/30 border border-emerald-400/20 p-6 shadow-[0_20px_60px_rgba(16,185,129,0.25)] hover:shadow-[0_30px_90px_rgba(16,185,129,0.4)] transition"
               >
-                <h3 className="text-2xl sm:text-3xl font-bold text-emerald-400">
-                  {value}
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-400">
+                  {stat.value}
                 </h3>
-                <p className="mt-1 text-xs sm:text-sm text-slate-300 wrap-break-word">
-                  {label}
+                <p className="mt-1 text-sm sm:text-base text-slate-300">
+                  {stat.label}
                 </p>
               </motion.div>
             ))}
           </div>
         </section>
 
-        {/* ================= OVERVIEW ================= */}
-        <section className="max-w-7xl mx-auto px-4 pb-16 sm:pb-24">
-          <motion.div
-            {...fadeUp}
-            className="rounded-2xl bg-white/5 border border-emerald-400/20 p-5 sm:p-8 md:p-12 shadow-[0_30px_90px_rgba(16,185,129,0.25)] hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)] transition"
+        {/* ================= WHY ENTERPRISES TRUST US ================= */}
+        <section className="mt-24 w-full">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-emerald-400 mb-8 text-center"
           >
-            <p className="text-xs uppercase tracking-widest text-emerald-400">
-              Engineering Excellence
-            </p>
-            <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed wrap-break-word">
-              Bangalore Electronics partners with enterprises, institutions,
-              and government bodies to deliver scalable, compliant, and
-              future-ready technology systems.
-            </p>
+            Why Enterprises Trust Us
+          </motion.h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+            {[
+              { icon: <ShieldCheck />, title: "Compliance-Driven", desc: "Audit-ready systems." },
+              { icon: <Network />, title: "Vendor Neutral", desc: "Performance-focused solutions." },
+              { icon: <Cpu />, title: "SLA-Backed", desc: "Guaranteed response times." },
+              { icon: <ArrowRight />, title: "Lifecycle Ownership", desc: "End-to-end delivery." },
+            ].map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * idx, duration: 0.6 }}
+                className="rounded-xl border border-emerald-400/20 p-6 shadow-[0_20px_60px_rgba(16,185,129,0.25)] hover:shadow-[0_30px_90px_rgba(16,185,129,0.4)] transition"
+              >
+                <div className="text-emerald-400 mb-3">{item.icon}</div>
+                <h3 className="text-lg font-bold text-white">{item.title}</h3>
+                <p className="mt-1 text-sm text-gray-300">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* ================= BUILD SYSTEMS CTA ================= */}
+        <section className="mt-24 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-xl border border-emerald-400/20 p-12 text-center bg-[#01111f]/30
+                       shadow-[0_20px_60px_rgba(16,185,129,0.25)]
+                       hover:shadow-[0_30px_90px_rgba(16,185,129,0.4)]
+                       transition-all duration-500"
+          >
+            <motion.h3
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6"
+            >
+              Let’s Build Reliable Systems Together
+            </motion.h3>
+
+            <motion.a
+              initial={{ scale: 0.95, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(16,185,129,0.6)" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              href="/contact"
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-emerald-500 text-[#020617] font-semibold shadow-lg hover:bg-emerald-400 transition"
+            >
+              Contact Us <ArrowRight size={16} />
+            </motion.a>
           </motion.div>
         </section>
 
-        {/* ================= WHY TRUST ================= */}
-        <section className="max-w-7xl mx-auto px-4 pb-16 sm:pb-24">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-6">
-            Why Enterprises Trust Us
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-            {[
-              { icon: ShieldCheck, title: "Compliance-Driven", desc: "Audit-ready systems." },
-              { icon: Cpu, title: "Vendor Neutral", desc: "Performance-focused solutions." },
-              { icon: Network, title: "SLA-Backed", desc: "Guaranteed response times." },
-              { icon: ArrowRight, title: "Lifecycle Ownership", desc: "End-to-end delivery." },
-            ].map((item) => (
-              <motion.div
-                key={item.title}
-                {...fadeUp}
-                className="rounded-xl bg-white/5 border border-emerald-400/20 p-5 overflow-hidden shadow-[0_30px_90px_rgba(16,185,129,0.25)] hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)] transition"
-              >
-                <item.icon className="text-emerald-400" size={18} />
-                <h4 className="mt-3 text-sm font-semibold text-white wrap-break-word">
-                  {item.title}
-                </h4>
-                <p className="mt-2 text-xs text-slate-300 leading-relaxed wrap-break-word">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* ================= CTA ================= */}
-        <section className="py-14">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <motion.div
-              {...fadeUp}
-              className="rounded-2xl bg-emerald-500 p-px"
-            >
-              <div className="rounded-2xl bg-[#020617] p-6 sm:p-10">
-                <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
-                  Let’s Build Reliable Systems Together
-                </h2>
-
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 mt-6 px-6 py-3
-                    rounded-lg bg-emerald-500 text-[#020617]
-                    text-sm font-semibold hover:bg-emerald-400
-                    transition whitespace-nowrap"
-                >
-                  Contact Us <ArrowRight size={16} />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </section>
       </div>
     </div>
   );

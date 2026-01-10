@@ -8,7 +8,7 @@
 - [ ] Start backend server (npm start in backend directory)
 
 ## Frontend Updates
-- [x] Update Chatbot.jsx to use API calls instead of rule-based responses
+- [ ] Update Chatbot.jsx to use API calls instead of rule-based responses
 
 ## Testing
 - [ ] Test chatbot with various questions

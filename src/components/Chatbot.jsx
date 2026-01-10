@@ -8,34 +8,44 @@ export default function Chatbot() {
   ]);
   const [input, setInput] = useState("");
 
-  const handleSend = async () => {
+  const getBotResponse = (message) => {
+    const lowerMessage = message.toLowerCase();
+
+    if (lowerMessage.includes("biometrics") || lowerMessage.includes("access control")) {
+      return "We specialize in Biometrics Access Control systems. Our solutions provide secure and convenient access management for various industries. Would you like to know more about our biometric technologies?";
+    } else if (lowerMessage.includes("cctv") || lowerMessage.includes("video surveillance")) {
+      return "Our CCTV & Video Surveillance systems offer comprehensive security monitoring. We provide high-quality cameras, recording systems, and remote viewing capabilities. Contact us for a customized surveillance solution.";
+    } else if (lowerMessage.includes("psim") || lowerMessage.includes("video management")) {
+      return "Our PSIM & Video Management System integrates multiple security systems into a unified platform. It provides real-time monitoring, incident management, and automated responses. Perfect for large-scale security operations.";
+    } else if (lowerMessage.includes("video analytics")) {
+      return "Video Analytics technology helps detect unusual activities, count people, and provide intelligent insights from video feeds. Our solutions use AI to enhance security and operational efficiency.";
+    } else if (lowerMessage.includes("it infrastructure") || lowerMessage.includes("networking")) {
+      return "We offer comprehensive IT Infrastructure and Networking Solutions including servers, storage, network equipment, and cloud services. Our team ensures reliable and scalable IT environments.";
+    } else if (lowerMessage.includes("enterprise management")) {
+      return "Our Enterprise Management Systems help organizations streamline operations, improve productivity, and make data-driven decisions. We provide ERP, CRM, and other business management solutions.";
+    } else if (lowerMessage.includes("network security")) {
+      return "Network Security is crucial in today's digital landscape. We provide firewalls, intrusion detection, VPNs, and comprehensive security audits to protect your network infrastructure.";
+    } else if (lowerMessage.includes("electronic components")) {
+      return "We supply high-quality Electronic Components for various applications. Our inventory includes sensors, processors, displays, and other essential electronic parts.";
+    } else if (lowerMessage.includes("active network")) {
+      return "Active Network Solutions ensure optimal network performance and reliability. We design and implement networks that support your business growth and technological needs.";
+    } else if (lowerMessage.includes("contact") || lowerMessage.includes("sales")) {
+      return "Please visit our Contact page or call us directly to speak with our sales team. We're here to help you find the right solution for your needs.";
+    } else if (lowerMessage.includes("hello") || lowerMessage.includes("hi")) {
+      return "Hello! Welcome to Bangalore Electronics. How can I assist you with our security and technology solutions today?";
+    } else {
+      return "Thank you for your interest in Bangalore Electronics. We specialize in security systems, IT infrastructure, and electronic solutions. Could you please tell me more about what you're looking for? Our team would be happy to provide detailed information.";
+    }
+  };
+
+  const handleSend = () => {
     if (!input.trim()) return;
 
     const userMessage = { text: input, sender: "user" };
     setMessages(prev => [...prev, userMessage]);
 
-    try {
-      const response = await fetch("http://localhost:5000/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: input }),
-      });
-
-      const data = await response.json();
-
-      setMessages(prev => [...prev, { text: data.reply, sender: "bot" }]);
-    } catch (error) {
-      console.error("Error:", error);
-      setMessages(prev => [
-        ...prev,
-        {
-          text: "Sorry, I'm experiencing technical difficulties. Please try again later or contact us directly.",
-          sender: "bot"
-        }
-      ]);
-    }
+    const botResponse = getBotResponse(input);
+    setMessages(prev => [...prev, { text: botResponse, sender: "bot" }]);
 
     setInput("");
   };
