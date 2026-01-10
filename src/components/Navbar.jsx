@@ -14,10 +14,10 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+}, []);
 
-  const linkStyle =
-    "nav-link-underline text-slate-700 hover:text-blue-600 transition-all";
+const linkStyle =
+  "nav-link-underline text-slate-700 hover:text-blue-600 transition-all";
 
   return (
     <nav
@@ -51,7 +51,7 @@ export default function Navbar() {
 
           {[
             ["Home", "/"],
-            ["About", "/about"],
+            ["About Us", "/about"],
             ["Offerings", "/offerings"],
             ["Solutions", "/solutions"],
             ["Partners", "/partners"],
@@ -86,15 +86,15 @@ export default function Navbar() {
       {open && (
         <div
           className="
-            mobile-menu md:hidden flex flex-col 
+            mobile-menu md:hidden flex flex-col
             px-6 py-4 space-y-4
-            bg-white/90 backdrop-blur-2xl 
+            bg-white/90 backdrop-blur-2xl
             border-b border-white/40 shadow-lg
           "
         >
           {[
             ["Home", "/"],
-            ["About", "/about"],
+            ["About Us", "/about"],
             ["Offerings", "/offerings"],
             ["Solutions", "/solutions"],
             ["Partners", "/partners"],
