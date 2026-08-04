@@ -1,8 +1,19 @@
+import {
+  Container,
+  PageShell,
+  SectionHeader,
+} from "../../components/ui/PremiumLayout";
+
 export default function Government() {
   return (
-    <div>
-      <h2>Government Solutions</h2>
-      <p>Solutions for government sectors.</p>
-    </div>
+    <PageShell>
+      <Container>
+        <SectionHeader
+          eyebrow="Solutions"
+          title="Government Solutions"
+          description="Reliable infrastructure and security solutions for government sectors."
+        />
+      </Container>
+    </PageShell>
   );
 }

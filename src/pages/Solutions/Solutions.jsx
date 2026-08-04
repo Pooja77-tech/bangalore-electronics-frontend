@@ -1,140 +1,193 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Star } from "lucide-react";
+import {
+  Container,
+  PageShell,
+  SectionHeader,
+  SurfaceCard,
+  fadeUp,
+} from "../../components/ui/PremiumLayout";
 
-export default function UseCases() {
+export default function Solutions() {
+  const [reviewRating, setReviewRating] = useState(0);
+  const [reviewSubmitted, setReviewSubmitted] = useState(false);
+
   const useCases = [
     {
       title: "Corporate Offices",
       description:
         "Secure access control and surveillance for multi-floor corporate buildings with integrated IT infrastructure.",
-      icon: "🏢",
       features: ["Biometric Access", "Video Surveillance", "Network Security"],
     },
     {
       title: "Educational Institutions",
       description:
-        "Comprehensive security solutions for schools, colleges, and universities with student safety focus.",
-      icon: "🎓",
+        "Comprehensive safety and operations solutions for schools, colleges, and universities.",
       features: ["Access Control", "Emergency Response", "Video Analytics"],
     },
     {
       title: "Healthcare Facilities",
       description:
-        "Critical infrastructure protection for hospitals and medical centers with HIPAA compliance.",
-      icon: "🏥",
+        "Critical infrastructure protection for hospitals and medical centers where uptime and auditability matter.",
       features: ["Patient Safety", "Asset Tracking", "Emergency Systems"],
     },
     {
       title: "Government Buildings",
       description:
-        "High-security solutions for government offices and public buildings with audit trails.",
-      icon: "🏛️",
-      features: ["Multi-level Security", "Audit Compliance", "24/7 Monitoring"],
+        "High-security solutions for public offices and civic infrastructure with clear audit trails.",
+      features: ["Multi-level Security", "Audit Compliance", "Monitoring"],
     },
     {
       title: "Industrial Complexes",
       description:
-        "Robust security for manufacturing plants and industrial facilities with environmental monitoring.",
-      icon: "🏭",
-      features: ["Perimeter Security", "Asset Protection", "Environmental Monitoring"],
+        "Robust security for manufacturing plants and industrial facilities with environmental awareness.",
+      features: ["Perimeter Security", "Asset Protection", "Monitoring"],
     },
     {
       title: "Retail & Commercial",
       description:
-        "Loss prevention and customer safety solutions for shopping centers and retail spaces.",
-      icon: "🛍️",
+        "Loss prevention, customer safety, and operations visibility for high-traffic commercial spaces.",
       features: ["Loss Prevention", "Customer Safety", "Inventory Security"],
     },
   ];
 
+  const handleReviewSubmit = (event) => {
+    event.preventDefault();
+
+    if (!reviewRating) {
+      return;
+    }
+
+    setReviewSubmitted(true);
+  };
+
   return (
-    <section className="min-h-screen bg-[#020617] text-slate-200 py-20 px-6 relative overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.2),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(5,150,105,0.14),transparent_60%)]" />
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#64748b_1px,transparent_1px)] bg-size-[3px_3px] mix-blend-overlay" />
+    <PageShell>
+      <Container>
+        <SectionHeader
+          eyebrow="Solutions"
+          title="Sector-specific systems with a common standard."
+          description="Bangalore Electronics delivers technology solutions engineered for performance, compliance, scalability, and long-term reliability across enterprise and public-sector environments."
+          align="center"
+        />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          {...fadeUp}
+          className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
         >
-          <h1 className="text-5xl font-extrabold bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Industry-Focused Solutions
-          </h1>
-          <p className="mt-6 text-slate-300 max-w-3xl mx-auto">
-            Bangalore Electronics delivers sector-specific technology solutions engineered for performance, compliance, scalability, and long-term reliability across enterprise and public-sector environments.
-          </p>
-        </motion.div>
-
-        {/* Use Cases Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {useCases.map((useCase, index) => (
-            <motion.div
-              key={useCase.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="bg-white/5 backdrop-blur-2xl border border-emerald-400/20 rounded-3xl p-8 shadow-[0_20px_60px_rgba(16,185,129,0.25)] hover:shadow-[0_30px_90px_rgba(16,185,129,0.4)] transition-all"
-            >
-              <div className="text-6xl mb-6">{useCase.icon}</div>
-              <h3 className="text-2xl font-semibold text-emerald-400 mb-4">
+          {useCases.map((useCase) => (
+            <SurfaceCard key={useCase.title} className="min-h-[390px]">
+              <h3 className="text-2xl font-semibold text-[var(--color-text)]">
                 {useCase.title}
               </h3>
-              <p className="text-slate-300 mb-6 leading-relaxed">
+              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
                 {useCase.description}
               </p>
-              <div className="space-y-2">
-                <h4 className="text-sm font-semibold text-emerald-400 uppercase tracking-wider">
-                  Key Features
-                </h4>
-                <ul className="space-y-1">
-                  {useCase.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="text-sm text-slate-300 flex items-center"
-                    >
-                      <span className="text-emerald-400 mr-2">•</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+              <div className="mt-8 space-y-2">
+                {useCase.features.map((feature) => (
+                  <p
+                    key={feature}
+                    className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-muted)]"
+                  >
+                    {feature}
+                  </p>
+                ))}
               </div>
-            </motion.div>
+            </SurfaceCard>
           ))}
-        </div>
+        </motion.div>
 
-        {/* ================= CUSTOMER SATISFACTION ================= */}
-        <section className="max-w-7xl mx-auto px-6 pb-28 mt-20">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="rounded-[3rem] bg-white/5 backdrop-blur-2xl
-            border border-emerald-400/20 p-16 text-center shadow-[0_30px_90px_rgba(16,185,129,0.25)] hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)] transition"
-          >
-            <p className="text-sm md:text-base uppercase tracking-[0.35em] text-emerald-400 font-semibold">
+        <SurfaceCard
+          {...fadeUp}
+          className="mt-20 grid gap-8 p-8 text-center sm:p-10 lg:grid-cols-[0.65fr_1.35fr] lg:p-12 lg:text-left"
+        >
+          <div>
+            <p className="text-sm font-semibold uppercase text-[var(--color-accent)]">
               Customer Satisfaction
             </p>
-
-            <p className="mt-8 text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Our solutions consistently achieve a strong customer satisfaction
-              rating for reliability, timely execution, and professional support.
+            <p className="mt-5 text-5xl font-semibold text-[var(--color-text)]">
+              5.0/5
             </p>
+            <div
+              className="mt-4 flex justify-center gap-2 text-[var(--slack-yellow)] lg:justify-start"
+              aria-label="5 out of 5 stars"
+            >
+              {Array.from({ length: 5 }).map((_, index) => (
+                <Star
+                  key={index}
+                  className="h-6 w-6"
+                  fill="currentColor"
+                  strokeWidth={1.75}
+                />
+              ))}
+            </div>
+          </div>
+          <p className="self-end text-base leading-8 text-[var(--color-muted)]">
+            Our solutions consistently earn strong satisfaction ratings for
+            reliability, timely execution, and professional support.
+          </p>
+        </SurfaceCard>
 
-            <div className="mt-10 flex justify-center items-center gap-2 text-4xl text-yellow-400">
-              <span>★★★★</span>
-              <span className="text-slate-500">☆</span>
+        <SurfaceCard {...fadeUp} className="mt-6 p-8 text-center sm:p-10">
+          <p className="text-sm font-semibold uppercase text-[var(--color-accent)]">
+            Give Your Review Rating
+          </p>
+          <form className="mt-6" onSubmit={handleReviewSubmit}>
+            <div
+              className="flex justify-center gap-3"
+              role="radiogroup"
+              aria-label="Choose your review rating"
+            >
+              {Array.from({ length: 5 }).map((_, index) => {
+                const rating = index + 1;
+                const isSelected = rating <= reviewRating;
+
+                return (
+                  <button
+                    key={rating}
+                    type="button"
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--slack-yellow)] transition hover:border-[rgba(236,178,46,0.55)] hover:bg-[rgba(236,178,46,0.08)]"
+                    onClick={() => {
+                      setReviewRating(rating);
+                      setReviewSubmitted(false);
+                    }}
+                    role="radio"
+                    aria-checked={reviewRating === rating}
+                    aria-label={`${rating} star${rating > 1 ? "s" : ""}`}
+                  >
+                    <Star
+                      className="h-6 w-6"
+                      fill={isSelected ? "currentColor" : "none"}
+                      strokeWidth={1.75}
+                    />
+                  </button>
+                );
+              })}
             </div>
 
-            <p className="mt-3 text-sm text-slate-400">(4.0 Average Rating)</p>
-          </motion.div>
-        </section>
-      </div>
-    </section>
+            <p className="mt-4 text-sm font-semibold text-[var(--color-text)]">
+              {reviewRating
+                ? `${reviewRating} out of 5 selected`
+                : "Select your rating"}
+            </p>
+
+            <button
+              type="submit"
+              className="premium-button mt-6 min-h-0 px-6 py-3 text-sm disabled:cursor-not-allowed disabled:opacity-55"
+              disabled={!reviewRating}
+            >
+              Submit rating
+            </button>
+
+            {reviewSubmitted ? (
+              <p className="mt-4 text-sm font-semibold text-[var(--slack-green)]">
+                Thank you for rating us {reviewRating} out of 5.
+              </p>
+            ) : null}
+          </form>
+        </SurfaceCard>
+      </Container>
+    </PageShell>
   );
 }

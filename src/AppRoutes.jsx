@@ -22,7 +22,8 @@ import Careers from "./pages/Careers/Careers";
 import Contact from "./pages/Contact/Contact";
 import Partners from "./pages/Partners/Partners";
 import NotFound from "./pages/NotFound/NotFound";
- 
+import CareerApplicationForm from "./components/forms/CareerApplicationForm";
+
 export default function AppRoutes() {
   return (
     <Routes>

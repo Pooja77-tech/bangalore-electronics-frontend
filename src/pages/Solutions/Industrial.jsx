@@ -1,8 +1,19 @@
+import {
+  Container,
+  PageShell,
+  SectionHeader,
+} from "../../components/ui/PremiumLayout";
+
 export default function Industrial() {
   return (
-    <div>
-      <h2>Industrial Solutions</h2>
-      <p>Solutions for industrial applications.</p>
-    </div>
+    <PageShell>
+      <Container>
+        <SectionHeader
+          eyebrow="Solutions"
+          title="Industrial Solutions"
+          description="Durable infrastructure and security systems for industrial applications."
+        />
+      </Container>
+    </PageShell>
   );
 }

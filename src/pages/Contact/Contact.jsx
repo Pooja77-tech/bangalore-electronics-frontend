@@ -1,120 +1,105 @@
-import { motion } from "framer-motion";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import {
+  Container,
+  PageShell,
+  SectionHeader,
+  SurfaceCard,
+  fadeUp,
+} from "../../components/ui/PremiumLayout";
+
+const contactInfo = [
+  {
+    label: "Phone",
+    value: "+91 8049511596",
+    href: "tel:+918049511596",
+    icon: Phone,
+    color: "var(--slack-green)",
+  },
+  {
+    label: "WhatsApp",
+    value: "+91 8217064201",
+    href: "https://wa.me/918217064201",
+    icon: FaWhatsapp,
+    color: "var(--slack-green)",
+  },
+  {
+    label: "Email",
+    value: "info@bangaloreelectronics.com",
+    href: "mailto:info@bangaloreelectronics.com",
+    icon: Mail,
+    color: "var(--slack-blue)",
+  },
+  {
+    label: "Address",
+    value: "124, Sadar Patrappa Road, Bangalore - 560002, Karnataka, India",
+    icon: MapPin,
+    color: "var(--slack-red)",
+  },
+];
 
 export default function Contact() {
-  const infoVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
-    <section
-      className="
-        min-h-screen bg-[#020617] text-slate-200 relative overflow-hidden
-        px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24
-        py-16 sm:py-20 md:py-24 lg:py-28
-      "
-    >
-      {/* Background Glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.2),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(5,150,105,0.14),transparent_60%)]" />
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#64748b_1px,transparent_1px)] bg-size-[3px_3px] mix-blend-overlay" />
+    <PageShell>
+      <Container>
+        <SectionHeader
+          eyebrow="Contact"
+          title="Start with a clear conversation."
+          description="Reach out for enquiries, support, or business discussions. Our team will help define the right path for your security, IT, networking, or electronics requirement."
+          align="center"
+        />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
+        <div className="mt-16 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+          <SurfaceCard {...fadeUp} className="p-8 sm:p-10">
+            <p className="text-sm font-semibold uppercase text-[var(--color-accent)]">
+              Get in touch
+            </p>
+            <div className="mt-8 grid gap-4">
+              {contactInfo.map((item) => {
+                const Icon = item.icon;
+                const content = (
+                  <div className="flex gap-4 rounded-[18px] border border-[var(--color-border)] bg-white p-4 transition hover:border-[rgba(97,31,105,0.24)]">
+                    <Icon
+                      className="mt-1 h-5 w-5 shrink-0"
+                      style={{ color: item.color }}
+                    />
+                    <div>
+                      <p className="text-sm text-[var(--color-muted)]">
+                        {item.label}
+                      </p>
+                      <p className="mt-1 break-words text-base font-semibold text-[var(--color-text)]">
+                        {item.value}
+                      </p>
+                    </div>
+                  </div>
+                );
 
-        {/* ================= HEADER ================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 sm:mb-20"
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Contact Us
-          </h1>
-          <p className="mt-6 text-slate-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-            Reach out to us for enquiries, support, or business discussions. Our
-            team is committed to providing timely and professional assistance.
-          </p>
-        </motion.div>
-
-        {/* ================= CONTACT INFO ================= */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={infoVariants}
-          className="
-            bg-white/5 border border-emerald-400/20 rounded-3xl
-            p-6 sm:p-8 md:p-12 mb-16 sm:mb-20
-            shadow-[0_30px_80px_rgba(16,185,129,0.25)]
-            hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)]
-            backdrop-blur-2xl transition-all
-          "
-        >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-emerald-400 mb-10 text-center">
-            Get In Touch
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 text-slate-300">
-            {/* Phone */}
-            <div className="flex items-start gap-4 hover:scale-105 transition-transform duration-300">
-              <Phone className="text-emerald-400 mt-1 w-6 h-6" />
-              <p className="font-medium">+91 8049511596</p>
+                return item.href ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div key={item.label}>{content}</div>
+                );
+              })}
             </div>
+          </SurfaceCard>
 
-            {/* WhatsApp */}
-            <div className="flex items-start gap-4 hover:scale-105 transition-transform duration-300">
-              <FaWhatsapp className="text-green-400 mt-1 w-6 h-6" />
-              <p className="font-medium">+91 8217064201</p>
-            </div>
-
-            {/* Email */}
-            <div className="flex items-start gap-4 hover:scale-105 transition-transform duration-300">
-              <Mail className="text-emerald-400 mt-1 w-6 h-6" />
-              <p className="font-medium break-all">
-                info@bangaloreelectronics.com
-              </p>
-            </div>
-
-            {/* Address */}
-            <div className="flex items-start gap-4 hover:scale-105 transition-transform duration-300">
-              <MapPin className="text-emerald-400 mt-1 w-6 h-6" />
-              <p className="font-medium leading-relaxed">
-                #124, Sadar Patrappa Road,
-                <br />
-                Bangalore – 560002,
-                <br />
-                Karnataka, India
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* ================= MAP ================= */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={infoVariants}
-          className="
-            bg-white/5 border border-emerald-400/20 rounded-3xl overflow-hidden
-            shadow-[0_30px_80px_rgba(16,185,129,0.25)]
-            hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)]
-            backdrop-blur-2xl transition-all
-          "
-        >
-          <iframe
-            title="Bangalore Electronics Location"
-            src="https://maps.google.com/maps?q=Bangalore%20Electronics%20124%2C%20Sadar%20Patrappa%20Rd%20Bangalore&t=&z=18&ie=UTF8&iwloc=&output=embed"
-            className="w-full h-72 sm:h-80 md:h-96"
-            loading="lazy"
-          />
-        </motion.div>
-
-      </div>
-    </section>
+          <SurfaceCard {...fadeUp} className="overflow-hidden p-0">
+            <iframe
+              title="Bangalore Electronics Location"
+              src="https://maps.google.com/maps?q=Bangalore%20Electronics%20124%2C%20Sadar%20Patrappa%20Rd%20Bangalore&t=&z=18&ie=UTF8&iwloc=&output=embed"
+              className="h-[520px] w-full"
+              loading="lazy"
+            />
+          </SurfaceCard>
+        </div>
+      </Container>
+    </PageShell>
   );
 }

@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaWhatsapp,
-  FaArrowUp,
   FaArrowDown,
+  FaArrowUp,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
 } from "react-icons/fa";
 import {
   HiOutlineLocationMarker,
   HiOutlineMail,
   HiOutlinePhone,
 } from "react-icons/hi";
+
+const links = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Offerings", path: "/offerings" },
+  { name: "Solutions", path: "/solutions" },
+  { name: "Partners", path: "/partners" },
+  { name: "Projects", path: "/projects" },
+  { name: "Careers", path: "/careers" },
+  { name: "Contact", path: "/contact" },
+];
 
 const Footer = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -22,24 +34,16 @@ const Footer = () => {
       const docHeight =
         document.documentElement.scrollHeight - window.innerHeight;
 
-      // Show early so it ALWAYS appears
       setShowScroll(scrollTop > 100);
-
-      // Switch button near bottom
-      if (scrollTop >= docHeight - 150) {
-        setScrollDirection("up");
-      } else {
-        setScrollDirection("down");
-      }
+      setScrollDirection(scrollTop >= docHeight - 150 ? "up" : "down");
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const scrollToBottom = () => {
     window.scrollTo({
@@ -50,125 +54,122 @@ const Footer = () => {
 
   return (
     <>
-      {/* FOOTER */}
-      <footer className="bg-gray-900 text-gray-100 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
-          
-          {/* Company Info */}
+      <footer className="spatial-footer relative overflow-hidden text-[var(--color-text)]">
+        <div className="footer-glow footer-glow-purple" />
+        <div className="footer-glow footer-glow-gold" />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr_1fr] lg:px-8 lg:py-20">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-emerald-400 mb-4">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--slack-purple)]">
               Bangalore Electronics
-            </h2>
-            <p className="flex items-start gap-3 text-gray-300 text-base sm:text-lg leading-relaxed">
-              <HiOutlineLocationMarker className="mt-1 text-emerald-400 text-xl sm:text-2xl" />
-              124, Sadar Patrappa Road, Bangalore – 560002,
-              <br />
-              Karnataka, India
+            </p>
+            <p className="mt-5 max-w-sm text-3xl font-bold leading-tight text-[var(--color-text)]">
+              Secure infrastructure with a collaborative product feel.
+            </p>
+            <p className="mt-6 flex items-start gap-3 text-sm leading-7 text-[var(--color-muted)]">
+              <HiOutlineLocationMarker className="mt-1 h-5 w-5 shrink-0 text-[var(--slack-blue)]" />
+              <span className="space-y-4">
+                <span className="block">
+                  <strong className="block font-semibold text-[var(--color-text)]">S.P. Road</strong>
+                  124, Sadar Patrappa Road, Bangalore - 560002, Karnataka, India
+                </span>
+                <span className="block">
+                  <strong className="block font-semibold text-[var(--color-text)]">Rajajinagar</strong>
+                  D-103, Industrial Estate, Rajaji Nagar Industrial Town,
+                  Rajajinagar, Bengaluru, Karnataka 560010
+                </span>
+              </span>
             </p>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h3 className="text-2xl sm:text-3xl font-semibold text-emerald-400 mb-4">
-              Contact Us
-            </h3>
-
-            <p className="flex items-center gap-3 text-gray-300 mb-2 text-base sm:text-lg">
-              <HiOutlinePhone className="text-emerald-400 text-xl sm:text-2xl" />
-              +91 8049511596
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--slack-purple)]">
+              Contact
             </p>
-
-            <p className="flex items-center gap-3 text-gray-300 mb-2 text-base sm:text-lg">
-              <FaWhatsapp className="text-emerald-400 text-xl sm:text-2xl" />
-              +91 8217064201
-            </p>
-
-            <p className="flex items-center gap-3 text-gray-300 text-base sm:text-lg break-all">
-              <HiOutlineMail className="text-emerald-400 text-xl sm:text-2xl" />
-              info@bangaloreelectronics.com
-            </p>
+            <div className="mt-5 space-y-4 text-sm text-[var(--color-muted)]">
+              <a
+                href="tel:+918049511596"
+                className="flex items-center gap-3 transition hover:text-[var(--slack-deep)]"
+              >
+                <HiOutlinePhone className="h-5 w-5 text-[var(--slack-green)]" />
+                +91 8049511596
+              </a>
+              <a
+                href="https://wa.me/918217064201"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 transition hover:text-[var(--slack-deep)]"
+              >
+                <FaWhatsapp className="h-5 w-5 text-[var(--slack-green)]" />
+                +91 8217064201
+              </a>
+              <a
+                href="mailto:info@bangaloreelectronics.com"
+                className="flex items-center gap-3 break-all transition hover:text-[var(--slack-deep)]"
+              >
+                <HiOutlineMail className="h-5 w-5 shrink-0 text-[var(--slack-blue)]" />
+                info@bangaloreelectronics.com
+              </a>
+            </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="text-2xl sm:text-3xl font-semibold text-emerald-400 mb-4">
-              Quick Links
-            </h3>
-
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-gray-300 text-base sm:text-lg">
-              {[
-                { name: "Home", path: "/" },
-                { name: "About Us", path: "/about" },
-                { name: "Offerings", path: "/offerings" },
-                { name: "Solutions", path: "/solutions" },
-                { name: "Partners", path: "/partners" },
-                { name: "Projects", path: "/projects" },
-                { name: "Careers", path: "/careers" },
-                { name: "Contact", path: "/contact" },
-              ].map((link) => (
-                <a
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--slack-purple)]">
+              Navigate
+            </p>
+            <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-[var(--color-muted)]">
+              {links.map((link) => (
+                <Link
                   key={link.name}
-                  href={link.path}
-                  className="hover:text-emerald-400 transition"
+                  to={link.path}
+                  className="transition hover:text-[var(--slack-deep)]"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
 
-            {/* Social Icons */}
-            <div className="flex space-x-5 mt-6">
+            <div className="mt-8 flex gap-3">
               <a
                 href="https://www.linkedin.com/company/36080000/admin/dashboard/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:text-emerald-400 transition"
+                className="spatial-icon-button flex h-11 w-11 items-center justify-center rounded-full text-[var(--slack-purple)] transition"
+                aria-label="LinkedIn"
               >
-                <FaLinkedinIn size={30} />
+                <FaLinkedinIn size={17} />
               </a>
-
               <a
                 href="https://www.instagram.com/bangaloreelectronics/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-500 hover:text-emerald-400 transition"
+                className="spatial-icon-button flex h-11 w-11 items-center justify-center rounded-full text-[var(--slack-purple)] transition"
+                aria-label="Instagram"
               >
-                <FaInstagram size={30} />
+                <FaInstagram size={17} />
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-700 py-5 px-4 text-center text-gray-400 text-sm sm:text-base">
-          © 2026 Bangalore Electronics. All Rights Reserved.
+        <div className="relative z-10 border-t border-[var(--color-border)] bg-white/10 px-4 py-5 text-center text-xs text-[var(--color-muted)]">
+          Copyright 2026 Bangalore Electronics. All Rights Reserved.
         </div>
       </footer>
 
-      {/* SCROLL BUTTON */}
-      {showScroll && (
+      {showScroll ? (
         <button
           onClick={scrollDirection === "up" ? scrollToTop : scrollToBottom}
-          className="
-            fixed bottom-6 right-6 z-9999
-            w-12 h-12 rounded-full
-            bg-emerald-500/20 backdrop-blur-xl
-            border border-emerald-400/30
-            shadow-[0_0_25px_rgba(16,185,129,0.8)]
-            hover:shadow-[0_0_40px_rgba(16,185,129,1)]
-            transition-all duration-300
-            flex items-center justify-center
-            text-emerald-300
-          "
-          aria-label="Scroll Button"
+          className="spatial-fab fixed bottom-6 left-6 z-50 flex h-12 w-12 items-center justify-center rounded-full text-[var(--slack-purple)] transition"
+          aria-label={scrollDirection === "up" ? "Scroll to top" : "Scroll to bottom"}
+          type="button"
         >
           {scrollDirection === "up" ? (
-            <FaArrowUp size={20} />
+            <FaArrowUp size={17} />
           ) : (
-            <FaArrowDown size={20} />
+            <FaArrowDown size={17} />
           )}
         </button>
-      )}
+      ) : null}
     </>
   );
 };

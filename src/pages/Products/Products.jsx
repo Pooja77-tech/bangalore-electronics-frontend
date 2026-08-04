@@ -1,67 +1,62 @@
+import { motion } from "framer-motion";
+import {
+  Container,
+  PageShell,
+  SectionHeader,
+  SurfaceCard,
+  fadeUp,
+} from "../../components/ui/PremiumLayout";
+
+const products = [
+  {
+    title: "CCTV Systems",
+    description:
+      "High-definition indoor and outdoor surveillance systems for reliable security, continuous monitoring, and long-term performance.",
+  },
+  {
+    title: "Juniper Switches",
+    description:
+      "Enterprise-grade network switches for high-speed data transfer, scalability, and secure network infrastructure.",
+  },
+  {
+    title: "Distribution Switches",
+    description:
+      "Distribution-layer switching for traffic management, redundancy, and seamless connectivity.",
+  },
+  {
+    title: "CAT6 Cables",
+    description:
+      "High-quality networking cables supporting stable high-speed data and reduced interference.",
+  },
+];
+
 export default function ProductsOverview() {
   return (
-    <div className="min-h-screen px-6 py-20 bg-linear-to-br from-[#020617] via-[#020617] to-[#062e2e] text-white">
+    <PageShell>
+      <Container>
+        <SectionHeader
+          eyebrow="Products"
+          title="Reliable products for secure infrastructure."
+          description="A focused product set for scalable, high-performance technology environments."
+          align="center"
+        />
 
-      {/* HEADER */}
-      <div className="max-w-5xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
-          Our Products
-        </h1>
-        <p className="mt-5 text-gray-300">
-          Reliable technology products designed for secure, scalable, and
-          high-performance infrastructure.
-        </p>
-      </div>
-
-      {/* PRODUCTS GRID */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-        {/* CCTV */}
-        <div className="p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:border-cyan-400 transition">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-4">
-            CCTV Systems
-          </h3>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            High-definition CCTV solutions for indoor and outdoor surveillance,
-            offering reliable security, continuous monitoring, and long-term
-            performance.
-          </p>
-        </div>
-
-        {/* JUNIPER SWITCHES */}
-        <div className="p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:border-cyan-400 transition">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-4">
-            Juniper Switches
-          </h3>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            Enterprise-grade Juniper network switches built for high-speed data
-            transfer, scalability, and secure network infrastructure.
-          </p>
-        </div>
-
-        {/* DISTRIBUTION SWITCHES */}
-        <div className="p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:border-cyan-400 transition">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-4">
-            Distribution Switches
-          </h3>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            Robust distribution-layer switches ensuring efficient traffic
-            management, redundancy, and seamless connectivity.
-          </p>
-        </div>
-
-        {/* CAT6 CABLE */}
-        <div className="p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:border-cyan-400 transition">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-4">
-            CAT6 Cables
-          </h3>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            High-quality CAT6 networking cables supporting high-speed data,
-            reduced interference, and stable network performance.
-          </p>
-        </div>
-
-      </div>
-    </div>
+        <motion.div
+          {...fadeUp}
+          className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4"
+        >
+          {products.map((product) => (
+            <SurfaceCard key={product.title} className="min-h-72">
+              <h3 className="text-xl font-semibold text-[var(--color-text)]">
+                {product.title}
+              </h3>
+              <p className="mt-5 text-sm leading-7 text-[var(--color-muted)]">
+                {product.description}
+              </p>
+            </SurfaceCard>
+          ))}
+        </motion.div>
+      </Container>
+    </PageShell>
   );
 }

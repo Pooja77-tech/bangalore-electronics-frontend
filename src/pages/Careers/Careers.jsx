@@ -1,118 +1,269 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  Container,
+  PageShell,
+  SectionHeader,
+  SurfaceCard,
+  fadeUp,
+} from "../../components/ui/PremiumLayout";
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+const INITIAL_FORM = {
+  fullName: "",
+  email: "",
+  phone: "",
+  experience: "",
+  skills: "",
+  summary: "",
+  resume: null,
+};
+
+const fieldClass = "premium-input";
+
+const getCareersEndpoint = () => {
+  const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, "");
+
+  if (configuredBaseUrl) {
+    return `${configuredBaseUrl}/api/careers/applications`;
+  }
+
+  if (import.meta.env.DEV) {
+    return "http://localhost:5001/api/careers/applications";
+  }
+
+  return "/api/careers/applications";
+};
 
 export default function Careers() {
+  const [form, setForm] = useState(INITIAL_FORM);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState({
+    type: "idle",
+    message: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value, files } = event.target;
+
+    setForm((currentForm) => ({
+      ...currentForm,
+      [name]: files ? files[0] ?? null : value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formElement = event.currentTarget;
+
+    setSubmitState({
+      type: "idle",
+      message: "",
+    });
+
+    if (!form.resume) {
+      setSubmitState({
+        type: "error",
+        message: "Please attach a resume before submitting.",
+      });
+      return;
+    }
+
+    if (form.resume.size > MAX_FILE_SIZE) {
+      setSubmitState({
+        type: "error",
+        message: "Resume must be 5MB or smaller.",
+      });
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("fullName", form.fullName);
+    formData.append("email", form.email);
+    formData.append("phone", form.phone);
+    formData.append("experience", form.experience);
+    formData.append("skills", form.skills);
+    formData.append("summary", form.summary);
+    formData.append("resume", form.resume);
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(getCareersEndpoint(), {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.message || "Unable to submit the application.");
+      }
+
+      setSubmitState({
+        type: "success",
+        message:
+          "Application submitted successfully. It has been sent to adarsh@bangaloreelectronics.com.",
+      });
+      setForm(INITIAL_FORM);
+      formElement.reset();
+    } catch (error) {
+      setSubmitState({
+        type: "error",
+        message:
+          error.message ||
+          "Unable to submit the application right now. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <section className="min-h-screen bg-[#020617] text-slate-200 py-20 px-6 relative overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.2),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(5,150,105,0.14),transparent_60%)]" />
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#64748b_1px,transparent_1px)] bg-size-[3px_3px] mix-blend-overlay" />
+    <PageShell>
+      <Container>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <SectionHeader
+            eyebrow="Careers"
+            title="Join a team that values steady execution."
+            description="We foster a professional, inclusive, and growth-oriented work environment where individuals are empowered to innovate, collaborate, and perform at their best."
+          />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+          <SurfaceCard
+            {...fadeUp}
+            className="p-6 sm:p-8 lg:p-10"
+          >
+            <h2 className="text-2xl font-semibold text-[var(--color-text)]">
+              Submit Your Application
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-[var(--color-muted)]">
+              Every application from this page is sent directly to
+              adarsh@bangaloreelectronics.com.
+            </p>
 
-        {/* ================= HEADER ================= */}
+            <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="fullName"
+                value={form.fullName}
+                onChange={handleChange}
+                placeholder="Full Name"
+                required
+                className={fieldClass}
+              />
+
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="Email Address"
+                required
+                className={fieldClass}
+              />
+
+              <input
+                type="tel"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                placeholder="Phone Number"
+                required
+                className={fieldClass}
+              />
+
+              <input
+                type="text"
+                name="experience"
+                value={form.experience}
+                onChange={handleChange}
+                placeholder="Years of Experience"
+                required
+                className={fieldClass}
+              />
+
+              <input
+                type="text"
+                name="skills"
+                value={form.skills}
+                onChange={handleChange}
+                placeholder="Skills (e.g. Networking, Security etc)"
+                required
+                className={fieldClass}
+              />
+
+              <textarea
+                rows="4"
+                name="summary"
+                value={form.summary}
+                onChange={handleChange}
+                placeholder="Professional Summary"
+                required
+                className={`${fieldClass} resize-none`}
+              />
+
+              <div className="space-y-3">
+                <div className="flex flex-col gap-3 rounded-[18px] border border-[var(--color-border)] bg-white p-3 sm:flex-row sm:items-center">
+                  <label className="premium-button min-h-0 shrink-0 px-4 py-3 text-sm">
+                    Choose File
+                    <input
+                      type="file"
+                      name="resume"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleChange}
+                      className="hidden"
+                    />
+                  </label>
+                  <span className="text-xs text-[var(--color-muted)] break-all">
+                    {form.resume ? form.resume.name : "No file chosen"}
+                  </span>
+                </div>
+                <p className="text-xs text-[var(--color-muted)]">
+                  Accepted formats: PDF, DOC, DOCX. Maximum size: 5MB.
+                </p>
+              </div>
+
+              {submitState.message ? (
+                <p
+                  className={`rounded-[18px] border px-4 py-3 text-sm ${
+                    submitState.type === "success"
+                      ? "border-[rgba(46,182,125,0.34)] text-[var(--slack-green)]"
+                      : "border-rose-400/40 text-rose-700"
+                  }`}
+                  aria-live="polite"
+                >
+                  {submitState.message}
+                </p>
+              ) : null}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="premium-button w-full disabled:opacity-60"
+              >
+                {isSubmitting ? "Submitting..." : "Submit Application"}
+              </button>
+            </form>
+          </SurfaceCard>
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          {...fadeUp}
+          className="mt-16 grid gap-4 md:grid-cols-3"
         >
-          <h1 className="text-5xl font-extrabold bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Careers
-          </h1>
-          <p className="mt-6 text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            At Bangalore Electronics Company, we believe our people are the foundation of our success. We foster a professional, inclusive, and growth-oriented work environment where individuals are empowered to innovate, collaborate, and perform at their best. Our culture is built on integrity, excellence, and mutual respect, enabling every team member to contribute meaningfully to impactful outcomes.
-            <br /><br />
-            We value creativity and continuous improvement, encourage teamwork across disciplines, and celebrate diverse perspectives that strengthen our solutions. With a strong focus on quality, accountability, and long-term vision, we are committed to supporting both personal development and organizational excellence—because when our people grow, our partnerships and solutions grow with them.
-          </p>
+          {[
+            "Quality and accountability",
+            "Cross-discipline collaboration",
+            "Long-term technical growth",
+          ].map((item) => (
+            <SurfaceCard key={item}>
+              <p className="text-lg font-semibold text-[var(--color-text)]">
+                {item}
+              </p>
+            </SurfaceCard>
+          ))}
         </motion.div>
-
-        {/* ================= APPLICATION FORM ================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto bg-white/5 backdrop-blur-2xl
-                     border border-emerald-400/20 rounded-3xl p-10
-                     shadow-[0_30px_80px_rgba(16,185,129,0.25)]
-                     hover:shadow-[0_40px_120px_rgba(16,185,129,0.4)]
-                     transition-all"
-        >
-          <h2 className="text-xl font-semibold text-emerald-400 mb-8">
-            Send Us a Message
-          </h2>
-
-          <form className="space-y-5">
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="w-full rounded-lg bg-white/10 border border-emerald-400/20
-                         px-4 py-3 text-sm text-white placeholder-slate-400
-                         focus:outline-none focus:border-emerald-400 transition"
-            />
-
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full rounded-lg bg-white/10 border border-emerald-400/20
-                         px-4 py-3 text-sm text-white placeholder-slate-400
-                         focus:outline-none focus:border-emerald-400 transition"
-            />
-
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="w-full rounded-lg bg-white/10 border border-emerald-400/20
-                         px-4 py-3 text-sm text-white placeholder-slate-400
-                         focus:outline-none focus:border-emerald-400 transition"
-            />
-
-            <input
-              type="text"
-              placeholder="Years of Experience"
-              className="w-full rounded-lg bg-white/10 border border-emerald-400/20
-                         px-4 py-3 text-sm text-white placeholder-slate-400
-                         focus:outline-none focus:border-emerald-400 transition"
-            />
-
-            <input
-              type="text"
-              placeholder="Skills (eg. Nettworking, Security etc)"
-              className="w-full rounded-lg bg-white/10 border border-emerald-400/20
-                         px-4 py-3 text-sm text-white placeholder-slate-400
-                         focus:outline-none focus:border-emerald-400 transition"
-            />
-
-            <textarea
-              rows="4"
-              placeholder="Professional Summary"
-              className="w-full rounded-lg bg-white/10 border border-emerald-400/20
-                         px-4 py-3 text-sm text-white placeholder-slate-400
-                         focus:outline-none focus:border-emerald-400 transition resize-none"
-            />
-
-            {/* File Upload */}
-            <div className="flex items-center gap-4 bg-white/10 border border-emerald-400/20 rounded-lg px-4 py-3">
-              <label className="cursor-pointer text-sm bg-emerald-400 text-black px-4 py-1.5 rounded-md font-semibold">
-                Choose File
-                <input type="file" className="hidden" />
-              </label>
-              <span className="text-xs text-slate-400">No file chosen</span>
-            </div>
-
-            {/* Submit */}
-            <button
-              type="submit"
-              className="w-full mt-4 bg-linear-to-r from-emerald-400 to-cyan-400
-                         text-black font-semibold py-3 rounded-lg
-                         hover:from-emerald-500 hover:to-cyan-500 transition"
-            >
-              Submit Application
-            </button>
-          </form>
-        </motion.div>
-
-      </div>
-    </section>
+      </Container>
+    </PageShell>
   );
 }

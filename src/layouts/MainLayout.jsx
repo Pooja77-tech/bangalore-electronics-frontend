@@ -1,27 +1,17 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
+import Chatbot from "../components/Chatbot";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 export default function MainLayout() {
   return (
-    <div className="min-h-screen w-full bg-white text-slate-900">
-
-      {/* Fixed Neon Glass Navbar */}
+    <div className="spatial-app min-h-screen w-full bg-[var(--color-bg)] text-[var(--color-text)]">
       <Navbar />
-
-      {/* Page Content Wrapper */}
-      <main
-        className="
-          pt-24
-          animate-fadeIn
-          px-4 md:px-6
-        "
-      >
+      <main className="spatial-main animate-fadeIn pt-24">
         <Outlet />
       </main>
-
-      {/* Footer */}
       <Footer />
+      <Chatbot />
     </div>
   );
 }

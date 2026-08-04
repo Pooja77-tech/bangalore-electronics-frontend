@@ -1,8 +1,25 @@
+import {
+  Container,
+  PageShell,
+  PillLink,
+  SectionHeader,
+} from "../../components/ui/PremiumLayout";
+
 export default function NotFound() {
   return (
-    <div className="container mx-auto p-4 text-center">
-      <h1 className="text-3xl font-bold">404 - Page Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
-    </div>
+    <PageShell>
+      <Container className="flex min-h-[60vh] flex-col items-center justify-center text-center">
+        <SectionHeader
+          eyebrow="404"
+          title="Page not found."
+          description="The page you are looking for does not exist or may have moved."
+          align="center"
+          titleClassName="text-5xl sm:text-6xl lg:text-7xl"
+        />
+        <div className="mt-10">
+          <PillLink to="/">Return home</PillLink>
+        </div>
+      </Container>
+    </PageShell>
   );
 }

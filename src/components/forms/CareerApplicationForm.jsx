@@ -1,40 +1,35 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
-export default function CareerApplicationForm() {
-  const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
+const fieldClass = "premium-input";
 
+export default function CareerApplicationForm() {
   const [form, setForm] = useState({
     fullName: "",
     email: "",
     phone: "",
     position: "",
     experience: "",
-    resume: null,
+    resumeLink: "",
     coverLetter: "",
   });
 
   const [loading, setLoading] = useState(false);
-  const [resumeName, setResumeName] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.size > MAX_FILE_SIZE) {
-      alert("Resume must be under 2MB.");
-      return;
-    }
-    setForm({ ...form, resume: file });
-    setResumeName(file ? file.name : "");
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!form.resumeLink) {
+      alert("Please provide a link to your resume.");
+      setLoading(false);
+      return;
+    }
 
     try {
       await emailjs.send(
@@ -47,24 +42,21 @@ export default function CareerApplicationForm() {
           position: form.position,
           experience: form.experience,
           coverLetter: form.coverLetter,
-          resumeFileName: form.resume ? form.resume.name : "No resume uploaded",
+          resumeLink: form.resumeLink,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       alert("Application submitted successfully. We will review your application soon.");
-
-      // Reset form
       setForm({
         fullName: "",
         email: "",
         phone: "",
         position: "",
         experience: "",
-        resume: null,
+        resumeLink: "",
         coverLetter: "",
       });
-      setResumeName("");
     } catch (error) {
       console.error(error);
       alert("Failed to submit application. Please try again later.");
@@ -75,7 +67,6 @@ export default function CareerApplicationForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-
       <input
         type="text"
         name="fullName"
@@ -83,7 +74,7 @@ export default function CareerApplicationForm() {
         value={form.fullName}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
       <input
@@ -93,7 +84,7 @@ export default function CareerApplicationForm() {
         value={form.email}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
       <input
@@ -103,7 +94,7 @@ export default function CareerApplicationForm() {
         value={form.phone}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
       <select
@@ -111,7 +102,7 @@ export default function CareerApplicationForm() {
         value={form.position}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={`${fieldClass} bg-white`}
       >
         <option value="" disabled>
           Select Position
@@ -135,19 +126,18 @@ export default function CareerApplicationForm() {
         value={form.experience}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
-      <label className="block text-gray-300">
-        <span className="mb-1 block">Upload Resume (PDF, DOC, DOCX)</span>
-        <input
-          type="file"
-          accept=".pdf,.doc,.docx"
-          onChange={handleFileChange}
-          className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white file:bg-cyan-400 file:text-black file:border-0 file:rounded file:px-3 file:py-1 file:font-semibold file:mr-3 cursor-pointer"
-        />
-        {resumeName && <p className="mt-1 text-gray-200 text-sm">Selected File: {resumeName}</p>}
-      </label>
+      <input
+        type="url"
+        name="resumeLink"
+        placeholder="Resume Link (OneDrive / Google Drive / Dropbox)"
+        value={form.resumeLink}
+        onChange={handleChange}
+        required
+        className={fieldClass}
+      />
 
       <textarea
         name="coverLetter"
@@ -156,17 +146,16 @@ export default function CareerApplicationForm() {
         onChange={handleChange}
         rows="5"
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
+        className={`${fieldClass} resize-none`}
       />
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-linear-to-r from-cyan-400 to-green-400 text-black font-semibold px-6 py-3 rounded-lg hover:from-cyan-500 hover:to-green-500 transition-all duration-300 disabled:opacity-60"
+        className="premium-button w-full disabled:opacity-60"
       >
         {loading ? "Submitting..." : "Submit Application"}
       </button>
-
     </form>
   );
 }

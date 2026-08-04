@@ -1,15 +1,17 @@
-import { useState } from 'react';
-import emailjs from '@emailjs/browser';
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+
+const fieldClass = "premium-input";
 
 export default function ContactForm() {
-  const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
+  const MAX_FILE_SIZE = 2 * 1024 * 1024;
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    experience: '',
-    skills: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    experience: "",
+    skills: "",
+    message: "",
     cv: null,
   });
 
@@ -34,18 +36,13 @@ export default function ContactForm() {
     e.preventDefault();
 
     const file = form.cv;
-    if (file) {
-      if (file.size > MAX_FILE_SIZE) {
-        alert('CV file size must be under 2MB');
-        return;
-      }
+    if (file && file.size > MAX_FILE_SIZE) {
+      alert("CV file size must be under 2MB");
+      return;
     }
 
     try {
-      let attachment = null;
-      if (file) {
-        attachment = await fileToBase64(file);
-      }
+      const attachment = file ? await fileToBase64(file) : null;
 
       const templateParams = {
         name: form.name,
@@ -55,7 +52,7 @@ export default function ContactForm() {
         skills: form.skills,
         message: form.message,
         cv: attachment,
-        cv_name: file ? file.name : '',
+        cv_name: file ? file.name : "",
       };
 
       await emailjs.send(
@@ -65,20 +62,20 @@ export default function ContactForm() {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
-      alert('Application submitted successfully. You will receive a confirmation email shortly.');
+      alert("Application submitted successfully. You will receive a confirmation email shortly.");
       e.target.reset();
       setForm({
-        name: '',
-        email: '',
-        phone: '',
-        experience: '',
-        skills: '',
-        message: '',
+        name: "",
+        email: "",
+        phone: "",
+        experience: "",
+        skills: "",
+        message: "",
         cv: null,
       });
     } catch (error) {
       console.error(error);
-      alert('Submission failed. Please try again later.');
+      alert("Submission failed. Please try again later.");
     }
   };
 
@@ -91,7 +88,7 @@ export default function ContactForm() {
         value={form.name}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
       <input
@@ -101,7 +98,7 @@ export default function ContactForm() {
         value={form.email}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
       <input
@@ -111,7 +108,7 @@ export default function ContactForm() {
         value={form.phone}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
       <input
@@ -121,7 +118,7 @@ export default function ContactForm() {
         value={form.experience}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
       <input
@@ -131,7 +128,7 @@ export default function ContactForm() {
         value={form.skills}
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className={fieldClass}
       />
 
       <textarea
@@ -141,7 +138,7 @@ export default function ContactForm() {
         onChange={handleChange}
         rows="4"
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
+        className={`${fieldClass} resize-none`}
       />
 
       <input
@@ -150,10 +147,12 @@ export default function ContactForm() {
         accept=".pdf,.doc,.docx"
         onChange={handleChange}
         required
-        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-cyan-400 file:text-black hover:file:bg-cyan-500"
+        className="premium-input file:mr-4 file:rounded-full file:border-0 file:bg-[var(--color-accent)] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
       />
 
-      <button type="submit" className="w-full bg-linear-to-r from-cyan-400 to-green-400 text-black font-semibold px-6 py-3 rounded-lg hover:from-cyan-500 hover:to-green-500 transition-all duration-300">Submit Application</button>
+      <button type="submit" className="premium-button w-full">
+        Submit Application
+      </button>
     </form>
   );
 }

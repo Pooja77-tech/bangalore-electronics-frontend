@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
+import {
+  Container,
+  PageShell,
+  SectionHeader,
+  SurfaceCard,
+  fadeUp,
+} from "../../components/ui/PremiumLayout";
 
-const benefitsVid = "../../../bangalore-electronics-frontend/src/assets/videos/offerings/benefits.mp4";
+const benefitsVid = "/videos/offerings/benefits.mp4";
 
 export default function BenefitsGrid() {
   const benefits = [
@@ -10,11 +17,11 @@ export default function BenefitsGrid() {
     },
     {
       title: "Enhanced Security",
-      desc: "Advanced security architectures that protect infrastructure, data, and critical operations.",
+      desc: "Security architectures that protect infrastructure, data, and critical operations.",
     },
     {
       title: "Scalable Architecture",
-      desc: "Flexible systems designed to grow seamlessly with evolving business and technology demands.",
+      desc: "Flexible systems designed to grow with evolving business and technology demands.",
     },
     {
       title: "Operational Efficiency",
@@ -22,7 +29,7 @@ export default function BenefitsGrid() {
     },
     {
       title: "Cost Optimization",
-      desc: "Smart infrastructure planning that lowers operational costs while maximizing ROI.",
+      desc: "Smart infrastructure planning that lowers operational costs while improving return on investment.",
     },
     {
       title: "Professional Support",
@@ -31,58 +38,47 @@ export default function BenefitsGrid() {
   ];
 
   return (
-    <section className="w-full bg-[#020617] text-white">
-      {/* Hero with Video */}
-      <div className="relative h-[60vh] w-full overflow-hidden">
-        <video
-          src={benefitsVid}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/60" />
+    <PageShell className="pt-24">
+      <Container>
+        <SurfaceCard
+          {...fadeUp}
+          className="grid overflow-hidden p-0 lg:grid-cols-[1.05fr_0.95fr]"
+        >
+          <video
+            src={benefitsVid}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="premium-media h-80 w-full object-cover sm:h-96 lg:h-full"
+          />
+          <div className="flex min-h-[420px] flex-col justify-end p-8 sm:p-10 lg:p-12">
+            <SectionHeader
+              eyebrow="Benefits"
+              title="Long-term value, built into the system."
+              description="A concise view of how our solutions deliver performance, security, and durability across industries."
+              titleClassName="text-4xl sm:text-5xl lg:text-6xl"
+            />
+          </div>
+        </SurfaceCard>
 
-        <div className="relative z-10 flex items-center justify-center h-full px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl"
-          >
-            <h1 className="text-5xl font-extrabold bg-linear-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
-              Key Benefits
-            </h1>
-            <p className="mt-6 text-gray-300 text-lg">
-              Discover how our solutions deliver long-term value, security,
-              and enterprise-grade performance across industries.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Benefits Grid */}
-      <div className="py-20 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-cyan-400/40 transition-all"
-            >
-              <h3 className="text-xl font-semibold text-cyan-300 mb-3">
+        <motion.div
+          {...fadeUp}
+          className="grid gap-5 py-20 sm:grid-cols-2 lg:grid-cols-3 lg:py-28"
+        >
+          {benefits.map((benefit) => (
+            <SurfaceCard key={benefit.title} className="min-h-64">
+              <h3 className="text-xl font-semibold text-[var(--color-text)]">
                 {benefit.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="mt-5 text-sm leading-7 text-[var(--color-muted)]">
                 {benefit.desc}
               </p>
-            </motion.div>
+            </SurfaceCard>
           ))}
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </Container>
+    </PageShell>
   );
 }

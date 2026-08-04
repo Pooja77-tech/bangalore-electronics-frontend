@@ -2,121 +2,101 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
+const navItems = [
+  ["Home", "/"],
+  ["About Us", "/about"],
+  ["Offerings", "/offerings"],
+  ["Solutions", "/solutions"],
+  ["Partners", "/partners"],
+  ["Projects", "/projects"],
+  ["Careers", "/careers"],
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
 
-  // Detect scroll effect
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-}, []);
-
-const linkStyle =
-  "nav-link-underline text-slate-700 hover:text-blue-600 transition-all";
+  }, []);
 
   return (
     <nav
-      className={`
-        fixed top-0 left-0 right-0 z-50 
-        backdrop-blur-2xl transition-all duration-300
-        border-b shadow-lg
-
-        ${scrolled
-          ? "bg-white/70 border-white/30 shadow-xl"
-          : "bg-white/50 border-white/40 shadow-md"}
-      `}
+      data-scrolled={scrolled}
+      className="glass-nav fixed inset-x-0 top-0 z-50 transition-all duration-300"
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-        {/* LOGO */}
-        <Link to="/" className="flex items-center gap-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <Link
+          to="/"
+          className="flex items-center transition hover:opacity-85"
+          aria-label="Bangalore Electronics home"
+        >
           <img
             src="/images/logo.png"
-            alt="Logo"
-            className={`h-20 w-auto transition-all duration-300 ${
-              scrolled ? "opacity-95" : "opacity-100"
-            }`}
+            alt="Bangalore Electronics"
+            className="h-12 w-[12.5rem] max-w-[calc(100vw-5.5rem)] object-contain object-left sm:h-14 sm:w-60"
           />
-          <span className="text-xl font-semibold text-slate-900 tracking-tight">
-          </span>
         </Link>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center space-x-8">
-
-          {[
-            ["Home", "/"],
-            ["About Us", "/about"],
-            ["Offerings", "/offerings"],
-            ["Solutions", "/solutions"],
-            ["Partners", "/partners"],
-            ["Projects", "/projects"],
-            ["Careers", "/careers"],
-            ["Contact", "/contact"],
-          ].map(([label, href]) => (
+        <div className="hidden items-center gap-7 lg:flex">
+          {navItems.map(([label, href]) => (
             <Link
               key={href}
               to={href}
-              className={`${linkStyle} ${
-                pathname === href ? "nav-active" : ""
-              }`}
+              className={`nav-link-underline ${pathname === href ? "nav-active" : ""}`}
             >
               {label}
             </Link>
           ))}
-
-
         </div>
 
-        {/* MOBILE MENU BUTTON */}
-        <button
-          className="md:hidden p-2 text-slate-800"
-          onClick={() => setOpen(!open)}
+        <Link
+          to="/contact"
+          className="premium-button hidden min-h-0 px-5 py-3 text-sm lg:inline-flex"
         >
-          {open ? <X size={28} /> : <Menu size={28} />}
+          Get in touch
+        </Link>
+
+        <button
+          type="button"
+          className="spatial-icon-button inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--color-accent)] transition lg:hidden"
+          onClick={() => setOpen((current) => !current)}
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-expanded={open}
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* MOBILE MENU */}
-      {open && (
-        <div
-          className="
-            mobile-menu md:hidden flex flex-col
-            px-6 py-4 space-y-4
-            bg-white/90 backdrop-blur-2xl
-            border-b border-white/40 shadow-lg
-          "
-        >
-          {[
-            ["Home", "/"],
-            ["About Us", "/about"],
-            ["Offerings", "/offerings"],
-            ["Solutions", "/solutions"],
-            ["Partners", "/partners"],
-            ["Projects", "/projects"],
-            ["Careers", "/careers"],
-            ["Contact", "/contact"],
-          ].map(([label, href]) => (
+      {open ? (
+        <div className="glass-mobile-menu mobile-menu px-4 py-5 lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4">
+            {navItems.map(([label, href]) => (
+              <Link
+                key={href}
+                to={href}
+                onClick={() => setOpen(false)}
+                className={`nav-link-underline w-fit text-base ${
+                  pathname === href ? "nav-active" : ""
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
             <Link
-              key={href}
-              to={href}
+              to="/contact"
               onClick={() => setOpen(false)}
-              className={`text-lg ${linkStyle} ${
-                pathname === href ? "nav-active" : ""
-              }`}
+              className="premium-button mt-2 w-fit min-h-0 px-5 py-3 text-sm"
             >
-              {label}
+              Get in touch
             </Link>
-          ))}
-
-
+          </div>
         </div>
-      )}
+      ) : null}
     </nav>
   );
 }

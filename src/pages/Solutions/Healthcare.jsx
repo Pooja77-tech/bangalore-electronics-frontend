@@ -1,8 +1,19 @@
+import {
+  Container,
+  PageShell,
+  SectionHeader,
+} from "../../components/ui/PremiumLayout";
+
 export default function Healthcare() {
   return (
-    <div>
-      <h2>Healthcare Solutions</h2>
-      <p>Solutions for healthcare facilities.</p>
-    </div>
+    <PageShell>
+      <Container>
+        <SectionHeader
+          eyebrow="Solutions"
+          title="Healthcare Solutions"
+          description="Reliable systems for healthcare facilities where uptime and safety matter."
+        />
+      </Container>
+    </PageShell>
   );
 }

@@ -1,179 +1,268 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Cpu, Network } from "lucide-react";
+import {
+  ArrowRight,
+  Camera,
+  Cpu,
+  Fingerprint,
+  Network,
+  Server,
+  ShieldCheck,
+} from "lucide-react";
+import {
+  Container,
+  PageShell,
+  PillLink,
+  SectionHeader,
+  SurfaceCard,
+  TextLink,
+  fadeUp,
+  itemReveal,
+} from "../../components/ui/PremiumLayout";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6, ease: "easeOut" },
-};
+const stats = [
+  { value: "35+", label: "Years of Excellence" },
+  { value: "500+", label: "Enterprise Clients" },
+  { value: "300+", label: "Projects Delivered" },
+  { value: "Pan-India", label: "Service Presence" },
+];
+
+const trustItems = [
+  {
+    icon: ShieldCheck,
+    title: "Compliance-driven",
+    desc: "Audit-ready systems for security, access, and infrastructure.",
+    color: "var(--slack-green)",
+    className: "sm:col-span-2",
+  },
+  {
+    icon: Network,
+    title: "Vendor-neutral",
+    desc: "Architecture led by fit, performance, and lifecycle value.",
+    color: "var(--slack-blue)",
+  },
+  {
+    icon: Cpu,
+    title: "SLA-backed",
+    desc: "Responsive support across deployment, maintenance, and scale.",
+    color: "var(--slack-yellow)",
+  },
+  {
+    icon: ArrowRight,
+    title: "Lifecycle ownership",
+    desc: "From specification and procurement to rollout and support.",
+    color: "var(--slack-red)",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden text-slate-200 bg-[#020617]">
+    <PageShell className="home-page pt-8 sm:pt-10 lg:pt-12">
+      <Container>
+        <section className="home-hero grid items-center gap-12 py-10 sm:py-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16 lg:py-14">
+          <div className="home-hero-copy relative z-20 max-w-2xl">
+            <SectionHeader
+              eyebrow="Enterprise technology partner"
+              title="Bangalore Electronics"
+              titleClassName="home-hero-title"
+              description="Enterprise-Grade Solutions"
+            />
 
-      {/* ================= BACKGROUND GLOWS ================= */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.22),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(5,150,105,0.14),transparent_60%)]" />
-      <div className="absolute inset-0 opacity-[0.12] bg-[radial-gradient(#64748b_1px,transparent_1px)] bg-size-[3px_3px] mix-blend-overlay" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 flex flex-col items-center text-center">
-
-        {/* ================= HERO / TITLE ================= */}
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-extrabold tracking-tight
-                     bg-linear-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent"
-        >
-          Bangalore Electronics
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="mt-6"
-        >
-          <span className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[0.3em] uppercase text-gray-400">
-            Networking Solutions
-          </span>
-        </motion.div>
-
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="mx-auto mt-10 h-px w-40 bg-linear-to-r from-transparent via-cyan-400 to-transparent"
-        />
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-10 text-gray-300 max-w-3xl leading-relaxed"
-        >
-          Enterprise-grade security, networking, and electronics delivered with compliance, longevity, and accountability.
-        </motion.p>
-
-        {/* ================= CTA BUTTONS ================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-10 flex flex-col sm:flex-row gap-4"
-        >
-          <Link
-            to="/about"
-            className="px-10 py-4 rounded-xl bg-emerald-500 text-[#020617] font-semibold shadow-lg hover:bg-emerald-400 transition inline-flex items-center gap-2"
-          >
-            About Us <ArrowRight size={16} />
-          </Link>
-
-          <Link
-            to="/offerings"
-            className="px-10 py-4 rounded-xl border border-slate-600 text-slate-200 font-semibold hover:border-emerald-400 hover:text-emerald-400 hover:bg-white/5 transition inline-flex items-center gap-2"
-          >
-            Offerings <ArrowRight size={16} />
-          </Link>
-        </motion.div>
-
-        {/* ================= STATS ================= */}
-        <section className="mt-24 w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { value: "35+", label: "Years of Excellence" },
-              { value: "500+", label: "Enterprise Clients" },
-              { value: "300+", label: "Projects Delivered" },
-              { value: "Pan-India", label: "Service Presence" },
-            ].map((stat, idx) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * idx, duration: 0.6 }}
-                className="rounded-xl bg-[#01111f]/30 border border-emerald-400/20 p-6 shadow-[0_20px_60px_rgba(16,185,129,0.25)] hover:shadow-[0_30px_90px_rgba(16,185,129,0.4)] transition"
-              >
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-400">
-                  {stat.value}
-                </h3>
-                <p className="mt-1 text-sm sm:text-base text-slate-300">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
+            <motion.div
+              {...fadeUp}
+              className="mt-10 flex flex-col gap-3 sm:flex-row"
+            >
+              <PillLink to="/offerings">Explore offerings</PillLink>
+              <PillLink to="/about" variant="ghost">
+                About us
+              </PillLink>
+            </motion.div>
           </div>
-        </section>
 
-        {/* ================= WHY ENTERPRISES TRUST US ================= */}
-        <section className="mt-24 w-full">
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-emerald-400 mb-8 text-center"
-          >
-            Why Enterprises Trust Us
-          </motion.h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
-            {[
-              { icon: <ShieldCheck />, title: "Compliance-Driven", desc: "Audit-ready systems." },
-              { icon: <Network />, title: "Vendor Neutral", desc: "Performance-focused solutions." },
-              { icon: <Cpu />, title: "SLA-Backed", desc: "Guaranteed response times." },
-              { icon: <ArrowRight />, title: "Lifecycle Ownership", desc: "End-to-end delivery." },
-            ].map((item, idx) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * idx, duration: 0.6 }}
-                className="rounded-xl border border-emerald-400/20 p-6 shadow-[0_20px_60px_rgba(16,185,129,0.25)] hover:shadow-[0_30px_90px_rgba(16,185,129,0.4)] transition"
-              >
-                <div className="text-emerald-400 mb-3">{item.icon}</div>
-                <h3 className="text-lg font-bold text-white">{item.title}</h3>
-                <p className="mt-1 text-sm text-gray-300">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* ================= BUILD SYSTEMS CTA ================= */}
-        <section className="mt-24 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative rounded-xl border border-emerald-400/20 p-12 text-center bg-[#01111f]/30
-                       shadow-[0_20px_60px_rgba(16,185,129,0.25)]
-                       hover:shadow-[0_30px_90px_rgba(16,185,129,0.4)]
-                       transition-all duration-500"
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.72, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            className="home-visual-stage relative z-10 mx-auto w-full max-w-[680px] lg:ml-auto"
           >
-            <motion.h3
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6"
-            >
-              Let’s Build Reliable Systems Together
-            </motion.h3>
+            <div className="hero-orbit hero-orbit-purple" />
+            <div className="hero-orbit hero-orbit-gold" />
+            <div className="hero-orbit hero-orbit-cyan" />
 
-            <motion.a
-              initial={{ scale: 0.95, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(16,185,129,0.6)" }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-emerald-500 text-[#020617] font-semibold shadow-lg hover:bg-emerald-400 transition"
+            <motion.div
+              initial={{ opacity: 0, y: 26, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{
+                scale: 1.012,
+                y: -3,
+                transition: { duration: 0.24, delay: 0, ease: "easeOut" },
+              }}
+              transition={{ duration: 0.78, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="hero-image-panel relative overflow-hidden rounded-[30px] p-2.5 sm:p-3"
             >
-              Contact Us <ArrowRight size={16} />
-            </motion.a>
+              <div className="relative overflow-hidden rounded-[23px]">
+                <img
+                  src="/images/home/cctv-camera.jpg"
+                  alt="CCTV surveillance camera monitoring an urban facility"
+                  className="premium-media aspect-[4/3] w-full object-cover object-center sm:aspect-[3/2]"
+                />
+                <div className="hero-image-scrim" />
+              </div>
+            </motion.div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <motion.div
+                initial={{ opacity: 0, y: 22, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.46,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="spatial-float-card depth-high min-h-[88px] rounded-[22px] p-3"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[14px] bg-[var(--slack-blue)] text-white">
+                    <Fingerprint size={21} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-[var(--color-text)]">
+                      Access secured
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-[var(--color-muted)]">
+                      Identity controls
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 22, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.58,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="spatial-float-card depth-mid min-h-[88px] rounded-[22px] p-3"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[15px] bg-[var(--slack-green)] text-white">
+                    <Server size={22} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--color-text)]">
+                      Network layer
+                    </p>
+                    <p className="text-xs text-[var(--color-muted)]">
+                      Resilient infrastructure
+                    </p>
+                  </div>
+                </div>
+                <img
+                  src="/images/home/network-server.jpg"
+                  alt="Connected network infrastructure"
+                  className="premium-media mt-3 hidden aspect-[16/9] w-full rounded-[16px] object-cover"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 22, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.7,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="spatial-float-card depth-low min-h-[88px] rounded-[22px] p-3"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[14px] bg-[var(--slack-purple)] text-white">
+                    <Camera size={20} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-[var(--color-text)]">
+                      Video surveillance
+                    </p>
+                    <p className="mt-1 text-xs text-[var(--color-muted)]">
+                      Live visibility across critical sites
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         </section>
 
-      </div>
-    </div>
+        <motion.section
+          {...fadeUp}
+          className="grid gap-4 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:py-20"
+        >
+          {stats.map((stat) => (
+            <SurfaceCard key={stat.label} className="min-h-44">
+              <p className="text-4xl font-semibold text-[var(--color-text)]">
+                {stat.value}
+              </p>
+              <p className="mt-8 text-sm leading-6 text-[var(--color-muted)]">
+                {stat.label}
+              </p>
+            </SurfaceCard>
+          ))}
+        </motion.section>
+
+        <section className="grid gap-10 py-10 lg:grid-cols-[0.75fr_1.25fr] lg:py-20">
+          <SectionHeader
+            eyebrow="Why enterprises trust us"
+            title="Quiet systems. Strong outcomes."
+            description="The visual language is restrained, but the work is precise: secure designs, accountable delivery, and systems that keep operating after launch."
+            titleClassName="text-4xl sm:text-5xl lg:text-6xl"
+          />
+
+          <motion.div
+            {...fadeUp}
+            className="grid gap-4 sm:grid-cols-2"
+          >
+            {trustItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <SurfaceCard
+                  key={item.title}
+                  variants={itemReveal}
+                  className={item.className}
+                >
+                  <div
+                    className="flex h-12 w-12 items-center justify-center rounded-[16px] text-white"
+                    style={{ backgroundColor: item.color }}
+                  >
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-8 text-xl font-semibold text-[var(--color-text)]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                    {item.desc}
+                  </p>
+                </SurfaceCard>
+              );
+            })}
+          </motion.div>
+        </section>
+
+        <SurfaceCard
+          {...fadeUp}
+          className="mt-16 grid items-end gap-8 p-8 sm:p-10 lg:grid-cols-[1fr_auto] lg:p-12"
+        >
+          <div>
+            <p className="text-sm font-semibold uppercase text-[var(--color-accent)]">
+              Start a project
+            </p>
+            <h2 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight text-[var(--color-text)] sm:text-5xl">
+              Build reliable security and infrastructure systems with a team
+              that owns the full lifecycle.
+            </h2>
+          </div>
+          <TextLink to="/contact">Contact us</TextLink>
+        </SurfaceCard>
+      </Container>
+    </PageShell>
   );
 }

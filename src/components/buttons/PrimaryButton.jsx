@@ -1,8 +1,16 @@
-export default function PrimaryButton({ children, onClick }) {
+export default function PrimaryButton({
+  children,
+  onClick,
+  className = "",
+  type = "button",
+  ...props
+}) {
   return (
     <button
-      className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      type={type}
+      className={`premium-button ${className}`}
       onClick={onClick}
+      {...props}
     >
       {children}
     </button>

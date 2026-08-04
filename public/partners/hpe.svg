@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title">
+  <title id="title">Hewlett Packard Enterprise</title>
+  <rect width="320" height="320" fill="#ffffff"/>
+  <g transform="translate(24 64)">
+    <rect x="0" y="0" width="112" height="32" fill="none" stroke="#00b388" stroke-width="7"/>
+    <text x="0" y="88" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700">
+    Hewlett Packard
+    </text>
+    <text x="0" y="130" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400">
+    Enterprise
+    </text>
+  </g>
+</svg>

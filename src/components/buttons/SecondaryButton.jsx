@@ -1,8 +1,17 @@
-export default function SecondaryButton({ children, onClick }) {
+export default function SecondaryButton({
+  children,
+  onClick,
+  className = "",
+  type = "button",
+  ...props
+}) {
   return (
     <button
-      className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300"
+      type={type}
+      data-variant="ghost"
+      className={`premium-button ${className}`}
       onClick={onClick}
+      {...props}
     >
       {children}
     </button>
